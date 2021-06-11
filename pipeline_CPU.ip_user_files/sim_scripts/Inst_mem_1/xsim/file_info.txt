@@ -1,0 +1,2 @@
+Inst_mem_1.v,verilog,xil_defaultlib,../../../../SingleCycle.gen/sources_1/ip/Inst_mem_1/sim/Inst_mem_1.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

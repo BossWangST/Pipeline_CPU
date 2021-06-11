@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../SingleCycle.gen/sources_1/ip/test_block_mem/sim/test_block_mem.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

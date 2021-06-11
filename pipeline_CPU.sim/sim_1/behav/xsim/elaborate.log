@@ -1,0 +1,55 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 4367553199a2417ca92d20a5d801ec22 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L dist_mem_gen_v8_0_13 -L blk_mem_gen_v8_4_4 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot singlecycle_tb_behav xil_defaultlib.singlecycle_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 for port 'dina' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:57]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 16 for port 'douta' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'wea' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:59]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 for port 'dina' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:65]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 16 for port 'douta' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:66]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'wea' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:67]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 for port 'dina' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:73]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 16 for port 'douta' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:74]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'wea' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:75]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 for port 'dina' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:81]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 16 for port 'douta' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:82]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'wea' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/PC.v:83]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'a' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/DataRoad.v:235]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'b' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/DataRoad.v:236]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'Result' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/DataRoad.v:237]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 1 for port 'RegWr_WR' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/DataRoad.v:313]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcA' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/DataRoad.v:314]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcB' [D:/University/CPU/SingleCycle/SingleCycle.srcs/sources_1/new/DataRoad.v:315]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.test_block_mem
+Compiling module xil_defaultlib.mux2to1
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.D_Trigger(WIDTH=64)
+Compiling module xil_defaultlib.Extend
+Compiling module xil_defaultlib.Registers
+Compiling module xil_defaultlib.D_Trigger(WIDTH=170)
+Compiling module xil_defaultlib.mux3to1
+Compiling module xil_defaultlib.mux4to1
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.mux2to1(k=1)
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.D_Trigger(WIDTH=128)
+Compiling module dist_mem_gen_v8_0_13.dist_mem_gen_v8_0_13(C_FAMILY="a...
+Compiling module xil_defaultlib.async_mem_1
+Compiling module xil_defaultlib.Mem
+Compiling module xil_defaultlib.Forward_detect
+Compiling module xil_defaultlib.DataRoad
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.SingleCycle
+Compiling module xil_defaultlib.singlecycle_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot singlecycle_tb_behav

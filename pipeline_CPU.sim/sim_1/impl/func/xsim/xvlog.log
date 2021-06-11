@@ -1,0 +1,25 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/impl/func/xsim/singlecycle_tb_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-311] analyzing module D_Trigger
+INFO: [VRFC 10-311] analyzing module DataRoad
+INFO: [VRFC 10-311] analyzing module Inst_mem_1
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_HD19
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_HD23
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_HD27
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-311] analyzing module SingleCycle
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_HD20
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_HD24
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_HD28
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_synth
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_synth_HD21
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_synth_HD25
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_synth_HD29
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_spram
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_spram_HD22
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_spram_HD26
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_spram_HD30
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/SingleCycle/SingleCycle.srcs/sim_1/new/singlecycle_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module singlecycle_tb

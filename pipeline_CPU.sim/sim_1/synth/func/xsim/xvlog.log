@@ -1,0 +1,25 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/synth/func/xsim/singlecycle_tb_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-311] analyzing module D_Trigger
+INFO: [VRFC 10-311] analyzing module D_Trigger__parameterized0
+INFO: [VRFC 10-311] analyzing module D_Trigger__parameterized1
+INFO: [VRFC 10-311] analyzing module D_Trigger__parameterized1_0
+INFO: [VRFC 10-311] analyzing module DataRoad
+INFO: [VRFC 10-311] analyzing module Inst_mem_1
+INFO: [VRFC 10-311] analyzing module Mem
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-311] analyzing module Registers
+INFO: [VRFC 10-311] analyzing module SingleCycle
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module async_mem_1
+INFO: [VRFC 10-311] analyzing module mux2to1
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_dist_mem_gen_v8_0_13_synth
+INFO: [VRFC 10-311] analyzing module Inst_mem_1_spram
+INFO: [VRFC 10-311] analyzing module async_mem_1_dist_mem_gen_v8_0_13
+INFO: [VRFC 10-311] analyzing module async_mem_1_dist_mem_gen_v8_0_13_synth
+INFO: [VRFC 10-311] analyzing module async_mem_1_spram
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/SingleCycle/SingleCycle.srcs/sim_1/new/singlecycle_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module singlecycle_tb

@@ -1,0 +1,6 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+$stop called at time : 5 ns : File "D:/University/CPU/SingleCycle/SingleCycle.srcs/sim_1/new/singlecycle_tb.v" Line 43
+WARNING: "E:/Vivado/Vivado/2020.2/data/verilog/src/unisims/LDCE.v" Line 163: Timing violation in scope /singlecycle_tb/singlecycle/Control/RegDst_reg/L7/TChk163_4447 at time 104370 ps $setuphold (posedge G,negedge D,(0:0:0),(0:0:0),notifier,in_clk_enable_p,in_clk_enable_p,G_dly,D_dly) 
+WARNING: "E:/Vivado/Vivado/2020.2/data/verilog/src/unisims/LDCE.v" Line 166: Timing violation in scope /singlecycle_tb/singlecycle/Control/RegWr_reg/L7/TChk166_4450 at time 124623 ps $setuphold (posedge G,posedge D,(0:0:0),(0:0:0),notifier,in_clk_enable_p,in_clk_enable_p,G_dly,D_dly) 
+$finish called at time : 505 ns : File "D:/University/CPU/SingleCycle/SingleCycle.srcs/sim_1/new/singlecycle_tb.v" Line 45
