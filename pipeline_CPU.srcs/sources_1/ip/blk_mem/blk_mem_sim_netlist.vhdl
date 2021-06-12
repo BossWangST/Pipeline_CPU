@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Fri Jun 11 17:12:25 2021
+-- Date        : Fri Jun 11 17:20:56 2021
 -- Host        : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.vhdl
@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_blk_mem_gen_prim_wrapper is
+entity blk_mem_blk_mem_gen_prim_wrapper_init is
   port (
     douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
@@ -23,10 +23,10 @@ entity blk_mem_blk_mem_gen_prim_wrapper is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_blk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
-end blk_mem_blk_mem_gen_prim_wrapper;
+  attribute ORIG_REF_NAME of blk_mem_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
+end blk_mem_blk_mem_gen_prim_wrapper_init;
 
-architecture STRUCTURE of blk_mem_blk_mem_gen_prim_wrapper is
+architecture STRUCTURE of blk_mem_blk_mem_gen_prim_wrapper_init is
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram_n_0\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram_n_1\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram_n_10\ : STD_LOGIC;
@@ -70,13 +70,13 @@ begin
       INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_00 => X"0003010000000001000000000000000100000000000000000000000000000000",
+      INIT_01 => X"0000000000020002000102000002000000030100000000020000000000000002",
+      INIT_02 => X"0000000000000000000000000000000000000000000200020002000000020002",
       INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_04 => X"0000000000000000000000000000000002020300000000030000000000000000",
       INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_06 => X"0000000002020101000202000002000002000300000001010000000000000000",
       INIT_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_08 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_09 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -146,7 +146,7 @@ begin
       IS_RSTREGARSTREG_INVERTED => '0',
       IS_RSTREGB_INVERTED => '0',
       RAM_MODE => "TDP",
-      RDADDR_COLLISION_HWCONFIG => "DELAYED_WRITE",
+      RDADDR_COLLISION_HWCONFIG => "PERFORMANCE",
       READ_WIDTH_A => 18,
       READ_WIDTH_B => 18,
       RSTREG_PRIORITY_A => "REGCE",
@@ -244,7 +244,7 @@ end blk_mem_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of blk_mem_blk_mem_gen_prim_width is
 begin
-\prim_noinit.ram\: entity work.blk_mem_blk_mem_gen_prim_wrapper
+\prim_init.ram\: entity work.blk_mem_blk_mem_gen_prim_wrapper_init
      port map (
       addra(7 downto 0) => addra(7 downto 0),
       clka => clka,
@@ -489,11 +489,11 @@ entity blk_mem_blk_mem_gen_v8_4_4 is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of blk_mem_blk_mem_gen_v8_4_4 : entity is "blk_mem.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of blk_mem_blk_mem_gen_v8_4_4 : entity is "no_coe_file_loaded";
+  attribute C_INIT_FILE_NAME of blk_mem_blk_mem_gen_v8_4_4 : entity is "blk_mem.mif";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of blk_mem_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of blk_mem_blk_mem_gen_v8_4_4 : entity is 0;
+  attribute C_LOAD_INIT_FILE of blk_mem_blk_mem_gen_v8_4_4 : entity is 1;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of blk_mem_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
@@ -760,11 +760,11 @@ architecture STRUCTURE of blk_mem is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of U0 : label is "blk_mem.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of U0 : label is "no_coe_file_loaded";
+  attribute C_INIT_FILE_NAME of U0 : label is "blk_mem.mif";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of U0 : label is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of U0 : label is 0;
+  attribute C_LOAD_INIT_FILE of U0 : label is 1;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of U0 : label is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;

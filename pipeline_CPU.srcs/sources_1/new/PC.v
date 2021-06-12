@@ -51,7 +51,7 @@ module PC(input clk,
     assign new_pc_3 = new_pc+3;
     
     wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
-    test_block_mem Inst_mem_0(
+    blk_mem Inst_mem_0(
     .addra(new_pc_0[7:0]),
     .clka(clk),
     .dina(0),
@@ -59,7 +59,7 @@ module PC(input clk,
     .wea(0)
     );
     
-    test_block_mem Inst_mem_1(
+    blk_mem Inst_mem_1(
     .addra(new_pc_1[7:0]),
     .clka(clk),
     .dina(0),
@@ -67,7 +67,7 @@ module PC(input clk,
     .wea(0)
     );
     
-    test_block_mem Inst_mem_2(
+    blk_mem Inst_mem_2(
     .addra(new_pc_2[7:0]),
     .clka(clk),
     .dina(0),
@@ -75,7 +75,7 @@ module PC(input clk,
     .wea(0)
     );
     
-    test_block_mem Inst_mem_3(
+    blk_mem Inst_mem_3(
     .addra(new_pc_3[7:0]),
     .clka(clk),
     .dina(0),

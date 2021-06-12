@@ -39,3 +39,437 @@ launch_runs -jobs 8 blk_mem_synth_1
 [Fri Jun 11 17:11:08 2021] Launched blk_mem_synth_1...
 Run output will be captured here: D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/runme.log
 export_simulation -of_objects [get_files d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.xci] -directory D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/sim_scripts -ip_user_files_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files -ipstatic_source_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/modelsim} {questa=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/questa} {riviera=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/riviera} {activehdl=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'd:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/sim_coe/load_use test.coe' provided. It will be converted relative to IP Instance files '../../../../pipeline_CPU.srcs/sources_1/sim_coe/load_use test.coe'
+set_property -dict [list CONFIG.Load_Init_File {true} CONFIG.Coe_File {D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/sim_coe/load_use test.coe}] [get_ips blk_mem]
+INFO: [IP_Flow 19-3484] Absolute path of file 'd:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/sim_coe/load_use test.coe' provided. It will be converted relative to IP Instance files '../../sim_coe/load_use test.coe'
+generate_target all [get_files  d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem'...
+catch { config_ip_cache -export [get_ips -all blk_mem] }
+export_ip_user_files -of_objects [get_files d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.xci] -no_script -sync -force -quiet
+reset_run blk_mem_synth_1
+launch_runs -jobs 8 blk_mem_synth_1
+[Fri Jun 11 17:19:42 2021] Launched blk_mem_synth_1...
+Run output will be captured here: D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/runme.log
+export_simulation -of_objects [get_files d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.xci] -directory D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/sim_scripts -ip_user_files_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files -ipstatic_source_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/modelsim} {questa=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/questa} {riviera=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/riviera} {activehdl=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+generate_target Simulation [get_files D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/async_mem_1/async_mem_1.xci]
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'async_mem_1'...
+export_ip_user_files -of_objects [get_files D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/async_mem_1/async_mem_1.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/async_mem_1/async_mem_1.xci] -directory D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/sim_scripts -ip_user_files_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files -ipstatic_source_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/modelsim} {questa=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/questa} {riviera=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/riviera} {activehdl=D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/Vivado/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'singlecycle_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/loop_test.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/load_use test.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/blk_mem.mif'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/add_coe.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/nop.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/add_coe copy.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/pipelinetest.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/hazards_test.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/shift_test.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/lb_test.coe'
+INFO: [SIM-utils-43] Exported 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/store_forward_test.coe'
+WARNING: [SIM-utils-52] IP component XML file does not exist: 'd:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_1/Inst_mem_1.xml'
+WARNING: [SIM-utils-52] IP component XML file does not exist: 'd:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/async_mem_1/async_mem_1.xml'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj singlecycle_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/SingleCycle.gen/sources_1/ip/async_mem_1/sim/async_mem_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module async_mem_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/sim/blk_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2458] undeclared symbol Add_Zero, assumed default net type wire [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:128]
+INFO: [VRFC 10-2458] undeclared symbol OFxorSign, assumed default net type wire [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:139]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module D_Trigger
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataRoad
+INFO: [VRFC 10-2458] undeclared symbol branch_real, assumed default net type wire [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:59]
+WARNING: [VRFC 10-3380] identifier 'load_use' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:58]
+WARNING: [VRFC 10-3380] identifier 'branch_select' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:59]
+WARNING: [VRFC 10-3380] identifier 'target' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:60]
+WARNING: [VRFC 10-3380] identifier 'beq_target_MEM' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:61]
+WARNING: [VRFC 10-3380] identifier 'RegWr_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:113]
+WARNING: [VRFC 10-3380] identifier 'Rw_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:115]
+WARNING: [VRFC 10-3380] identifier 'RegWr_EX' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:135]
+WARNING: [VRFC 10-3380] identifier 'load_use' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:143]
+WARNING: [VRFC 10-3380] identifier 'alu_result_MEM' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:200]
+WARNING: [VRFC 10-3380] identifier 'ALUSrcA' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:202]
+WARNING: [VRFC 10-3380] identifier 'ALUSrcB' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:203]
+WARNING: [VRFC 10-3380] identifier 'Rw_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:302]
+WARNING: [VRFC 10-3380] identifier 'RegWr_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:303]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forward_detect
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Registers
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/SingleCycle.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SingleCycle
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux2to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux2to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux3to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux3to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux4to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux4to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sim_1/new/singlecycle_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module singlecycle_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim'
+"xelab -wto 6fde764b7a46480fa6ed88894d2a407b --incr --debug typical --relax --mt 2 -L dist_mem_gen_v8_0_13 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot singlecycle_tb_behav xil_defaultlib.singlecycle_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 6fde764b7a46480fa6ed88894d2a407b --incr --debug typical --relax --mt 2 -L dist_mem_gen_v8_0_13 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot singlecycle_tb_behav xil_defaultlib.singlecycle_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'dina' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:57]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'wea' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:59]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'dina' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:65]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'wea' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:67]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'dina' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:73]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'wea' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:75]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'dina' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:81]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'wea' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:83]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'a' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:235]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'b' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:236]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'Result' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:237]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 1 for port 'RegWr_WR' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:313]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcA' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:314]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcB' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:315]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem
+Compiling module xil_defaultlib.mux2to1
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.D_Trigger(WIDTH=64)
+Compiling module xil_defaultlib.Extend
+Compiling module xil_defaultlib.Registers
+Compiling module xil_defaultlib.D_Trigger(WIDTH=170)
+Compiling module xil_defaultlib.mux3to1
+Compiling module xil_defaultlib.mux4to1
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.mux2to1(k=1)
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.D_Trigger(WIDTH=128)
+Compiling module dist_mem_gen_v8_0_13.dist_mem_gen_v8_0_13(C_FAMILY="a...
+Compiling module xil_defaultlib.async_mem_1
+Compiling module xil_defaultlib.Mem
+Compiling module xil_defaultlib.Forward_detect
+Compiling module xil_defaultlib.DataRoad
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.SingleCycle
+Compiling module xil_defaultlib.singlecycle_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot singlecycle_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/xsim.dir/singlecycle_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/xsim.dir/singlecycle_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Fri Jun 11 17:22:15 2021. For additional details about this file, please refer to the WebTalk help file at E:/Vivado/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Fri Jun 11 17:22:15 2021...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 915.535 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "singlecycle_tb_behav -key {Behavioral:sim_1:Functional:singlecycle_tb} -tclbatch {singlecycle_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source singlecycle_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module singlecycle_tb.singlecycle.DataRoad.pc.Inst_mem_0.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module singlecycle_tb.singlecycle.DataRoad.pc.Inst_mem_1.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module singlecycle_tb.singlecycle.DataRoad.pc.Inst_mem_2.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module singlecycle_tb.singlecycle.DataRoad.pc.Inst_mem_3.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING in singlecycle_tb.singlecycle.DataRoad.mem.mem_0.inst at time                30000 ns: 
+Reading from out-of-range address. Max address in singlecycle_tb.singlecycle.DataRoad.mem.mem_0.inst is         255
+WARNING in singlecycle_tb.singlecycle.DataRoad.mem.mem_1.inst at time                30000 ns: 
+Reading from out-of-range address. Max address in singlecycle_tb.singlecycle.DataRoad.mem.mem_1.inst is         255
+WARNING in singlecycle_tb.singlecycle.DataRoad.mem.mem_2.inst at time                30000 ns: 
+Reading from out-of-range address. Max address in singlecycle_tb.singlecycle.DataRoad.mem.mem_2.inst is         255
+WARNING in singlecycle_tb.singlecycle.DataRoad.mem.mem_3.inst at time                30000 ns: 
+Reading from out-of-range address. Max address in singlecycle_tb.singlecycle.DataRoad.mem.mem_3.inst is         255
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'singlecycle_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 919.934 ; gain = 4.398
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 955.836 ; gain = 0.000
+close_project
+open_project D:/University/CPU/sram_test/sram_test.xpr
+ERROR: [Project 1-208] No val for DA Elab Attr
+Scanning sources...
+Finished scanning sources
+CRITICAL WARNING: [Project 1-192] Failed to load run synth_1. Strategy Vivado Synthesis Defaults (Vivado Synthesis 2020) not recognized by Vivado. 
+
+CRITICAL WARNING: [Project 1-192] Failed to load run vio_0_synth_1. Strategy Vivado Synthesis Defaults (Vivado Synthesis 2020) not recognized by Vivado. 
+
+CRITICAL WARNING: [Project 1-192] Failed to load run impl_1. Strategy Vivado Implementation Defaults (Vivado Implementation 2020) not recognized by Vivado. 
+
+CRITICAL WARNING: [Project 1-192] Failed to load run vio_0_impl_1. Strategy Vivado Implementation Defaults (Vivado Implementation 2020) not recognized by Vivado. 
+
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirModelSim has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirQuesta has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirIES has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirXcelium has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirVCS has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirRiviera has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorInstallDirActiveHdl has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirModelSim has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirQuesta has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirIES has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirXcelium has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirVCS has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirRiviera has no valid value
+CRITICAL WARNING: [Project 1-532] XML ERROR: Project Option SimulatorGccInstallDirActiveHdl has no valid value
+CRITICAL WARNING: [Project 1-505] Unrecognized Option Name IPDefaultOutputPath
+WARNING: [IP_Flow 19-395] Problem validating against XML schema: see 'xilinx:componentInstanceExtensions' : Bad end of element
+CRITICAL WARNING: [IP_Flow 19-5097] Unable to determine VLNV from IP file; verify it has the correct syntax: D:/University/CPU/sram_test/sram_test.srcs/sources_1/ip/vio_0/vio_0.xci
+WARNING: [Project 1-231] Project 'sram_test.xpr' was created with a future version and may or may not perform reliably with this version of Vivado. It has been opened in read-only mode for the protection of unrecognized data. Use 'File | Save Project As...' if you wish to alter a copy of the project.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/Vivado/2019.2/data/ip'.
+ERROR: [Common 17-39] 'open_project' failed due to earlier errors.
+update_compile_order -fileset sources_1
+save_project_as sram_test1 D:/University/CPU/sram_test1 -force
+export_ip_user_files -of_objects  [get_files D:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -reset -force -quiet
+remove_files  -fileset vio_0 D:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci
+INFO: [Project 1-386] Moving file 'D:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci' from fileset 'vio_0' to fileset 'sources_1'.
+file delete -force D:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0
+create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name vio_0 -dir d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip
+set_property -dict [list CONFIG.C_PROBE_IN5_WIDTH {32} CONFIG.C_PROBE_IN4_WIDTH {32} CONFIG.C_PROBE_IN0_WIDTH {32} CONFIG.C_NUM_PROBE_OUT {0} CONFIG.C_NUM_PROBE_IN {6}] [get_ips vio_0]
+generate_target {instantiation_template} [get_files d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_0'...
+update_compile_order -fileset sources_1
+generate_target all [get_files  d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'vio_0'...
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci]
+launch_runs -jobs 8 vio_0_synth_1
+[Fri Jun 11 17:33:59 2021] Launched vio_0_synth_1...
+Run output will be captured here: D:/University/CPU/sram_test1/sram_test1.runs/vio_0_synth_1/runme.log
+export_simulation -of_objects [get_files d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci] -directory D:/University/CPU/sram_test1/sram_test1.ip_user_files/sim_scripts -ip_user_files_dir D:/University/CPU/sram_test1/sram_test1.ip_user_files -ipstatic_source_dir D:/University/CPU/sram_test1/sram_test1.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/modelsim} {questa=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/questa} {riviera=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/riviera} {activehdl=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Fri Jun 11 17:35:30 2021] Launched synth_1...
+Run output will be captured here: D:/University/CPU/sram_test1/sram_test1.runs/synth_1/runme.log
+[Fri Jun 11 17:35:30 2021] Launched impl_1...
+Run output will be captured here: D:/University/CPU/sram_test1/sram_test1.runs/impl_1/runme.log
+open_hw_manager
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:114.242.206.174:4003
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-13:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1063.000 ; gain = 0.000
+disconnect_hw_server: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2289.316 ; gain = 1226.316
+connect_hw_server -url 114.242.206.174:4003 -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:114.242.206.174:4003
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3414] Connected to existing cs_server.
+connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 2292.785 ; gain = 3.457
+current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/10.2.254.84:2542]
+set_property PARAM.FREQUENCY 10000000 [get_hw_targets */xilinx_tcf/Xilinx/10.2.254.84:2542]
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 114.242.206.174:4003/xilinx_tcf/Xilinx/10.2.254.84:2542
+set_property PROGRAM.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.bit} [get_hw_devices xc7a200t_0]
+set_property PROBES.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.ltx} [get_hw_devices xc7a200t_0]
+set_property FULL_PROBES.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.ltx} [get_hw_devices xc7a200t_0]
+current_hw_device [get_hw_devices xc7a200t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a200t (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+ERROR: [Labtoolstcl 44-695] HW Server shut down, disconnecting from server: 114.242.206.174:4003
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:114.242.206.174:4032
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-13:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 2357.340 ; gain = 0.000
+connect_hw_server -url 114.242.206.174:4032 -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:114.242.206.174:4032
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3414] Connected to existing cs_server.
+current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/10.2.254.84:2542]
+set_property PARAM.FREQUENCY 10000000 [get_hw_targets */xilinx_tcf/Xilinx/10.2.254.84:2542]
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 114.242.206.174:4032/xilinx_tcf/Xilinx/10.2.254.84:2542
+set_property PROGRAM.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.bit} [get_hw_devices xc7a200t_0]
+set_property PROBES.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.ltx} [get_hw_devices xc7a200t_0]
+set_property FULL_PROBES.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.ltx} [get_hw_devices xc7a200t_0]
+current_hw_device [get_hw_devices xc7a200t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a200t (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+close_hw_manager
+set_property -dict [list CONFIG.C_PROBE_OUT0_WIDTH {20} CONFIG.C_NUM_PROBE_OUT {1}] [get_ips vio_0]
+generate_target all [get_files  d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'vio_0'...
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+reset_run vio_0_synth_1
+launch_runs -jobs 8 vio_0_synth_1
+[Fri Jun 11 20:43:54 2021] Launched vio_0_synth_1...
+Run output will be captured here: D:/University/CPU/sram_test1/sram_test1.runs/vio_0_synth_1/runme.log
+export_simulation -of_objects [get_files d:/University/CPU/sram_test1/sram_test1.srcs/sources_1/ip/vio_0/vio_0.xci] -directory D:/University/CPU/sram_test1/sram_test1.ip_user_files/sim_scripts -ip_user_files_dir D:/University/CPU/sram_test1/sram_test1.ip_user_files -ipstatic_source_dir D:/University/CPU/sram_test1/sram_test1.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/modelsim} {questa=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/questa} {riviera=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/riviera} {activehdl=D:/University/CPU/sram_test1/sram_test1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Fri Jun 11 20:45:26 2021] Launched synth_1...
+Run output will be captured here: D:/University/CPU/sram_test1/sram_test1.runs/synth_1/runme.log
+[Fri Jun 11 20:45:26 2021] Launched impl_1...
+Run output will be captured here: D:/University/CPU/sram_test1/sram_test1.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -url 114.242.206.174:4032 -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:114.242.206.174:4032
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-13:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 2377.770 ; gain = 0.000
+current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/10.2.254.84:2542]
+set_property PARAM.FREQUENCY 10000000 [get_hw_targets */xilinx_tcf/Xilinx/10.2.254.84:2542]
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 114.242.206.174:4032/xilinx_tcf/Xilinx/10.2.254.84:2542
+set_property PROGRAM.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.bit} [get_hw_devices xc7a200t_0]
+set_property PROBES.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.ltx} [get_hw_devices xc7a200t_0]
+set_property FULL_PROBES.FILE {D:/University/CPU/sram_test1/sram_test1.runs/impl_1/thinpad_top.ltx} [get_hw_devices xc7a200t_0]
+current_hw_device [get_hw_devices xc7a200t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a200t (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_1]
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+set_property OUTPUT_VALUE 00000 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00001 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00002 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00003 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00004 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00005 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00006 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00010 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 10000 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+set_property OUTPUT_VALUE 00000 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00001 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 00002 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+set_property OUTPUT_VALUE 00001 [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+set_property OUTPUT_VALUE 0000F [get_hw_probes in_addr -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+commit_hw_vio [get_hw_probes {in_addr} -of_objects [get_hw_vios -of_objects [get_hw_devices xc7a200t_0] -filter {CELL_NAME=~"vio"}]]
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Labtoolstcl 44-695] HW Server shut down, disconnecting from server: 114.242.206.174:4032
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 11 21:24:48 2021...

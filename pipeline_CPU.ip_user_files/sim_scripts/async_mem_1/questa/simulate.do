@@ -1,7 +1,7 @@
 onbreak {quit -f}
 onerror {quit -f}
 
-vsim -lib xil_defaultlib async_mem_1_opt
+vsim -t 1ps -lib xil_defaultlib async_mem_1_opt
 
 do {wave.do}
 

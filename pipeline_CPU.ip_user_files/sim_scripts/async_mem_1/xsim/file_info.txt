@@ -1,3 +1,2 @@
-dist_mem_gen_v8_0.v,verilog,dist_mem_gen_v8_0_13,../../../ipstatic/simulation/dist_mem_gen_v8_0.v,
 async_mem_1.v,verilog,xil_defaultlib,../../../../SingleCycle.gen/sources_1/ip/async_mem_1/sim/async_mem_1.v,
 glbl.v,Verilog,xil_defaultlib,glbl.v

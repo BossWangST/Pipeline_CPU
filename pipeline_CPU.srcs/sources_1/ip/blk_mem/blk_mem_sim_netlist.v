@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Fri Jun 11 17:12:25 2021
+// Date        : Fri Jun 11 17:20:56 2021
 // Host        : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.v
@@ -94,9 +94,9 @@ module blk_mem
   (* C_INITA_VAL = "0" *) 
   (* C_INITB_VAL = "0" *) 
   (* C_INIT_FILE = "blk_mem.mem" *) 
-  (* C_INIT_FILE_NAME = "no_coe_file_loaded" *) 
+  (* C_INIT_FILE_NAME = "blk_mem.mif" *) 
   (* C_INTERFACE_TYPE = "0" *) 
-  (* C_LOAD_INIT_FILE = "0" *) 
+  (* C_LOAD_INIT_FILE = "1" *) 
   (* C_MEM_TYPE = "0" *) 
   (* C_MUX_PIPELINE_STAGES = "0" *) 
   (* C_PRIM_TYPE = "1" *) 
@@ -240,7 +240,7 @@ module blk_mem_blk_mem_gen_prim_width
   wire [7:0]douta;
   wire [0:0]wea;
 
-  blk_mem_blk_mem_gen_prim_wrapper \prim_noinit.ram 
+  blk_mem_blk_mem_gen_prim_wrapper_init \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .dina(dina),
@@ -248,8 +248,8 @@ module blk_mem_blk_mem_gen_prim_width
         .wea(wea));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module blk_mem_blk_mem_gen_prim_wrapper
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module blk_mem_blk_mem_gen_prim_wrapper_init
    (douta,
     clka,
     addra,
@@ -307,13 +307,13 @@ module blk_mem_blk_mem_gen_prim_wrapper
     .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h0003010000000001000000000000000100000000000000000000000000000000),
+    .INIT_01(256'h0000000000020002000102000002000000030100000000020000000000000002),
+    .INIT_02(256'h0000000000000000000000000000000000000000000200020002000000020002),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_04(256'h0000000000000000000000000000000002020300000000030000000000000000),
     .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_06(256'h0000000002020101000202000002000002000300000001010000000000000000),
     .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -383,7 +383,7 @@ module blk_mem_blk_mem_gen_prim_wrapper
     .IS_RSTREGARSTREG_INVERTED(1'b0),
     .IS_RSTREGB_INVERTED(1'b0),
     .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
+    .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
     .READ_WIDTH_A(18),
     .READ_WIDTH_B(18),
     .RSTREG_PRIORITY_A("REGCE"),
@@ -462,7 +462,7 @@ endmodule
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "blk_mem.mem" *) 
-(* C_INIT_FILE_NAME = "no_coe_file_loaded" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "0" *) 
+(* C_INIT_FILE_NAME = "blk_mem.mif" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "1" *) 
 (* C_MEM_TYPE = "0" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
 (* C_READ_DEPTH_A = "256" *) (* C_READ_DEPTH_B = "256" *) (* C_READ_LATENCY_A = "1" *) 
 (* C_READ_LATENCY_B = "1" *) (* C_READ_WIDTH_A = "8" *) (* C_READ_WIDTH_B = "8" *) 

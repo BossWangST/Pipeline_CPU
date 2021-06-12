@@ -2,11 +2,11 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Jun  6 17:09:18 2021
-# Process ID: 10436
+# Start of session at: Wed Jun  9 21:00:22 2021
+# Process ID: 21836
 # Current directory: D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim/xsim.dir/ALU_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim/xsim.dir/singlecycle_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim/xsim.dir/ALU_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+source D:/University/CPU/SingleCycle/SingleCycle.sim/sim_1/behav/xsim/xsim.dir/singlecycle_tb_behav/webtalk/xsim_webtalk.tcl -notrace
