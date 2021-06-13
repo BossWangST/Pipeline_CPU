@@ -253,7 +253,7 @@ begin
                     ALUctr  = subu;
                     Branch  = 3'b010;
                     Jump    = 1'b0;
-                    ALUSrc  = 1'b1;
+                    ALUSrc  = 1'b0;
                     RegWr   = 1'b0;
                     MemWr   = 1'b0;
                     MemRead = 1'b0;
@@ -288,6 +288,20 @@ begin
                     RegWr     = 1'b0;
                     ByteGet   = 1'b0;
                     ByteStore = 1'b1;
+                end
+                6'b001111://*lui
+                begin
+                    ALUctr=lui;
+                    Branch=3'b000;
+                    Jump=1'b0;
+                    MemWr=1'b0;
+                    MemtoReg=1'b0;
+                    ALUSrc=1'b1;
+                    MemRead=1'b0;
+                    ALU_A=1'b0;
+                    RegWr=1'b1;
+                    ByteGet=1'b0;
+                    ByteStore=1'b0;
                 end
             endcase
         end

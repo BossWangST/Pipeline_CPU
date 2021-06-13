@@ -43,8 +43,12 @@ module Forward_detect(input ALUSrc,
     assign ALUSrcA = (C1_A == 1)?2'b01:
     (C2_A == 1)?2'b10:
     2'b00;
-    assign ALUSrcB = (C1_B == 1)?2'b01:
-    (C2_B == 1)?2'b10:
-    (ALUSrc == 1)?2'b11:
-    2'b00;
-endmodule
+    //assign ALUSrcB = (C1_B == 1)?2'b01:
+    //(C2_B == 1)?2'b10:
+    //(ALUSrc == 1)?2'b11:
+    //2'b00;
+    assign ALUSrcB = (ALUSrc==1)?2'b11:
+    (C1_B==1)?2'b01:
+    (C2_B==1)?2'b10:
+    2'b00; 
+    endmodule

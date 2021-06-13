@@ -44,10 +44,10 @@ module Registers#(parameter WIDTH = 32)
         end
     end
     //read data from registers
-    assign reg1=Registers[1]; 
-    assign reg2=Registers[2]; 
-    assign reg3=Registers[3]; 
-    assign reg4=Registers[5]; 
+    assign reg1=Registers[8]; 
+    assign reg2=Registers[9]; 
+    assign reg3=Registers[10]; 
+    assign reg4=Registers[11]; 
     always @ (*)
     begin
         busA <= Registers[Ra];

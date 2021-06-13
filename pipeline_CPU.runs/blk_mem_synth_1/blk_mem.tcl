@@ -32,7 +32,7 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo d:/University/CPU/pipeline_CPU/pipeline_CPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.xci
+read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.xci
 set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -88,32 +88,32 @@ write_checkpoint -force -noxdef blk_mem.dcp
 create_report "blk_mem_synth_1_synth_report_utilization_0" "report_utilization -file blk_mem_utilization_synth.rpt -pb blk_mem_utilization_synth.pb"
 
 if { [catch {
-  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem.dcp d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.dcp
+  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem.dcp D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.v
+  write_verilog -force -mode synth_stub D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.vhdl
+  write_vhdl -force -mode synth_stub D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.v
+  write_verilog -force -mode funcsim D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -123,32 +123,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem.dcp d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.dcp
+  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem.dcp D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_stub.v d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.v
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_stub.v D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_stub.vhdl d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.vhdl
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_stub.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_sim_netlist.v d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.v
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_sim_netlist.v D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_sim_netlist.vhdl d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.vhdl
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/blk_mem_synth_1/blk_mem_sim_netlist.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -157,13 +157,13 @@ if { [catch {
 
 if {[file isdir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/blk_mem]} {
   catch { 
-    file copy -force d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.v D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/blk_mem
+    file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.v D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/blk_mem
   }
 }
 
 if {[file isdir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/blk_mem]} {
   catch { 
-    file copy -force d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/blk_mem
+    file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/blk_mem/blk_mem_stub.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/blk_mem
   }
 }
 file delete __synthesis_is_running__

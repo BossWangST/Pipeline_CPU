@@ -48,5 +48,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipe
 INFO: [VRFC 10-311] analyzing module mux4to1
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sim_1/new/singlecycle_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module singlecycle_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/University/CPU/pipeline_CPU/pipeline_CPU.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
