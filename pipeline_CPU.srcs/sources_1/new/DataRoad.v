@@ -58,7 +58,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign load_use_pause  = !load_use;
     assign branch_real     = branch_select;
     assign target_real     = target;
-    assign beq_target_real = beq_target_MEM;
+    assign beq_target_real = beq_target;
     PC pc(
     .clk(clk),
     .rst(rst),
@@ -75,12 +75,13 @@ module DataRoad#(parameter WIDTH = 32)
     wire[63:0] IF_In;
     assign IF_In = {Inst,pc_add_4};
     wire [63:0] ID_Out;
+    wire IF_ID_clear = branch_real;
     //* IF/ID Reg
     D_Trigger #(64)IF_ID(
     .clk(clk),
     .rst(rst),
     .en(load_use_pause),
-    .clear(1'b0),
+    .clear(IF_ID_clear),
     .d(IF_In),
     .q(ID_Out)
     );
@@ -188,8 +189,6 @@ module DataRoad#(parameter WIDTH = 32)
     assign busA_sa = (ALU_A_EX == 0) ?busA_EX:sa_EX;
     
     //*---------Forward module------------
-    // load-use
-    wire load_use = MemRead_EX&((Rt_EX == Rt)|(Rt_EX == Rs));
     
     wire[WIDTH-1:0] real_busA;
     wire [WIDTH-1:0] last_alu_result;
@@ -229,6 +228,14 @@ module DataRoad#(parameter WIDTH = 32)
     .Result(alu_result)
     );
     
+    //* branch select(bne,beq...)
+    wire branch_select;
+    assign branch_select = (Branch_EX == 3'b001)?(Branch_EX[0]&Zero):
+    (Branch_EX == 3'b010)?(Branch_EX[1]&(!Zero)):0;
+    wire[WIDTH-1:0] beq_target;
+    wire[WIDTH-1:0] imme16_shift={real_imme16_EX[29:0],2'b00};
+    assign beq_target = pc_add_4_EX+imme16_shift;
+
     //* Reg write select
     mux2to1 mux_reg(
     .select(RegDst_EX),
@@ -236,9 +243,9 @@ module DataRoad#(parameter WIDTH = 32)
     .b(Rd_EX),
     .Result(Rw)
     );
+    // load-use
+    wire load_use = MemRead_EX&((Rw == Rt)|(Rw == Rs));
     
-    wire[WIDTH-1:0] beq_target;
-    assign beq_target = pc_add_4_EX+(real_imme16_EX<<2);
     
     wire[127:0] EX_In;
     assign EX_In = {store_forward_EX,ByteStore_EX,ByteGet_EX,RegWr_EX,MemWr_EX,MemtoReg_EX,Branch_EX,alu_result,Zero,busB_EX,beq_target,Rw};
@@ -267,17 +274,13 @@ module DataRoad#(parameter WIDTH = 32)
     wire [31:0]beq_target_MEM = MEM_Out[36:5];
     wire [4:0]Rw_MEM          = MEM_Out[4:0];
     
-    //* branch select(bne,beq...)
-    wire branch_select;
-    assign branch_select = (Branch_MEM == 3'b001)?(Branch_MEM[0]&Zero_MEM):
-    (Branch_MEM == 3'b010)?(Branch_MEM[1]&(!Zero_MEM)):0;
-
+    
     //* store forward
     wire[WIDTH-1:0] now_busW;
-    assign now_busW=busW;
+    assign now_busW = busW;
     wire [WIDTH-1:0] real_DataIn;
-    assign real_DataIn=(store_forward_MEM==1)?now_busW:busB_MEM;
-
+    assign real_DataIn = (store_forward_MEM == 1)?now_busW:busB_MEM;
+    
     wire[WIDTH-1:0] DataOut;
     //* Mem
     Mem mem(

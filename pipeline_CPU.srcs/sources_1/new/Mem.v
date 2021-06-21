@@ -32,7 +32,7 @@ module Mem(input Mem_Wr,
     assign Addr_2 = Addr+2;
     assign Addr_3 = Addr+3;
     
-    async_mem_1 mem_0(
+    async_mem mem_0(
     .clk(clk),
     .a(Addr_0[7:0]),
     .we(Mem_Wr),
@@ -40,7 +40,7 @@ module Mem(input Mem_Wr,
     .spo(DataOut[7:0])
     );
     
-    async_mem_1 mem_1(
+    async_mem mem_1(
     .clk(clk),
     .a(Addr_1[7:0]),
     .we(Mem_Wr&(!ByteStore)),
@@ -48,7 +48,7 @@ module Mem(input Mem_Wr,
     .spo(DataOut[15:8])
     );
     
-    async_mem_1 mem_2(
+    async_mem mem_2(
     .clk(clk),
     .a(Addr_2[7:0]),
     .we(Mem_Wr&(!ByteStore)),
@@ -56,7 +56,7 @@ module Mem(input Mem_Wr,
     .spo(DataOut[23:16])
     );
     
-    async_mem_1 mem_3(
+    async_mem mem_3(
     .clk(clk),
     .a(Addr_3[7:0]),
     .we(Mem_Wr&(!ByteStore)),
