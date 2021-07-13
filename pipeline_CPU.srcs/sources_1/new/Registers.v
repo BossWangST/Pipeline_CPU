@@ -22,41 +22,51 @@
 //* Register Module
 module Registers#(parameter WIDTH = 32)
                  (input clk,
+                  input rst,
                   input [4:0] Ra,
                   input [4:0] Rb,
                   input [4:0] Rw,
                   input WE,
                   input [WIDTH-1:0] busW,
-                  output [WIDTH-1:0] reg1,reg2,reg3,reg4,
-                  output reg [WIDTH-1:0] busA,
-                  output reg [WIDTH-1:0] busB);
+                  (*mark_debug = "true"*)output [WIDTH-1:0] reg1, reg2, reg3, 
+                  output [WIDTH-1:0] busA, 
+                  output [WIDTH-1:0] busB);
     reg [WIDTH-1:0] Registers [31:0];
     //initialize registers
     //initialize read data
     integer i;
-    initial
-    begin
-        busA = 32'h0000_0000;
-        busB = 32'h0000_0000;
-        for(i = 0;i<32;i = i+1)
-        begin
-            Registers[i] = 32'h0000_0000;
-        end
-    end
+    //initial
+    //begin
+    //    busA = 32'h0000_0000;
+    //    busB = 32'h0000_0000;
+    //    for(i = 0;i<32;i = i+1)
+    //    begin
+    //        Registers[i] = 32'h0000_0000;
+    //    end
+    //end
     //read data from registers
-    assign reg1=Registers[8]; 
-    assign reg2=Registers[9]; 
-    assign reg3=Registers[10]; 
-    assign reg4=Registers[11]; 
-    always @ (*)
-    begin
-        busA <= Registers[Ra];
-        busB <= Registers[Rb];
-    end
+    //(*mark_debug = "true"*)wire [31:0] reg1;
+    //(*mark_debug = "true"*)wire [31:0] reg2;
+    //(*mark_debug = "true"*)wire [31:0] reg3;
+    //(*mark_debug = "true"*)wire [31:0] reg4;
+    assign reg1 = Registers[8];
+    assign reg2 = Registers[9];
+    assign reg3 = Registers[10];
+    assign busA = Registers[Ra];
+    assign busB = Registers[Rb];
     //write
-    always @ (posedge clk)
+    always @ (posedge clk, posedge rst)
     begin
-        if (WE == 1)
+        if (rst)
+        begin
+            busA = 32'h0000_0000;
+            busB = 32'h0000_0000;
+            for(i = 0;i<32;i = i+1)
+            begin
+                Registers[i] = 32'h0000_0000;
+            end
+        end
+        else if (WE == 1)
         begin
             Registers[Rw] <= busW;
         end

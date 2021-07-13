@@ -114,7 +114,7 @@ module ALU#(parameter WIDTH = 32)
     wire Add_Cout;
     wire Add_Overflow;
     wire Add_Sign;
-    wire[WIDTH-1:0] Add_Result;
+    wire [WIDTH-1:0] Add_Result;
     wire [WIDTH-1:0] Real_B;
     
     assign Real_B = B^{WIDTH{SUBctr}};

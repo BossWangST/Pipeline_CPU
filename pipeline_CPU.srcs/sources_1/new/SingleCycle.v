@@ -22,10 +22,25 @@
 
 module SingleCycle(
     input clk,
+    input clk_50M,
     input RUN,
     input rst,
-    output [31:0] reg1,reg2,reg3,reg4,
-    output [31:0]Inst_out
+    output [31:0] reg1,reg2,reg3,
+    output [31:0]Inst_out,
+
+    inout wire[31:0] base_data_wire,
+    output [19:0] base_addr,
+    output [3:0] base_byte,
+    output wire base_ce,
+    output wire base_oe,
+    output wire base_we,
+
+    inout wire[31:0] ext_data_wire,
+    output wire[19:0] ext_addr,
+    output wire[3:0] ext_byte,
+    output wire ext_ce,              //* select enable, select base ram or ext ram
+    output wire ext_oe,               //* read enable
+    output wire ext_we
     );
 
     wire RegWr;//*寄存器堆写使能
@@ -48,6 +63,7 @@ module SingleCycle(
     assign Inst_out=Inst;
     DataRoad DataRoad(
         .clk(clk),
+        .clk_50M(clk_50M),
         .rst(rst),
         .RegWr(RegWr),
         .ExtOp(ExtOp),
@@ -65,10 +81,23 @@ module SingleCycle(
         .Inst_ID(Inst),
         .START(START),
         .RUN(RUN),
+
+        .base_data_wire(base_data_wire),
+        .base_addr(base_addr),
+        .base_byte(base_byte),
+        .base_ce(base_ce),
+        .base_oe(base_oe),
+        .base_we(base_we),
+
+        .ext_data_wire(ext_data_wire),
+        .ext_addr(ext_addr),
+        .ext_byte(ext_byte),
+        .ext_ce(ext_ce),
+        .ext_oe(ext_oe),
+        .ext_we(ext_we),
         .reg1(reg1),
         .reg2(reg2),
-        .reg3(reg3),
-        .reg4(reg4)
+        .reg3(reg3)
     );
 
     Control Control(

@@ -1,0 +1,1040 @@
+
+*** Running vivado
+    with args -log thinpad_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source thinpad_top.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source thinpad_top.tcl -notrace
+Command: synth_design -top thinpad_top -part xc7a200tfbg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4268 
+WARNING: [Synth 8-6901] identifier 'load_use' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:76]
+WARNING: [Synth 8-6901] identifier 'branch_select' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:77]
+WARNING: [Synth 8-6901] identifier 'target' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:78]
+WARNING: [Synth 8-6901] identifier 'beq_target' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:79]
+WARNING: [Synth 8-6901] identifier 'RegWr_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:140]
+WARNING: [Synth 8-6901] identifier 'Rw_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:142]
+WARNING: [Synth 8-6901] identifier 'RegWr_EX' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:163]
+WARNING: [Synth 8-6901] identifier 'load_use' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:171]
+WARNING: [Synth 8-6901] identifier 'alu_result_MEM' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:226]
+WARNING: [Synth 8-6901] identifier 'ALUSrcA' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:228]
+WARNING: [Synth 8-6901] identifier 'ALUSrcB' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:229]
+WARNING: [Synth 8-6901] identifier 'Rw_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:340]
+WARNING: [Synth 8-6901] identifier 'RegWr_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:341]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 904.199 ; gain = 239.750
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'thinpad_top' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'SingleCycle' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/SingleCycle.v:23]
+INFO: [Synth 8-6157] synthesizing module 'DataRoad' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:66]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:139]
+INFO: [Synth 8-6157] synthesizing module 'PC' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:23]
+INFO: [Synth 8-6157] synthesizing module 'base_sram_control' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:23]
+	Parameter IDLE bound to: 3'b000 
+	Parameter READ_START bound to: 3'b001 
+	Parameter READ_END bound to: 3'b010 
+	Parameter WRITE_START bound to: 3'b011 
+	Parameter WRITE_END bound to: 3'b100 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:74]
+WARNING: [Synth 8-5788] Register base_datain_reg in module base_sram_control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'base_sram_control' (1#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:23]
+WARNING: [Synth 8-689] width (8) of port connection 'dataout' does not match port width (32) of module 'base_sram_control' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:77]
+INFO: [Synth 8-6157] synthesizing module 'Inst_mem_0' [D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/.Xil/Vivado-2744-LAPTOP-0FSA8U4L/realtime/Inst_mem_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'Inst_mem_0' (2#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/.Xil/Vivado-2744-LAPTOP-0FSA8U4L/realtime/Inst_mem_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'mux2to1' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux2to1.v:1]
+	Parameter k bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2to1' (3#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux2to1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'PC' (4#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:23]
+INFO: [Synth 8-6157] synthesizing module 'D_Trigger' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+	Parameter WIDTH bound to: 64 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger' (5#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Extend' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Extend.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Extend' (6#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Extend.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Registers' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+WARNING: [Synth 8-5788] Register Registers_reg[31] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[30] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[29] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[28] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[27] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[26] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[25] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[24] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[23] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[22] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[21] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[20] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[19] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[18] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[17] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[16] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[15] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[14] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[13] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[12] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[11] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[10] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[9] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[8] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[7] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[6] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[5] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[4] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[3] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[2] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[1] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+WARNING: [Synth 8-5788] Register Registers_reg[0] in module Registers is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'Registers' (7#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:23]
+INFO: [Synth 8-6157] synthesizing module 'D_Trigger__parameterized0' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+	Parameter WIDTH bound to: 170 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized0' (7#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3to1' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux3to1.v:1]
+	Parameter k bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux3to1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'mux3to1' (8#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux3to1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux4to1' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux4to1.v:23]
+	Parameter k bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux4to1' (9#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux4to1.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'adder' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v:1]
+	Parameter n bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux2to1__parameterized0' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux2to1.v:1]
+	Parameter k bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2to1__parameterized0' (10#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux2to1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (11#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:23]
+WARNING: [Synth 8-689] width (5) of port connection 'Result' does not match port width (32) of module 'mux2to1' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:271]
+INFO: [Synth 8-6157] synthesizing module 'D_Trigger__parameterized1' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+	Parameter WIDTH bound to: 128 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized1' (11#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Mem' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ext_sram_control' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:23]
+	Parameter IDLE bound to: 3'b000 
+	Parameter READ_START bound to: 3'b001 
+	Parameter READ_END bound to: 3'b010 
+	Parameter WRITE_START bound to: 3'b011 
+	Parameter WRITE_END bound to: 3'b100 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:74]
+WARNING: [Synth 8-5788] Register ext_datain_reg in module ext_sram_control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'ext_sram_control' (12#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:23]
+WARNING: [Synth 8-689] width (20) of port connection 'a' does not match port width (8) of module 'Inst_mem_0' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'Mem' (13#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:23]
+WARNING: [Synth 8-7023] instance 'mem' of module 'Mem' has 14 connections declared, but only 13 given [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:313]
+INFO: [Synth 8-6157] synthesizing module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Forward_detect' (14#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v:23]
+WARNING: [Synth 8-689] width (5) of port connection 'RegWr_WR' does not match port width (1) of module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:351]
+WARNING: [Synth 8-689] width (2) of port connection 'ALUSrcA' does not match port width (3) of module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:352]
+WARNING: [Synth 8-689] width (2) of port connection 'ALUSrcB' does not match port width (3) of module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:353]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'pc'. This will prevent further optimization [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:80]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'IF_ID'. This will prevent further optimization [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:106]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'regs'. This will prevent further optimization [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:144]
+INFO: [Synth 8-6155] done synthesizing module 'DataRoad' (15#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Control' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:105]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:160]
+INFO: [Synth 8-6155] done synthesizing module 'Control' (16#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'SingleCycle' (17#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/SingleCycle.v:23]
+WARNING: [Synth 8-3848] Net leds in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:12]
+WARNING: [Synth 8-3848] Net dpy0 in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:13]
+WARNING: [Synth 8-3848] Net dpy1 in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:14]
+WARNING: [Synth 8-3848] Net uart_rdn in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:17]
+WARNING: [Synth 8-3848] Net uart_wrn in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:18]
+WARNING: [Synth 8-3848] Net txd in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:40]
+WARNING: [Synth 8-3848] Net flash_a in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:44]
+WARNING: [Synth 8-3848] Net flash_rp_n in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:46]
+WARNING: [Synth 8-3848] Net flash_vpen in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:47]
+WARNING: [Synth 8-3848] Net flash_ce_n in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:48]
+WARNING: [Synth 8-3848] Net flash_oe_n in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:49]
+WARNING: [Synth 8-3848] Net flash_we_n in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:50]
+WARNING: [Synth 8-3848] Net flash_byte_n in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:51]
+WARNING: [Synth 8-3848] Net video_red in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:54]
+WARNING: [Synth 8-3848] Net video_green in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:55]
+WARNING: [Synth 8-3848] Net video_blue in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:56]
+WARNING: [Synth 8-3848] Net video_hsync in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:57]
+WARNING: [Synth 8-3848] Net video_vsync in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:58]
+WARNING: [Synth 8-3848] Net video_clk in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:59]
+WARNING: [Synth 8-3848] Net video_de in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'thinpad_top' (18#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:3]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[25]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[24]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[23]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[22]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[21]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[20]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[19]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[18]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[17]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[16]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[15]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[14]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[13]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[12]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[11]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[10]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[9]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[8]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[7]
+WARNING: [Synth 8-3331] design Control has unconnected port Inst[6]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[31]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[30]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[29]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[28]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[27]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[26]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[25]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[24]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[23]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[22]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[21]
+WARNING: [Synth 8-3331] design ext_sram_control has unconnected port addr[20]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[31]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[30]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[29]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[28]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[27]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[26]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[25]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[24]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[23]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[22]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[1]
+WARNING: [Synth 8-3331] design Mem has unconnected port Addr[0]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[31]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[30]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[29]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[28]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[27]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[26]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[25]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[24]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[23]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[22]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[21]
+WARNING: [Synth 8-3331] design base_sram_control has unconnected port addr[20]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[15]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[14]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[13]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[12]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[11]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[10]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[9]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[8]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[7]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[6]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[5]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[4]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[3]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[2]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[1]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port leds[0]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[7]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[6]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[5]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[4]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[3]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[2]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[1]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy0[0]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[7]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[6]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[5]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[4]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[3]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[2]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[1]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port dpy1[0]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port uart_rdn
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port uart_wrn
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port txd
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[22]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[21]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[20]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[19]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[18]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[17]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[16]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[15]
+WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_a[14]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 964.703 ; gain = 300.254
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 964.703 ; gain = 300.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 964.703 ; gain = 300.254
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.101 . Memory (MB): peak = 964.703 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_0/Inst_mem_0/Inst_mem_0_in_context.xdc] for cell 'cpu/DataRoad/pc/Inst_mem'
+Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_0/Inst_mem_0/Inst_mem_0_in_context.xdc] for cell 'cpu/DataRoad/pc/Inst_mem'
+Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_0/Inst_mem_0/Inst_mem_0_in_context.xdc] for cell 'cpu/DataRoad/mem/memory'
+Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_0/Inst_mem_0/Inst_mem_0_in_context.xdc] for cell 'cpu/DataRoad/mem/memory'
+Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
+WARNING: [Vivado 12-507] No nets matched 'clk_11M0592_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
+WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+WARNING: [Vivado 12-507] No nets matched 'reset_btn_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:19]
+Finished Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/thinpad_top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/thinpad_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/thinpad_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1095.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1095.508 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tfbg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for cpu/DataRoad/pc/Inst_mem. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for cpu/DataRoad/mem/memory. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'base_sram_control'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ext_sram_control'
+INFO: [Synth 8-5546] ROM "ALUctr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ALU_A" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "RegDst" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "MemtoReg" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "ByteGet" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "ByteStore" is below threshold of ROM address width. It will be mapped to LUTs
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+             WRITE_START |                              001 |                              011
+               WRITE_END |                              010 |                              100
+              READ_START |                              011 |                              001
+                READ_END |                              100 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'base_sram_control'
+WARNING: [Synth 8-327] inferring latch for variable 'Result_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux3to1.v:9]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+             WRITE_START |                              001 |                              011
+               WRITE_END |                              010 |                              100
+              READ_START |                              011 |                              001
+                READ_END |                              100 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ext_sram_control'
+WARNING: [Synth 8-327] inferring latch for variable 'Branch_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:148]
+WARNING: [Synth 8-327] inferring latch for variable 'Jump_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:149]
+WARNING: [Synth 8-327] inferring latch for variable 'RegDst_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:150]
+WARNING: [Synth 8-327] inferring latch for variable 'ALU_A_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:109]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUSrc_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:151]
+WARNING: [Synth 8-327] inferring latch for variable 'ByteGet_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:155]
+WARNING: [Synth 8-327] inferring latch for variable 'ByteStore_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:156]
+WARNING: [Synth 8-327] inferring latch for variable 'ALUctr_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:108]
+WARNING: [Synth 8-327] inferring latch for variable 'MemtoReg_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:152]
+WARNING: [Synth 8-327] inferring latch for variable 'RegWr_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:147]
+WARNING: [Synth 8-327] inferring latch for variable 'MemWr_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:153]
+WARNING: [Synth 8-327] inferring latch for variable 'MemRead_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:154]
+WARNING: [Synth 8-327] inferring latch for variable 'ExtOp_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:171]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 2     
++---XORs : 
+	   2 Input     32 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	              170 Bit    Registers := 1     
+	              128 Bit    Registers := 2     
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 39    
+	               20 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input    170 Bit        Muxes := 1     
+	   2 Input    128 Bit        Muxes := 2     
+	   2 Input     64 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 49    
+	   4 Input     32 Bit        Muxes := 5     
+	   9 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	  12 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 55    
+	   5 Input      1 Bit        Muxes := 18    
+	   4 Input      1 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 15    
+	   9 Input      1 Bit        Muxes := 2     
+	  13 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module base_sram_control 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	               20 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 9     
+Module mux2to1 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module PC 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+Module D_Trigger 
+Detailed RTL Component Info : 
++---Registers : 
+	               64 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module Extend 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module Registers 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 34    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 37    
+	   2 Input      1 Bit        Muxes := 33    
+Module D_Trigger__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	              170 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    170 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module mux3to1 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module mux4to1 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+Module adder 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
+Module mux2to1__parameterized0 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module ALU 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     32 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 2     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+Module D_Trigger__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	              128 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module ext_sram_control 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	               20 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 9     
+Module Mem 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+Module Forward_detect 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+Module DataRoad 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module Control 
+Detailed RTL Component Info : 
++---Muxes : 
+	   9 Input      4 Bit        Muxes := 1     
+	  12 Input      3 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 6     
+	   9 Input      1 Bit        Muxes := 2     
+	  13 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[157]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[38]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[158]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[39]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[159]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[40]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[160]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[41]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[161]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[42]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\cpu/Control/Branch_reg[2] )
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[63]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[62]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[62]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[60]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[60]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[61]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[61]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[56]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[56]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[57]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[57]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[58]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[58]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[59]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[59]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[54]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[54]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[55]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[55]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[48]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[48]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[49]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[49]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[50]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[50]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[51]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[51]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[52]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[52]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[53]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[46]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[67]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[47]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[68]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[44]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[65]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[45]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[66]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/ID_EX/q_reg[43]' (FDCE) to 'cpu/DataRoad/ID_EX/q_reg[64]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[0]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[1]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[2]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[3]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[4]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[5]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[6]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[7]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[8]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[9]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[10]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[11]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[12]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[13]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[14]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[15]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[16]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[17]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[18]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[19]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[20]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[21]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[22]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[23]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[24]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[25]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[26]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[27]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[28]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[29]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3886] merging instance 'cpu/DataRoad/pc/base_control/base_datain_reg[30]' (FDE) to 'cpu/DataRoad/pc/base_control/base_datain_reg[31]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\cpu/DataRoad/pc /\base_control/data_z_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\cpu/DataRoad/pc /\base_control/base_datain_reg[31] )
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[31]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[30]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[29]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[28]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[27]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[26]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[25]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[24]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[23]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[22]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[21]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[20]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[19]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[18]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[17]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[16]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[15]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[14]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[13]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[12]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[11]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[10]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[9]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[8]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[7]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[6]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[5]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[4]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[3]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[2]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[1]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busA_reg[0]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:66]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[31]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[30]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[29]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[28]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[27]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[26]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[25]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[24]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[23]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[22]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[21]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[20]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[19]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[18]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[17]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[16]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[15]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cpu/DataRoad/regs/busB_reg[14]/Q' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:67]
+WARNING: [Synth 8-3332] Sequential element (cpu/Control/Branch_reg[2]) is unused and will be removed from module thinpad_top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1095.508 ; gain = 431.059
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[31]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[30]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[29]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[28]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[27]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[26]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[25]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[24]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[23]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[22]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[21]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[20]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[19]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[18]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[17]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[16]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[15]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[14]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[13]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[12]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[11]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[10]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[9]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[8]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[7]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[6]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[5]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[4]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[3]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[2]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[1]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/logic_mux/Result_reg[0]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[31]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[30]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[29]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[28]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[27]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[26]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[25]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[24]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[23]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[22]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[21]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[20]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[19]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[18]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[17]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[16]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[15]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[14]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[13]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[12]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[11]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[10]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[9]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[8]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[7]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[6]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[5]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[4]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[3]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[2]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[1]) is unused and will be removed from module thinpad_top.
+WARNING: [Synth 8-3332] Sequential element (cpu/DataRoad/alu/shift_mux/Result_reg[0]) is unused and will be removed from module thinpad_top.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1119.859 ; gain = 455.410
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |Inst_mem_0    |         2|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |Inst_mem_0    |     1|
+|2     |Inst_mem_0__2 |     1|
+|3     |BUFG          |     3|
+|4     |CARRY4        |    21|
+|5     |LUT1          |     6|
+|6     |LUT2          |   167|
+|7     |LUT3          |   133|
+|8     |LUT4          |    88|
+|9     |LUT5          |   151|
+|10    |LUT6          |   299|
+|11    |FDCE          |   275|
+|12    |FDPE          |     2|
+|13    |FDRE          |    58|
+|14    |LD            |    32|
+|15    |LDC           |    15|
+|16    |LDCP          |     2|
+|17    |IBUF          |    36|
+|18    |OBUF          |    54|
+|19    |OBUFT         |   108|
++------+--------------+------+
+
+Report Instance Areas: 
++------+---------------------+----------------------------+------+
+|      |Instance             |Module                      |Cells |
++------+---------------------+----------------------------+------+
+|1     |top                  |                            |  1514|
+|2     |  cpu                |SingleCycle                 |  1313|
+|3     |    Control          |Control                     |    32|
+|4     |    DataRoad         |DataRoad                    |  1281|
+|5     |      pc             |PC                          |   113|
+|6     |        base_control |base_sram_control           |    31|
+|7     |        mux2         |mux2to1                     |    28|
+|8     |      IF_ID          |D_Trigger                   |   107|
+|9     |      EX_MEM         |D_Trigger__parameterized1   |   122|
+|10    |      ID_EX          |D_Trigger__parameterized0   |   532|
+|11    |      MEM_WR         |D_Trigger__parameterized1_0 |   139|
+|12    |      alu            |ALU                         |    32|
+|13    |        add          |adder                       |    32|
+|14    |      mem            |Mem                         |   100|
+|15    |        ext_control  |ext_sram_control            |    68|
+|16    |      mux_busA       |mux3to1                     |    48|
++------+---------------------+----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1124.641 ; gain = 460.191
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 192 critical warnings and 223 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1124.641 ; gain = 329.387
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1124.641 ; gain = 460.191
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1136.809 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 70 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1136.809 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 49 instances were transformed.
+  LD => LDCE: 32 instances
+  LDC => LDCE: 15 instances
+  LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 2 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+135 Infos, 257 Warnings, 164 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1136.809 ; gain = 798.914
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1136.809 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/thinpad_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file thinpad_top_utilization_synth.rpt -pb thinpad_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jul 12 21:14:06 2021...

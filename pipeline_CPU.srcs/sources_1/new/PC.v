@@ -21,6 +21,7 @@
 
 
 module PC(input clk,
+          input clk_50M,
           input rst,
           input branch,
           input Jump,
@@ -29,7 +30,15 @@ module PC(input clk,
           input [31:0] beq_target,
           input [25:0] target,
           output [31:0] pc_add_4,
-          output [31:0] Inst);
+          output [31:0] Inst,
+          //output [31:0] Inst,
+          inout wire[31:0] base_data_wire,
+          output [19:0] base_addr,
+          output [3:0] base_byte,
+          output wire base_ce,
+          output wire base_oe,
+          output wire base_we
+          );
     reg [31:0] pc;
     initial
     begin
@@ -37,52 +46,84 @@ module PC(input clk,
         //Inst = 32'h0000_0000;
     end
     
-    wire [31:0] pc_0,pc_1,pc_2,pc_3;
-    assign pc_0 = pc;
-    assign pc_1 = pc+1;
-    assign pc_2 = pc+2;
-    assign pc_3 = pc+3;
+    //wire [31:0] pc_0,pc_1,pc_2,pc_3;
+    //assign pc_0 = pc;
+    //assign pc_1 = pc+1;
+    //assign pc_2 = pc+2;
+    //assign pc_3 = pc+3;
     
     wire[31:0] new_pc;
-    wire[31:0] new_pc_0,new_pc_1,new_pc_2,new_pc_3;
-    assign new_pc_0 = new_pc;
-    assign new_pc_1 = new_pc+1;
-    assign new_pc_2 = new_pc+2;
-    assign new_pc_3 = new_pc+3;
+    //wire[31:0] new_pc_0,new_pc_1,new_pc_2,new_pc_3;
+    //assign new_pc_0 = new_pc;
+    //assign new_pc_1 = new_pc+1;
+    //assign new_pc_2 = new_pc+2;
+    //assign new_pc_3 = new_pc+3;
     
     wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
-    blk_mem Inst_mem_0(
-    .addra(new_pc_0[7:0]),
-    .clka(clk),
-    .dina(0),
-    .douta(test_Inst_0),
-    .wea(0)
+
+    wire ce,oe,we;
+    assign {ce,oe,we}=3'b001;
+    wire[19:0] physical_pc;
+    assign physical_pc=pc[21:2];
+    base_sram_control base_control(
+        .clk(clk_50M),
+        .rst(rst),
+        .ce(ce),
+        .oe(oe),
+        .we(we),
+        .datain(32'h0000_0000),
+        .addr(physical_pc),
+        .byte(4'b0000),
+        .dataout(test_Inst_0),
+
+        .base_data_wire(base_data_wire),
+        .base_addr(base_addr),
+        .base_byte(base_byte),
+        .base_ce(base_ce),
+        .base_oe(base_oe),
+        .base_we(base_we)
     );
+
+    Inst_mem_0 Inst_mem(
+        .clk(clk),
+        .a(physical_pc[7:0]),
+        .we(1'b0),
+        .d(32'b0),
+        .spo(Inst)
+    );
+
+    //blk_mem Inst_mem_0(
+    //.addra(new_pc_0[7:0]),
+    //.clka(clk),
+    //.dina(0),
+    //.douta(test_Inst_0),
+    //.wea(0)
+    //);
     
-    blk_mem Inst_mem_1(
-    .addra(new_pc_1[7:0]),
-    .clka(clk),
-    .dina(0),
-    .douta(test_Inst_1),
-    .wea(0)
-    );
+    //blk_mem Inst_mem_1(
+    //.addra(new_pc_1[7:0]),
+    //.clka(clk),
+    //.dina(0),
+    //.douta(test_Inst_1),
+    //.wea(0)
+    //);
     
-    blk_mem Inst_mem_2(
-    .addra(new_pc_2[7:0]),
-    .clka(clk),
-    .dina(0),
-    .douta(test_Inst_2),
-    .wea(0)
-    );
+    //blk_mem Inst_mem_2(
+    //.addra(new_pc_2[7:0]),
+    //.clka(clk),
+    //.dina(0),
+    //.douta(test_Inst_2),
+    //.wea(0)
+    //);
     
-    blk_mem Inst_mem_3(
-    .addra(new_pc_3[7:0]),
-    .clka(clk),
-    .dina(0),
-    .douta(test_Inst_3),
-    .wea(0)
-    );
-    assign Inst = {test_Inst_3,test_Inst_2,test_Inst_1,test_Inst_0};
+    //blk_mem Inst_mem_3(
+    //.addra(new_pc_3[7:0]),
+    //.clka(clk),
+    //.dina(0),
+    //.douta(test_Inst_3),
+    //.wea(0)
+    //);
+    //TODO assign Inst = {test_Inst_3,test_Inst_2,test_Inst_1,test_Inst_0};
     //*    Inst_mem_1 Inst_mem_0(
     //*    .a(pc_0[7:0]),
     //*    .d(0),
@@ -155,9 +196,9 @@ module PC(input clk,
     .b(jump_pc),
     .Result(new_pc)
     );
-    always@(posedge clk)
+    always@(posedge clk,posedge rst)
     begin
-        if (rst == 1)
+        if (rst)
         begin
             pc = 0;
         end

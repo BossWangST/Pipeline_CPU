@@ -22,6 +22,7 @@
 
 module DataRoad#(parameter WIDTH = 32)
                 (input clk,
+                 input clk_50M,
                  input rst,
                  input RegWr,
                  input ExtOp,
@@ -41,12 +42,27 @@ module DataRoad#(parameter WIDTH = 32)
                  output [31:0]reg1,
                  reg2,
                  reg3,
-                 reg4,
-                 input RUN);
+                 input RUN,
+                 
+                 inout wire[31:0] base_data_wire,
+                 output [19:0] base_addr,
+                 output [3:0] base_byte,
+                 output wire base_ce,
+                 output wire base_oe,
+                 output wire base_we,
+
+                 inout wire[31:0] ext_data_wire,
+                 output wire[19:0] ext_addr,
+                 output wire[3:0] ext_byte,
+                 output wire ext_ce,              //* select enable, select base ram or ext ram
+                 output wire ext_oe,               //* read enable
+                 output wire ext_we
+
+                 );
     
     
     wire[WIDTH-1:0] pc_add_4;
-    wire[WIDTH-1:0] Inst;
+    (*mark_debug = "true"*)wire[WIDTH-1:0] Inst;
     
     wire Zero,Overflow;
     
@@ -54,6 +70,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire [25:0] target_real;
     wire [31:0] beq_target_real;
     wire load_use_pause;
+    wire branch_real;
     
     assign load_use_pause  = !load_use;
     assign branch_real     = branch_select;
@@ -61,6 +78,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign beq_target_real = beq_target;
     PC pc(
     .clk(clk),
+    .clk_50M(clk_50M),
     .rst(rst),
     .en(load_use_pause),
     .branch(branch_real),
@@ -69,7 +87,14 @@ module DataRoad#(parameter WIDTH = 32)
     .beq_target(beq_target_real),
     .target(target_real),
     .pc_add_4(pc_add_4),
-    .Inst(Inst)
+    .Inst(Inst),
+
+    .base_data_wire(base_data_wire),
+    .base_addr(base_addr),
+    .base_byte(base_byte),
+    .base_ce(base_ce),
+    .base_oe(base_oe),
+    .base_we(base_we)
     );
     
     wire[63:0] IF_In;
@@ -117,6 +142,7 @@ module DataRoad#(parameter WIDTH = 32)
     //* Reg
     Registers regs(
     .clk(clk),
+    .rst(rst),
     .Ra(Rs),
     .Rb(Rt),
     .Rw(Rw_real),
@@ -124,7 +150,6 @@ module DataRoad#(parameter WIDTH = 32)
     .reg1(reg1),
     .reg2(reg2),
     .reg3(reg3),
-    .reg4(reg4),
     .busW(busW),
     .busA(busA),
     .busB(busB)
@@ -190,7 +215,7 @@ module DataRoad#(parameter WIDTH = 32)
     
     //*---------Forward module------------
     
-    wire[WIDTH-1:0] real_busA;
+    wire [WIDTH-1:0] real_busA;
     wire [WIDTH-1:0] last_alu_result;
     wire [WIDTH-1:0] last_before_last_alu_result;
     wire [1:0] real_ALUSrcA;
@@ -285,11 +310,19 @@ module DataRoad#(parameter WIDTH = 32)
     //* Mem
     Mem mem(
     .clk(clk),
+    .clk_50M(clk_50M),
     .ByteStore(ByteStore_MEM),
     .Mem_Wr(MemWr_MEM),
     .Addr(alu_result_MEM),
     .DataIn(real_DataIn),
-    .DataOut(DataOut)
+    .DataOut(DataOut),
+
+    .ext_data_wire(ext_data_wire),
+    .ext_addr(ext_addr),
+    .ext_byte(ext_byte),
+    .ext_ce(ext_ce),
+    .ext_oe(ext_oe),
+    .ext_we(ext_we)
     );
     
     wire [WIDTH-1:0] DataByte;

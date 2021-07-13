@@ -1,2 +1,0 @@
-async_mem_1.v,verilog,xil_defaultlib,../../../../SingleCycle.gen/sources_1/ip/async_mem_1/sim/async_mem_1.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
