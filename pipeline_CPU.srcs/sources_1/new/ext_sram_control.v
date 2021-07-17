@@ -92,15 +92,15 @@ module ext_sram_control(input clk,
                  end
                  READ_START:
                  begin
+                    ext_oe <= 1'b0;//* oe valid, read
                     state <= READ_END;
-                    ext_oe = 1'b0;//* oe valid, read
                  end
                  READ_END:
                  begin
                     if (oe)//* stop reading signal
                     begin
+                       ext_oe <= 1'b1;//* stop reading 
                        state<=IDLE;
-                       ext_oe = 1'b1;//* stop reading 
                     end
                     else
                     begin
@@ -110,13 +110,16 @@ module ext_sram_control(input clk,
                  end
                 WRITE_START:
                 begin
-                    state<=WRITE_END;
+                    ext_oe<=1'b1;
                     ext_we<=1'b0;//* write
+                    state<=WRITE_END;
                 end
                 WRITE_END:
                 begin
-                    state<=IDLE;
+                    ext_oe<=1'b0;
                     ext_we<=1'b1;//* stop writing
+                    data_z<=1'b1;
+                    state<=IDLE;
                 end
             endcase
         end

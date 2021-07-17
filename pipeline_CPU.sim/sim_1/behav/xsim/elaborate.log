@@ -4,18 +4,15 @@ Running: E:/Vivado/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 6fde764b7a
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 20 differs from formal bit length 32 for port 'addr' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:77]
-WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 32 for port 'dataout' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:79]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'a' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:269]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'b' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:270]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'Result' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:271]
+WARNING: [VRFC 10-3091] actual bit length 20 differs from formal bit length 32 for port 'addr' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:75]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 32 for port 'dataout' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:77]
 WARNING: [VRFC 10-3091] actual bit length 20 differs from formal bit length 32 for port 'addr' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:59]
 WARNING: [VRFC 10-3091] actual bit length 20 differs from formal bit length 8 for port 'a' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:72]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 1 for port 'RegWr_WR' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:351]
-WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcA' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:352]
-WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcB' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:353]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 1 for port 'RegWr_WR' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:360]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcA' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:361]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 3 for port 'ALUSrcB' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:362]
 WARNING: [VRFC 10-5021] port 'clk_50M' is not connected on this instance [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sim_1/new/singlecycle_tb.v:48]
-WARNING: [VRFC 10-5021] port 'rst' is not connected on this instance [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:313]
+WARNING: [VRFC 10-5021] port 'rst' is not connected on this instance [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:322]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -23,16 +20,11 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.base_sram_control
 Compiling module dist_mem_gen_v8_0_13.dist_mem_gen_v8_0_13(C_FAMILY="a...
 Compiling module xil_defaultlib.Inst_mem_0
-Compiling module xil_defaultlib.mux2to1
 Compiling module xil_defaultlib.PC
 Compiling module xil_defaultlib.D_Trigger(WIDTH=64)
-Compiling module xil_defaultlib.Extend
 Compiling module xil_defaultlib.Registers
 Compiling module xil_defaultlib.D_Trigger(WIDTH=170)
-Compiling module xil_defaultlib.mux3to1
-Compiling module xil_defaultlib.mux4to1
 Compiling module xil_defaultlib.adder
-Compiling module xil_defaultlib.mux2to1(k=1)
 Compiling module xil_defaultlib.ALU
 Compiling module xil_defaultlib.D_Trigger(WIDTH=128)
 Compiling module xil_defaultlib.ext_sram_control

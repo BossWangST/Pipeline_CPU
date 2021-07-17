@@ -40,11 +40,12 @@ module PC(input clk,
           output wire base_we
           );
     reg [31:0] pc;
-    initial
-    begin
-        pc     = 32'h0000_0000;
-        //Inst = 32'h0000_0000;
-    end
+    //initial
+    //begin
+    //    //pc     = 32'h0000_0000;
+    //    pc     = 32'h7fff_fffc;
+    //    //Inst = 32'h0000_0000;
+    //end
     
     //wire [31:0] pc_0,pc_1,pc_2,pc_3;
     //assign pc_0 = pc;
@@ -64,9 +65,9 @@ module PC(input clk,
     wire ce,oe,we;
     assign {ce,oe,we}=3'b001;
     wire[19:0] physical_pc;
-    assign physical_pc=pc[21:2];
+    assign physical_pc=new_pc[21:2];
     base_sram_control base_control(
-        .clk(clk_50M),
+        .clk(clk),
         .rst(rst),
         .ce(ce),
         .oe(oe),
@@ -74,7 +75,7 @@ module PC(input clk,
         .datain(32'h0000_0000),
         .addr(physical_pc),
         .byte(4'b0000),
-        .dataout(test_Inst_0),
+        .dataout(Inst),
 
         .base_data_wire(base_data_wire),
         .base_addr(base_addr),
@@ -84,13 +85,13 @@ module PC(input clk,
         .base_we(base_we)
     );
 
-    Inst_mem_0 Inst_mem(
-        .clk(clk),
-        .a(physical_pc[7:0]),
-        .we(1'b0),
-        .d(32'b0),
-        .spo(Inst)
-    );
+    //Inst_mem_0 Inst_mem(
+    //    .clk(clk),
+    //    .a(physical_pc[7:0]),
+    //    .we(1'b0),
+    //    .d(32'b0),
+    //    .spo(Inst)
+    //);
 
     //blk_mem Inst_mem_0(
     //.addra(new_pc_0[7:0]),
@@ -180,34 +181,36 @@ module PC(input clk,
     //    jump_pc   = {pc[31:28],target,2'b00};
     //    pc        = new_pc;
     //end
-    mux2to1 mux(
-    .select(branch),
-    .a(next_pc),
-    .b(branch_pc),
-    .Result(new_pc_branch)
-    );
+    assign new_pc_branch=branch?branch_pc:next_pc;
+    //mux2to1 mux(
+    //.select(branch),
+    //.a(next_pc),
+    //.b(branch_pc),
+    //.Result(new_pc_branch)
+    //);
     //? wire [25:0] target;
     //? assign target = pc[25:0];
     //? wire [31:0] jump_pc;
     //? assign jump_pc = {pc[31:28],target,2'b00};//*jump可能的pc
-    mux2to1 mux2(
-    .select(Jump),
-    .a(new_pc_branch),
-    .b(jump_pc),
-    .Result(new_pc)
-    );
+    assign new_pc=Jump?jump_pc:new_pc_branch;
+    //mux2to1 mux2(
+    //.select(Jump),
+    //.a(new_pc_branch),
+    //.b(jump_pc),
+    //.Result(new_pc)
+    //);
     always@(posedge clk,posedge rst)
     begin
         if (rst)
         begin
-            pc = 0;
+            pc <= 32'h7fff_fffc;
         end
         else if (RUN == 1)
         begin
             if (en)
-                pc = new_pc;
+                pc <= new_pc;
             else
-                pc = pc;
+                pc <= pc;
         end
     end
 endmodule

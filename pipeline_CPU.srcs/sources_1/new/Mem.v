@@ -43,11 +43,13 @@ module Mem(input Mem_Wr,
     assign Addr_2 = Addr+2;
     assign Addr_3 = Addr+3;
     
-    wire ce,oe,we;
-    assign {ce,oe,we}=Mem_Wr?3'b010:3'b001;
+    wire ce;
+    wire oe,we;
+    assign ce=1'b0;
+    assign {oe,we}=(Mem_Wr==1'b1)?2'b10:2'b01;
     wire[3:0] byte=ByteStore?4'b1110:4'b0000;
 
-    wire[31:0] temp;
+    //wire[31:0] temp;
     wire[19:0] physical_addr=Addr[21:2];
     ext_sram_control ext_control(
         .clk(clk_50M),
@@ -57,8 +59,8 @@ module Mem(input Mem_Wr,
         .we(we),
         .datain(DataIn),
         .addr(physical_addr),
-        .byte(byte),
-        .dataout(temp),
+        .byte(4'b0000),
+        .dataout(DataOut),
 
         .ext_data_wire(ext_data_wire),
         .ext_addr(ext_addr),
@@ -67,13 +69,13 @@ module Mem(input Mem_Wr,
         .ext_oe(ext_oe),
         .ext_we(ext_we)
     );
-    Inst_mem_0 memory(
-        .clk(clk),
-        .a(physical_addr),
-        .we(Mem_Wr),
-        .d(DataIn),
-        .spo(DataOut)
-    );
+    //Inst_mem_0 memory(
+    //    .clk(clk),
+    //    .a(physical_addr),
+    //    .we(Mem_Wr),
+    //    .d(DataIn),
+    //    .spo(DataOut)
+    //);
 
     //async_mem mem_0(
     //.clk(clk),

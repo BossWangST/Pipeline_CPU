@@ -26,7 +26,7 @@ module singlecycle_tb();
     reg RUN;
     reg rst;
     wire [31:0] Inst;
-    wire [31:0]reg1,reg2,reg3,reg4;
+    wire [31:0]reg1,reg2,reg3;
     initial
     begin
         clk = 1'b1;
@@ -41,7 +41,7 @@ module singlecycle_tb();
         rst = 0;
         RUN = 1;
         //$stop;
-        #2000;
+        #20000;
         $finish;
     end
     
@@ -52,7 +52,6 @@ module singlecycle_tb();
     .reg1(reg1),
     .reg2(reg2),
     .reg3(reg3),
-    .reg4(reg4),
     .Inst_out(Inst)
     );
 endmodule

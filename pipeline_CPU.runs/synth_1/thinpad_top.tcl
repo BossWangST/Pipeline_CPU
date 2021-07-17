@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param tcl.collectionResultDisplayLimit 0
+set_param chipscope.maxJobs 2
 set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a200tfbg676-2
 
@@ -27,6 +28,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/wt [current_project]
 set_property parent.project_path D:/University/CPU/pipeline_CPU/pipeline_CPU.xpr [current_project]
+set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo d:/University/CPU/pipeline_CPU/pipeline_CPU.cache/ip [current_project]
@@ -48,7 +50,6 @@ read_verilog -library xil_defaultlib {
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v
-  D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Extend.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v
@@ -57,13 +58,12 @@ read_verilog -library xil_defaultlib {
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v
-  D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux2to1.v
-  D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux3to1.v
-  D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/mux4to1.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v
 }
-read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_0/Inst_mem_0.xci
-set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/Inst_mem_0/Inst_mem_0_ooc.xdc]
+read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

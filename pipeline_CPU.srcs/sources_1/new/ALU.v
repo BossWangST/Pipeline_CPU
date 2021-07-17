@@ -74,41 +74,71 @@ module ALU#(parameter WIDTH = 32)
     wire[WIDTH-1:0] AandB = A&B;
     wire[WIDTH-1:0] AxorB = A^B;
     wire[WIDTH-1:0] LogicalResult;
-    mux3to1 logic_mux(
-    .select(LOGICctr),
-    .a(AorB),
-    .b(AandB),
-    .c(AxorB),
-    .Result(LogicalResult)
-    );
+    assign LogicalResult = (LOGICctr == 2'b00)?AorB:
+    (LOGICctr == 2'b01)?AandB:
+    AxorB;
+    //mux3to1 logic_mux(
+    //.select(LOGICctr),
+    //.a(AorB),
+    //.b(AandB),
+    //.c(AxorB),
+    //.Result(LogicalResult)
+    //);
     
     //A B shift calculation
     //shift reg[rt]
-    wire[WIDTH-1:0] lui_16            = 32'h0000_0010;
-    wire[WIDTH-1:0] left_A            = (LUIctr == 1)?lui_16:A;
-    //?wire[WIDTH-1:0] LeftShift         = B<<left_A;
-    //?wire[WIDTH-1:0] ArithRightShift   = B>>>A;
-    //?wire[WIDTH-1:0] LogicalRightShift = B>>A;
+    wire[4:0] shamt = A[4:0];
+    wire[WIDTH-1:0] shift_B = (SHIFTctr == 2'b00)?{
+    B[0], B[1], B[2], B[3],
+    B[4], B[5], B[6], B[7],
+    B[8], B[9], B[10], B[11],
+    B[12], B[13], B[14], B[15],
+    B[16], B[17], B[18], B[19],
+    B[20], B[21], B[22], B[23],
+    B[24], B[25], B[26], B[27],
+    B[28], B[29], B[30], B[31]
+    }:B[31:0];
+    wire[WIDTH-1:0] shift_result = shift_B[31:0]>>shamt[4:0];
+    wire[WIDTH-1:0] sra_mask     = ~(32'hffff_ffff>>shamt[4:0]);
+    wire[WIDTH-1:0] LeftShift = {
+    shift_result[0], shift_result[1], shift_result[2],shift_result[3],
+    shift_result[4], shift_result[5], shift_result[6],shift_result[7],
+    shift_result[8], shift_result[9], shift_result[10],shift_result[11],
+    shift_result[12], shift_result[13], shift_result[14],shift_result[15],
+    shift_result[16], shift_result[17], shift_result[18],shift_result[19],
+    shift_result[20], shift_result[21], shift_result[22],shift_result[23],
+    shift_result[24], shift_result[25], shift_result[26],shift_result[27],
+    shift_result[28], shift_result[29], shift_result[30],shift_result[31]
+    };
+    wire[WIDTH-1:0] ArithRightShift   = ({32{B[31]}}&sra_mask)|shift_result;
+    wire[WIDTH-1:0] LogicalRightShift = shift_result;
     
-    reg signed [WIDTH-1:0] LeftShift        ;
-    reg signed [WIDTH-1:0] ArithRightShift  ;
-    reg signed [WIDTH-1:0] LogicalRightShift;
-    reg signed [WIDTH-1:0] Logical_B;
-    always@(*)
-    begin
-        Logical_B=B&32'hffff_ffff;
-        LeftShift         = B<<left_A;       
-        ArithRightShift   = B>>left_A;
-        LogicalRightShift = Logical_B>>>left_A;
-    end
+    wire[WIDTH-1:0] LUI_result = {B[15:0],16'h0000};
+    
+    //reg signed [WIDTH-1:0] LeftShift        ;
+    //reg signed [WIDTH-1:0] ArithRightShift  ;
+    //reg signed [WIDTH-1:0] LogicalRightShift;
+    //reg signed [WIDTH-1:0] Logical_B;
+    //always@(*)
+    //begin
+    //    Logical_B         = B&32'hffff_ffff;
+    //    LeftShift         = B<<left_A;
+    //    ArithRightShift   = B>>left_A;
+    //    LogicalRightShift = Logical_B>>>left_A;
+    //end
     wire[WIDTH-1:0] ShiftResult;
-    mux3to1 shift_mux(
-    .select(SHIFTctr),
-    .a(LeftShift),
-    .b(ArithRightShift),
-    .c(LogicalRightShift),
-    .Result(ShiftResult)
-    );
+    assign ShiftResult = (SHIFTctr == 2'b00)?LeftShift:
+    (SHIFTctr == 2'b01)?ArithRightShift:
+    LogicalRightShift;
+    //mux3to1 shift_mux(
+    //.select(SHIFTctr),
+    //.a(LeftShift),
+    //.b(ArithRightShift),
+    //.c(LogicalRightShift),
+    //.Result(ShiftResult)
+    //);
+    wire[WIDTH-1:0] Shift_Lui_result;
+    assign Shift_Lui_result = LUIctr?LUI_result:ShiftResult;
     
     //A B arithmetical calculation
     wire Add_Cout;
@@ -141,19 +171,22 @@ module ALU#(parameter WIDTH = 32)
     //slt part
     wire Less;
     wire[WIDTH-1:0] LessRes;
-    mux2to1 mux1(
-    .select(SIGctr),
-    .a(CF),
-    .b(OFxorSign),
-    .Result(Less)
-    );
-    defparam mux1.k = 1;
-    mux2to1 mux2(
-    .select(Less),
-    .a(32'h0000_0000),
-    .b(32'h0000_0001),
-    .Result(LessRes)
-    );
+    
+    assign Less = SIGctr?OFxorSign:CF;
+    //mux2to1 mux1(
+    //.select(SIGctr),
+    //.a(CF),
+    //.b(OFxorSign),
+    //.Result(Less)
+    //);
+    //defparam mux1.k = 1;
+    assign LessRes    = Less?32'h0000_0001:32'h0000_0000;
+    //mux2to1 mux2(
+    //.select(Less),
+    //.a(32'h0000_0000),
+    //.b(32'h0000_0001),
+    //.Result(LessRes)
+    //);
     /*
      mux3to1 mux3(
      .select(OPctr),
@@ -166,6 +199,6 @@ module ALU#(parameter WIDTH = 32)
     assign Result = (OPctr == 2'b00)?Add_Result:
     (OPctr == 2'b01)?LogicalResult:
     (OPctr == 2'b10)?LessRes:
-    ShiftResult;
+    Shift_Lui_result;
     
 endmodule

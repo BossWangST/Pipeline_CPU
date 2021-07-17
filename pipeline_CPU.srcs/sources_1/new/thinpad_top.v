@@ -60,17 +60,24 @@ module thinpad_top(
     output wire video_de           //行数据有效信号，用于区分消隐区
 );
 
+wire clk_25M;
+wire locked;
+clk_wiz_0 clk_25(
+    .reset(reset_btn),
+    .clk_in1(clk_50M),
+    .clk_out1(clk_25M),
+    .locked(locked)
+);
 wire[31:0] reg1,reg2,reg3,reg4;
 wire[31:0] Inst;
 SingleCycle cpu(
-    .clk(clk_11M0592),
+    .clk(clk_25M),
     .clk_50M(clk_50M),
-    .RUN(dip_sw[31]),
+    .RUN(locked&dip_sw[31]),
     .rst(reset_btn),
     .reg1(reg1),
     .reg2(reg2),
     .reg3(reg3),
-    .reg4(reg4),
     .Inst_out(Inst),
 
     .base_data_wire(base_ram_data),

@@ -2,3 +2,4 @@ Vivado Simulator 2019.2
 Time resolution is 1 ps
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+$finish called at time : 20005 ns : File "D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sim_1/new/singlecycle_tb.v" Line 45
