@@ -70,9 +70,9 @@ module DataRoad#(parameter WIDTH = 32)
     
     wire beq_real;//wait until WR segment
     wire [25:0] target_real;
-    wire [31:0] beq_target_real;
+    (*mark_debug = "true"*)wire [31:0] beq_target_real;
     wire load_use_pause;
-    wire branch_real;
+    (*mark_debug = "true"*)wire branch_real;
     
     assign load_use_pause  = !load_use;
     assign branch_real     = branch_select;
@@ -192,7 +192,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire [4:0]Rs_EX       = EX_Out[155:151];
     wire RegWr_EX         = EX_Out[150];
     wire MemWr_EX         = EX_Out[149];
-    (*mark_debug = "true"*)wire MemtoReg_EX      = EX_Out[148];
+    wire MemtoReg_EX      = EX_Out[148];
     wire [3:0]ALUctr_EX   = EX_Out[147:144];
     wire ALUSrc_EX        = EX_Out[143];
     wire RegDst_EX        = EX_Out[142];
@@ -255,7 +255,7 @@ module DataRoad#(parameter WIDTH = 32)
     //.Result(real_busB)
     //);
     //*-----------------------------------
-    (*mark_debug = "true"*)wire[WIDTH-1:0] alu_result;
+    wire[WIDTH-1:0] alu_result;
     //* ALU
     ALU alu(
     .A(real_busA),
@@ -304,10 +304,10 @@ module DataRoad#(parameter WIDTH = 32)
     wire ByteStore_MEM        = MEM_Out[109];
     wire ByteGet_MEM          = MEM_Out[108];
     wire RegWr_MEM            = MEM_Out[107];
-    (*mark_debug = "true"*)wire MemWr_MEM            = MEM_Out[106];
+    wire MemWr_MEM            = MEM_Out[106];
     wire MemtoReg_MEM         = MEM_Out[105];
     wire [2:0]Branch_MEM      = MEM_Out[104:102];
-    (*mark_debug = "true"*)wire [31:0]alu_result_MEM = MEM_Out[101:70];
+    wire [31:0]alu_result_MEM = MEM_Out[101:70];
     wire Zero_MEM             = MEM_Out[69];
     wire [31:0]busB_MEM       = MEM_Out[68:37];
     wire [31:0]beq_target_MEM = MEM_Out[36:5];
@@ -372,7 +372,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign real_DataOut =(last_sw_lw_WR)?last_DataIn_WR:DataOut_1;
     
     //*Forward module
-    (*mark_debug = "true"*)wire sw_lw=MemWr_MEM&MemtoReg_EX&(~(|(alu_result_MEM^alu_result)));
+    wire sw_lw=MemWr_MEM&MemtoReg_EX&(~(|(alu_result_MEM^alu_result)));
     
     wire [4:0]real_Rw_WR;
     wire [4:0]real_RegWr_WR;
@@ -409,10 +409,10 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //& WR parse
-    (*mark_debug = "true"*)wire last_sw_lw_WR = WR_Out[136];
-    (*mark_debug = "true"*)wire sw_lw_WR          =WR_Out[135];
-    (*mark_debug = "true"*)wire [31:0] last_DataIn_WR = WR_Out [134:103];
-    (*mark_debug = "true"*)wire [31:0] DataIn_WR    = WR_Out[102:71];
+    wire last_sw_lw_WR = WR_Out[136];
+    wire sw_lw_WR          =WR_Out[135];
+    wire [31:0] last_DataIn_WR = WR_Out [134:103];
+    wire [31:0] DataIn_WR    = WR_Out[102:71];
     wire RegWr_WR            = WR_Out[70];
     wire MemtoReg_WR         = WR_Out[69];
     wire[31:0] alu_result_WR = WR_Out[68:37];

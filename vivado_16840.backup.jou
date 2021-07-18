@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Jul 14 22:23:04 2021
+# Process ID: 16840
+# Current directory: D:/University/CPU/pipeline_CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17260 D:\University\CPU\pipeline_CPU\pipeline_CPU.xpr
+# Log file: D:/University/CPU/pipeline_CPU/vivado.log
+# Journal file: D:/University/CPU/pipeline_CPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/University/CPU/pipeline_CPU/pipeline_CPU.xpr
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1

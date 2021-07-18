@@ -39,7 +39,7 @@ module PC(input clk,
           output wire base_oe,
           output wire base_we
           );
-    reg [31:0] pc;
+    (*mark_debug = "true"*)reg [31:0] pc;
     //initial
     //begin
     //    //pc     = 32'h0000_0000;
