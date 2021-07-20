@@ -25,7 +25,6 @@ module ALU#(parameter WIDTH = 32)
             input [WIDTH-1:0]B,
             input [3:0]ALUctr,
             output Zero,
-            output Overflow,
             output [WIDTH-1:0] Result);
     
     wire SUBctr;
@@ -160,7 +159,6 @@ module ALU#(parameter WIDTH = 32)
     );
     
     assign Zero     = Add_Zero;// // &Zeroctr;
-    assign Overflow = Add_Overflow&OVctr;
     
     wire CF;
     wire OFandSign;

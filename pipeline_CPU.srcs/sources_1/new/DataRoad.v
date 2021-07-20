@@ -66,7 +66,7 @@ module DataRoad#(parameter WIDTH = 32)
     
     //wire temp_test;
     //clock_out clock_out(.clk(clk_50M),.test(temp_test));
-    wire Zero,Overflow;
+    wire Zero;
     
     wire beq_real;//wait until WR segment
     wire [25:0] target_real;
@@ -108,7 +108,7 @@ module DataRoad#(parameter WIDTH = 32)
     .clk(clk),
     .rst(rst),
     .en(load_use_pause),
-    .clear(IF_ID_clear),
+    .clear(IF_ID_clear|load_use_clear_MEM),
     .d(IF_In),
     .q(ID_Out)
     );
@@ -118,7 +118,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire [WIDTH-1:0] pc_add_4_ID = ID_Out[31:0];
     assign Inst_ID               = ID_Out[63:32];
     //assign pc_add_4_ID         = ID_Out[31:0];
-    wire[5:0] op                 = Inst_ID[31:26];
+    //wire[5:0] op                 = Inst_ID[31:26];
     wire[4:0] Rs                 = Inst_ID[25:21];
     wire[4:0] Rt                 = Inst_ID[20:16];
     wire[4:0] Rd                 = Inst_ID[15:11];
@@ -141,18 +141,18 @@ module DataRoad#(parameter WIDTH = 32)
     wire[WIDTH-1:0] busA,busB;
     wire[WIDTH-1:0] busW;
     wire[4:0] Rw;
-    wire RegWr_real;//wait until segment
-    assign RegWr_real = RegWr_WR;
-    wire[4:0] Rw_real;
-    assign Rw_real = Rw_WR;
+    //wire RegWr_real;//wait until segment
+    //assign RegWr_real = RegWr_WR;
+    //wire[4:0] Rw_real;
+    //assign Rw_real = Rw_WR;
     //* Reg
     Registers regs(
     .clk(clk),
     .rst(rst),
     .Ra(Rs),
     .Rb(Rt),
-    .Rw(Rw_real),
-    .WE(RegWr_real),
+    .Rw(Rw_WR),
+    .WE(RegWr_WR),
     .reg1(reg1),
     .reg2(reg2),
     .reg3(reg3),
@@ -168,7 +168,7 @@ module DataRoad#(parameter WIDTH = 32)
     
     
     wire[169:0] ID_In;
-    assign ID_In = {store_forward,ByteStore,ByteGet,ALU_A,sa,MemRead,Rs,RegWr,MemWr,MemtoReg,ALUctr,ALUSrc,RegDst,Branch,Jump,busA,busB,Rt,Rd,real_imme16,pc_add_4_ID};//! data lies in the lower bit!
+    assign ID_In = {store_forward,ByteStore,ByteGet,ALU_A,sa,MemRead,Rs,RegWr,MemWr,MemtoReg,ALUctr,ALUSrc,RegDst,Branch,busA,busB,Rt,Rd,real_imme16,pc_add_4_ID};//! data lies in the lower bit!
     wire [169:0]EX_Out;
     //* ID/EX Reg
     wire load_use_clear;
@@ -183,21 +183,20 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //& EX parse
-    wire store_forward_EX = EX_Out[165];
-    wire ByteStore_EX     = EX_Out[164];
-    wire ByteGet_EX       = EX_Out[163];
-    wire ALU_A_EX         = EX_Out[162];
-    wire [4:0]sa_EX       = EX_Out[161:157];
-    wire MemRead_EX       = EX_Out[156];
-    wire [4:0]Rs_EX       = EX_Out[155:151];
-    wire RegWr_EX         = EX_Out[150];
-    wire MemWr_EX         = EX_Out[149];
-    wire MemtoReg_EX      = EX_Out[148];
-    wire [3:0]ALUctr_EX   = EX_Out[147:144];
-    wire ALUSrc_EX        = EX_Out[143];
-    wire RegDst_EX        = EX_Out[142];
-    wire [2:0]Branch_EX   = EX_Out[141:139];
-    wire Jump_EX          = EX_Out[138];
+    wire store_forward_EX = EX_Out[164];
+    wire ByteStore_EX     = EX_Out[163];
+    wire ByteGet_EX       = EX_Out[162];
+    wire ALU_A_EX         = EX_Out[161];
+    wire [4:0]sa_EX       = EX_Out[160:156];
+    wire MemRead_EX       = EX_Out[155];
+    wire [4:0]Rs_EX       = EX_Out[154:150];
+    wire RegWr_EX         = EX_Out[149];
+    wire MemWr_EX         = EX_Out[148];
+    wire MemtoReg_EX      = EX_Out[147];
+    wire [3:0]ALUctr_EX   = EX_Out[146:143];
+    wire ALUSrc_EX        = EX_Out[142];
+    wire RegDst_EX        = EX_Out[141];
+    wire [2:0]Branch_EX   = EX_Out[140:138];
     //-----------------------------
     wire [31:0]busA_EX        = EX_Out[137:106];
     wire [31:0]busB_EX        = EX_Out[105:74];
@@ -205,6 +204,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire [4:0]Rd_EX           = EX_Out[68:64];
     wire [31:0]real_imme16_EX = EX_Out[63:32];
     wire [31:0] pc_add_4_EX   = EX_Out[31:0];
+
     
     // //* ALU B select
     // mux2to1 mux_busB(
@@ -220,8 +220,8 @@ module DataRoad#(parameter WIDTH = 32)
     
     //*---------Forward module------------
     
-    wire [WIDTH-1:0] real_busA;
-    wire [WIDTH-1:0] real_busB;
+    (*mark_debug = "true"*)wire [WIDTH-1:0] real_busA;
+    (*mark_debug = "true"*)wire [WIDTH-1:0] real_busB;
     wire [WIDTH-1:0] last_alu_result;
     wire [WIDTH-1:0] last_before_last_alu_result;
     wire [1:0] real_ALUSrcA;
@@ -262,7 +262,6 @@ module DataRoad#(parameter WIDTH = 32)
     .B(real_busB),
     .ALUctr(ALUctr_EX),
     .Zero(Zero),
-    .Overflow(Overflow),
     .Result(alu_result)
     );
     
@@ -287,7 +286,7 @@ module DataRoad#(parameter WIDTH = 32)
     
     
     wire[127:0] EX_In;
-    assign EX_In = {store_forward_EX,ByteStore_EX,ByteGet_EX,RegWr_EX,MemWr_EX,MemtoReg_EX,Branch_EX,alu_result,Zero,busB_EX,beq_target,Rw};
+    assign EX_In = {load_use_clear,store_forward_EX,ByteStore_EX,ByteGet_EX,RegWr_EX,MemWr_EX,MemtoReg_EX,alu_result,busB_EX,Rw};
     wire[127:0] MEM_Out;
     //* EX/MEM reg
     D_Trigger #(128)EX_MEM(
@@ -300,17 +299,18 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //& MEM parse
-    wire store_forward_MEM    = MEM_Out[110];
-    wire ByteStore_MEM        = MEM_Out[109];
-    wire ByteGet_MEM          = MEM_Out[108];
-    wire RegWr_MEM            = MEM_Out[107];
-    wire MemWr_MEM            = MEM_Out[106];
-    wire MemtoReg_MEM         = MEM_Out[105];
-    wire [2:0]Branch_MEM      = MEM_Out[104:102];
-    wire [31:0]alu_result_MEM = MEM_Out[101:70];
-    wire Zero_MEM             = MEM_Out[69];
-    wire [31:0]busB_MEM       = MEM_Out[68:37];
-    wire [31:0]beq_target_MEM = MEM_Out[36:5];
+    wire load_use_clear_MEM   = MEM_Out[75];
+    wire store_forward_MEM    = MEM_Out[74];
+    wire ByteStore_MEM        = MEM_Out[73];
+    wire ByteGet_MEM          = MEM_Out[72];
+    wire RegWr_MEM            = MEM_Out[71];
+    wire MemWr_MEM            = MEM_Out[70];
+    wire MemtoReg_MEM         = MEM_Out[69];
+    //wire [2:0]Branch_MEM      = MEM_Out[104:102];
+    wire [31:0]alu_result_MEM = MEM_Out[68:37];
+    //wire Zero_MEM             = MEM_Out[69];
+    wire [31:0]busB_MEM       = MEM_Out[36:5];
+    //wire [31:0]beq_target_MEM = MEM_Out[36:5];
     wire [4:0]Rw_MEM          = MEM_Out[4:0];
     
     

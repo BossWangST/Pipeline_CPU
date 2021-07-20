@@ -60,7 +60,7 @@ module PC(input clk,
     //assign new_pc_2 = new_pc+2;
     //assign new_pc_3 = new_pc+3;
     
-    wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
+    //wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
 
     wire ce,oe,we;
     assign {ce,oe,we}=3'b001;
@@ -166,8 +166,8 @@ module PC(input clk,
     wire[31:0] jump_pc;
     
     assign imme16      = {{16{Inst[15]}},Inst[15:0]};//sign extended imme16
-    assign next_pc     = pc+4;
-    assign pc_add_4    = next_pc;
+    assign next_pc     = en?(pc+4):pc;
+    assign pc_add_4    = pc;
     //assign branch_pc = next_pc+imme16;
     assign branch_pc   = beq_target;
     //?assign target   = Inst[25:0];

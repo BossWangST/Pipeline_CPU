@@ -223,6 +223,7 @@ begin
                     ALUSrc  = 1'b0;
                     MemWr   = 1'b0;
                     MemRead = 1'b0;
+                    ExtOp   = 1'b1;
                     ALU_A   = 1'b0;
                 end
                 6'b000010://* jump
@@ -258,6 +259,7 @@ begin
                     MemWr   = 1'b0;
                     MemRead = 1'b0;
                     ALU_A   = 1'b0;
+                    ExtOp   = 1'b1;
                 end
                 6'b100000: //*lb
                 begin

@@ -29,6 +29,7 @@ module Registers#(parameter WIDTH = 32)
                   input WE,
                   input [WIDTH-1:0] busW,
                   (*mark_debug = "true"*)output [WIDTH-1:0] reg1, reg2, reg3, 
+                  (*mark_debug = "true"*)output [WIDTH-1:0] reg_a0,
                   output [WIDTH-1:0] busA, 
                   output [WIDTH-1:0] busB);
     reg [WIDTH-1:0] Registers [31:0];
@@ -52,6 +53,7 @@ module Registers#(parameter WIDTH = 32)
     assign reg1 = Registers[8];
     assign reg2 = Registers[9];
     assign reg3 = Registers[10];
+    assign reg_a0 = Registers[4];
 
     assign busA = Registers[Ra];
     assign busB = Registers[Rb];

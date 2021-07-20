@@ -73,7 +73,7 @@ wire[31:0] Inst;
 SingleCycle cpu(
     .clk(clk_25M),
     .clk_50M(clk_50M),
-    .RUN(locked&dip_sw[31]),
+    .RUN(locked),
     .rst(reset_btn),
     .reg1(reg1),
     .reg2(reg2),
