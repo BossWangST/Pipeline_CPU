@@ -21,7 +21,6 @@
 
 
 module PC(input clk,
-          input clk_50M,
           input rst,
           input branch,
           input Jump,
@@ -31,6 +30,7 @@ module PC(input clk,
           input [25:0] target,
           output [31:0] pc_add_4,
           output [31:0] Inst,
+          input uart,
           //output [31:0] Inst,
           inout wire[31:0] base_data_wire,
           output [19:0] base_addr,
@@ -63,7 +63,8 @@ module PC(input clk,
     //wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
 
     wire ce,oe,we;
-    assign {ce,oe,we}=3'b001;
+    assign ce=uart;
+    assign {oe,we}=2'b01;
     wire[19:0] physical_pc;
     assign physical_pc=new_pc[21:2];
     base_sram_control base_control(

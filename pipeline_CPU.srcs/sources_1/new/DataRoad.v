@@ -43,7 +43,13 @@ module DataRoad#(parameter WIDTH = 32)
                  reg2,
                  reg3,
                  input RUN,
-                 
+
+                 output rdn,// 读锁存信号
+                 output wrn,// 写锁存信号
+                 input data_ready,
+                 input tbre,// 接收成功信号
+                 input tsre, //发送成功信号
+
                  inout wire[31:0] base_data_wire,
                  output [19:0] base_addr,
                  output [3:0] base_byte,
@@ -78,11 +84,11 @@ module DataRoad#(parameter WIDTH = 32)
     assign branch_real     = real_branch_select;
     assign target_real     = target;
     assign beq_target_real = beq_target;
+    wire uart=1'b0;
     PC pc(
     .clk(clk),
-    .clk_50M(clk_50M),
     .rst(rst),
-    .en(load_use_pause),
+    .en(load_use_pause|uart),
     .branch(branch_real),
     .Jump(Jump),
     .RUN(RUN),
@@ -90,6 +96,8 @@ module DataRoad#(parameter WIDTH = 32)
     .target(target_real),
     .pc_add_4(pc_add_4),
     .Inst(Inst),
+
+    .uart(uart),
 
     .base_data_wire(base_data_wire),
     .base_addr(base_addr),
@@ -352,6 +360,7 @@ module DataRoad#(parameter WIDTH = 32)
     //?    .ext_oe(ext_oe),
     //?    .ext_we(ext_we)
     //?);
+
     Mem mem(
     .clk(clk),
     .clk_50M(clk_50M),
@@ -360,6 +369,14 @@ module DataRoad#(parameter WIDTH = 32)
     .Addr(alu_result_MEM),
     .DataIn(real_DataIn),
     .DataOut(DataOut),
+
+    .base_data_wire(base_data_wire),
+    .rdn(rdn),
+    .wrn(wrn),
+    .data_ready(data_ready),
+    .tbre(tbre),
+    .tsre(tsre),
+    .uart(uart),
 
     .ext_data_wire(ext_data_wire),
     .ext_addr(ext_addr),

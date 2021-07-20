@@ -28,6 +28,12 @@ module SingleCycle(
     output [31:0] reg1,reg2,reg3,
     output [31:0]Inst_out,
 
+    output rdn,// 读锁存信号
+    output wrn,// 写锁存信号
+    input data_ready,
+    input tbre,// 接收成功信号
+    input tsre, //发送成功信号
+
     inout wire[31:0] base_data_wire,
     output [19:0] base_addr,
     output [3:0] base_byte,
@@ -81,6 +87,12 @@ module SingleCycle(
         .Inst_ID(Inst),
         .START(START),
         .RUN(RUN),
+
+        .rdn(rdn),
+        .wrn(wrn),
+        .data_ready(data_ready),
+        .tbre(tbre),
+        .tsre(tsre),
 
         .base_data_wire(base_data_wire),
         .base_addr(base_addr),

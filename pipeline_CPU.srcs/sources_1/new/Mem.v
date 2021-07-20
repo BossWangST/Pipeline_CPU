@@ -29,6 +29,14 @@ module Mem(input Mem_Wr,
            output [31:0] DataOut,
            input rst,
 
+           inout wire[31:0] base_data_wire,
+           output uart,
+           output rdn,// 读锁存信号
+           output wrn,// 写锁存信号
+           input data_ready,
+           input tbre,// 接收成功信号
+           input tsre, //发送成功信号
+
            inout wire[31:0] ext_data_wire,
            output wire[19:0] ext_addr,
            output wire[3:0] ext_byte,
@@ -43,15 +51,19 @@ module Mem(input Mem_Wr,
     //assign Addr_2 = Addr+2;
     //assign Addr_3 = Addr+3;
     
-    wire uart=(Addr[31]&Addr[29]&Addr[28]&Addr[27]&
-               Addr[26]&Addr[25]&Addr[24]&Addr[23]&
-               Addr[22]&Addr[20]&Addr[9]&Addr[8]&
-               Addr[7]&Addr[6]&Addr[5]&Addr[4]&
-               Addr[3])&((!Addr[2])|(!Addr[1]));
+    assign uart=(Addr==32'hBFD003F8)|
+                (Addr==32'hBFD003F9)|
+                (Addr==32'hBFD003FA)|
+                (Addr==32'hBFD003FB)|
+                (Addr==32'hBFD003FC)|
+                (Addr==32'hBFD003FD);
     wire ce;
     wire oe,we;
     assign ce=uart?1'b1:1'b0;
     assign {oe,we}=(Mem_Wr==1'b1)?2'b10:2'b01;
+
+    wire uart_oe,uart_we;
+    assign {uart_oe,uart_we}=uart?{oe,we}:2'b11;
     wire[3:0] byte;
     assign byte =(ByteStore==1'b0)?4'b0000:
                  ((Addr[1:0]==2'b00)?4'b1110:
@@ -60,8 +72,8 @@ module Mem(input Mem_Wr,
                   4'b0111);
 
     //wire[31:0] temp;
-    wire[31:0] real_datain;
-    assign real_datain = (ByteStore==1'b0)?DataIn:
+    wire[31:0] real_DataIn;
+    assign real_DataIn = (ByteStore==1'b0)?DataIn:
                          {4{DataIn[7:0]}};
 
     wire[19:0] physical_addr=Addr[21:2];
@@ -76,7 +88,7 @@ module Mem(input Mem_Wr,
         .we(we),
         .datain(real_DataIn),
         .addr(physical_addr),
-        .byte(4'b0000),
+        .byte(byte),
         .dataout(sram_DataOut),
 
         .ext_data_wire(ext_data_wire),
@@ -90,13 +102,17 @@ module Mem(input Mem_Wr,
     uart_io uart_io(
         .clk(clk),
         .rst(rst),
-        .oe(oe),
-        .we(we),
+        .oe(uart_oe),
+        .we(uart_we),
         .datain(real_DataIn[7:0]),
         .dataout(uart_DataOut),
-
-        .
-    )
+        .base_data_wire(base_data_wire),
+        .rdn(rdn),
+        .wrn(wrn),
+        .data_ready(data_ready),
+        .tbre(tbre),
+        .tsre(tsre)
+    );
 
     assign DataOut=uart?{24'h000_000,uart_DataOut}:sram_DataOut;
     //Inst_mem_0 memory(

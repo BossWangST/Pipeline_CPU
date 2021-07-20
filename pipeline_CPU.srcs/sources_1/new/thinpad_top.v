@@ -80,6 +80,12 @@ SingleCycle cpu(
     .reg3(reg3),
     .Inst_out(Inst),
 
+    .rdn(uart_rdn),
+    .wrn(uart_wrn),
+    .data_ready(uart_dataready),
+    .tbre(uart_tbre),
+    .tsre(uart_tsre),
+
     .base_data_wire(base_ram_data),
     .base_addr(base_ram_addr),
     .base_byte(base_ram_be_n),
