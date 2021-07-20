@@ -70,12 +70,12 @@ module DataRoad#(parameter WIDTH = 32)
     
     wire beq_real;//wait until WR segment
     wire [25:0] target_real;
-    (*mark_debug = "true"*)wire [31:0] beq_target_real;
+    wire [31:0] beq_target_real;
     wire load_use_pause;
-    (*mark_debug = "true"*)wire branch_real;
+    wire branch_real;
     
     assign load_use_pause  = !load_use;
-    assign branch_real     = branch_select;
+    assign branch_real     = real_branch_select;
     assign target_real     = target;
     assign beq_target_real = beq_target;
     PC pc(
@@ -220,8 +220,8 @@ module DataRoad#(parameter WIDTH = 32)
     
     //*---------Forward module------------
     
-    (*mark_debug = "true"*)wire [WIDTH-1:0] real_busA;
-    (*mark_debug = "true"*)wire [WIDTH-1:0] real_busB;
+    wire [WIDTH-1:0] real_busA;
+    wire [WIDTH-1:0] real_busB;
     wire [WIDTH-1:0] last_alu_result;
     wire [WIDTH-1:0] last_before_last_alu_result;
     wire [1:0] real_ALUSrcA;
@@ -266,9 +266,15 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //* branch select(bne,beq...)
-    wire branch_select;
-    assign branch_select = (Branch_EX == 3'b001)?(Branch_EX[0]&Zero):
-    (Branch_EX == 3'b010)?(Branch_EX[1]&(!Zero)):0;
+    wire real_branch_select;
+    branch_select branch_select(
+        .branch(Branch_EX),
+        .zero(Zero),
+        .rs(Rs_EX),
+        .real_branch(real_branch_select)
+    );
+    //assign branch_select = (Branch_EX == 3'b001)?(Branch_EX[0]&Zero):
+    //(Branch_EX == 3'b010)?(Branch_EX[1]&(!Zero)):0;
     wire[WIDTH-1:0] beq_target;
     wire[WIDTH-1:0] imme16_shift={real_imme16_EX[29:0],2'b00};
     assign beq_target = pc_add_4_EX+imme16_shift;

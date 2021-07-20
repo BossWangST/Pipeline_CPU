@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Tue Jul 20 09:24:21 2021
+| Date         : Tue Jul 20 16:24:19 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_drc -file thinpad_top_drc_routed.rpt -pb thinpad_top_drc_routed.pb -rpx thinpad_top_drc_routed.rpx
 | Design       : thinpad_top
@@ -24,11 +24,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 42
+             Violations found: 43
 +-----------+----------+---------------------------------+------------+
 | Rule      | Severity | Description                     | Violations |
 +-----------+----------+---------------------------------+------------+
-| PDRC-153  | Warning  | Gated clock check               | 9          |
+| PDRC-153  | Warning  | Gated clock check               | 10         |
 | RPBF-3    | Warning  | IO port buffering is incomplete | 32         |
 | RTSTAT-10 | Warning  | No routable loads               | 1          |
 +-----------+----------+---------------------------------+------------+
@@ -52,32 +52,37 @@ Related violations: <none>
 
 PDRC-153#4 Warning
 Gated clock check  
-Net cpu/DataRoad/q_reg[36] is a gated clock net sourced by a combinational pin cpu/DataRoad/ALU_A_reg_i_2/O, cell cpu/DataRoad/ALU_A_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net cpu/DataRoad/q_reg[58] is a gated clock net sourced by a combinational pin cpu/DataRoad/ByteGet_reg_i_2/O, cell cpu/DataRoad/ByteGet_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#5 Warning
 Gated clock check  
-Net cpu/DataRoad/q_reg[62] is a gated clock net sourced by a combinational pin cpu/DataRoad/Branch_reg[1]_i_2/O, cell cpu/DataRoad/Branch_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net cpu/DataRoad/q_reg[59]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUSrc_reg_i_2/O, cell cpu/DataRoad/ALUSrc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#6 Warning
 Gated clock check  
-Net cpu/DataRoad/q_reg[62]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/ExtOp_reg_i_2/O, cell cpu/DataRoad/ExtOp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net cpu/DataRoad/q_reg[62] is a gated clock net sourced by a combinational pin cpu/DataRoad/ExtOp_reg_i_2/O, cell cpu/DataRoad/ExtOp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#7 Warning
 Gated clock check  
-Net cpu/DataRoad/q_reg[62]_1 is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUSrc_reg_i_2/O, cell cpu/DataRoad/ALUSrc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net cpu/DataRoad/q_reg[62]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/MemtoReg_reg_i_2/O, cell cpu/DataRoad/MemtoReg_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#8 Warning
 Gated clock check  
-Net cpu/DataRoad/q_reg[62]_2 is a gated clock net sourced by a combinational pin cpu/DataRoad/MemtoReg_reg_i_2/O, cell cpu/DataRoad/MemtoReg_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net cpu/DataRoad/q_reg[62]_1 is a gated clock net sourced by a combinational pin cpu/DataRoad/Branch_reg[1]_i_2/O, cell cpu/DataRoad/Branch_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#9 Warning
 Gated clock check  
-Net cpu/DataRoad/q_reg[62]_4 is a gated clock net sourced by a combinational pin cpu/DataRoad/ByteGet_reg_i_2/O, cell cpu/DataRoad/ByteGet_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net cpu/DataRoad/q_reg[63]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/ALU_A_reg_i_2/O, cell cpu/DataRoad/ALU_A_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#10 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[63]_1 is a gated clock net sourced by a combinational pin cpu/DataRoad/MemRead_reg_i_1/O, cell cpu/DataRoad/MemRead_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 RPBF-3#1 Warning

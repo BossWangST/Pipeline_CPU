@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1626744006">
+<GenRun Id="impl_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1626769167">
   <File Type="BITSTR-BMM" Name="thinpad_top_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="thinpad_top_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="thinpad_top_timing_summary_init.rpt"/>
@@ -168,6 +168,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/base_sram_control.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/branch_select.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

@@ -39,6 +39,8 @@ wire[5:0] op;
 wire[5:0] func;
 assign op   = Inst[31:26];
 assign func = Inst[5:0];
+wire[4:0] reggim;
+assign reggim = Inst[20:16];
 
 wire opZero;
 assign opZero = op[5]|op[4]|op[3]|op[2]|op[1]|op[0];
@@ -293,17 +295,48 @@ begin
                 end
                 6'b001111://*lui
                 begin
-                    ALUctr=lui;
-                    Branch=3'b000;
-                    Jump=1'b0;
-                    MemWr=1'b0;
-                    MemtoReg=1'b0;
-                    ALUSrc=1'b1;
-                    MemRead=1'b0;
-                    ALU_A=1'b0;
-                    RegWr=1'b1;
-                    ByteGet=1'b0;
-                    ByteStore=1'b0;
+                    ALUctr    = lui;
+                    Branch    = 3'b000;
+                    Jump      = 1'b0;
+                    MemWr     = 1'b0;
+                    MemtoReg  = 1'b0;
+                    ALUSrc    = 1'b1;
+                    MemRead   = 1'b0;
+                    ALU_A     = 1'b0;
+                    RegWr     = 1'b1;
+                    ByteGet   = 1'b0;
+                    ByteStore = 1'b0;
+                end
+                6'b001100://* andi
+                begin
+                    Branch    = 3'b000;
+                    Jump      = 1'b0;
+                    RegDst    = 1'b0;
+                    ALUSrc    = 1'b1;
+                    ALUctr    = _and;
+                    MemtoReg  = 1'b0;
+                    RegWr     = 1'b1;
+                    MemWr     = 1'b0;
+                    MemRead   = 1'b0;
+                    ALU_A     = 1'b0;
+                    ByteGet   = 1'b0;
+                    ByteStore = 1'b0;
+                    ExtOp     = 1'b0;
+                end
+                6'b000001://*REG IMM
+                begin
+                    case(reggim)
+                        6'b00001://*bgez
+                        begin
+                            Branch   = 3'b011;
+                            Jump     = 1'b0;
+                            MemWr    = 1'b0;
+                            MemtoReg = 1'b0;
+                            RegWr    = 1'b0;
+                            ALUSrc   = 1'b1;
+                            ExtOp    = 1'b1;
+                        end
+                    endcase
                 end
             endcase
         end
