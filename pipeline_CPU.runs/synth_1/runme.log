@@ -15,7 +15,7 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Device 21-403] Loading part xc7a200tfbg676-2
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 37364 
+INFO: Helper process launched with PID 37196 
 WARNING: [Synth 8-992] load_use_clear_MEM is already implicitly declared earlier [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:316]
 WARNING: [Synth 8-992] RegWr_WR is already implicitly declared earlier [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:439]
 WARNING: [Synth 8-992] Rw_WR is already implicitly declared earlier [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:443]
@@ -33,11 +33,9 @@ WARNING: [Synth 8-6901] identifier 'last_DataIn_WR' is used before its declarati
 WARNING: [Synth 8-6901] identifier 'sw_lw_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:422]
 WARNING: [Synth 8-6901] identifier 'DataIn_WR' is used before its declaration [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:422]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 904.289 ; gain = 238.438
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 893.926 ; gain = 240.188
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'thinpad_top' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:3]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/.Xil/Vivado-33856-LAPTOP-0FSA8U4L/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/.Xil/Vivado-33856-LAPTOP-0FSA8U4L/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'SingleCycle' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/SingleCycle.v:23]
 INFO: [Synth 8-6157] synthesizing module 'DataRoad' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:23]
 	Parameter WIDTH bound to: 32 - type: integer 
@@ -52,30 +50,30 @@ INFO: [Synth 8-6157] synthesizing module 'base_sram_control' [D:/University/CPU/
 	Parameter WRITE_END bound to: 3'b100 
 INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:74]
 WARNING: [Synth 8-5788] Register base_datain_reg in module base_sram_control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:51]
-INFO: [Synth 8-6155] done synthesizing module 'base_sram_control' (2#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'PC' (3#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'base_sram_control' (1#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'PC' (2#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/PC.v:23]
 INFO: [Synth 8-6157] synthesizing module 'D_Trigger' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 	Parameter WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'D_Trigger' (4#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger' (3#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Registers' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:23]
 	Parameter WIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:31]
-INFO: [Synth 8-6155] done synthesizing module 'Registers' (5#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Registers' (4#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Registers.v:23]
 INFO: [Synth 8-6157] synthesizing module 'D_Trigger__parameterized0' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 	Parameter WIDTH bound to: 170 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized0' (5#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized0' (4#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ALU' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:23]
 	Parameter WIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'adder' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v:1]
 	Parameter n bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'adder' (6#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ALU' (7#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (5#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/adder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (6#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ALU.v:23]
 INFO: [Synth 8-6157] synthesizing module 'branch_select' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/branch_select.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'branch_select' (8#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/branch_select.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'branch_select' (7#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/branch_select.v:23]
 WARNING: [Synth 8-689] width (5) of port connection 'rs' does not match port width (1) of module 'branch_select' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:281]
 INFO: [Synth 8-6157] synthesizing module 'D_Trigger__parameterized1' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 	Parameter WIDTH bound to: 128 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized1' (8#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized1' (7#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Mem' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ext_sram_control' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:23]
 	Parameter IDLE bound to: 3'b000 
@@ -85,7 +83,7 @@ INFO: [Synth 8-6157] synthesizing module 'ext_sram_control' [D:/University/CPU/p
 	Parameter WRITE_END bound to: 3'b100 
 INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:74]
 WARNING: [Synth 8-5788] Register ext_datain_reg in module ext_sram_control is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:51]
-INFO: [Synth 8-6155] done synthesizing module 'ext_sram_control' (9#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ext_sram_control' (8#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v:23]
 INFO: [Synth 8-6157] synthesizing module 'uart_io' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v:23]
 	Parameter IDLE bound to: 3'b000 
 	Parameter READ_START bound to: 3'b001 
@@ -97,28 +95,28 @@ INFO: [Synth 8-6157] synthesizing module 'uart_io' [D:/University/CPU/pipeline_C
 INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v:64]
 WARNING: [Synth 8-5788] Register data_reg in module uart_io is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v:42]
 WARNING: [Synth 8-5788] Register dataout_reg in module uart_io is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v:99]
-INFO: [Synth 8-6155] done synthesizing module 'uart_io' (10#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'Mem' (11#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'uart_io' (9#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Mem' (10#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:23]
 WARNING: [Synth 8-7023] instance 'mem' of module 'Mem' has 21 connections declared, but only 20 given [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:364]
 INFO: [Synth 8-6157] synthesizing module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'Forward_detect' (12#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Forward_detect' (11#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Forward_detect.v:23]
 WARNING: [Synth 8-689] width (5) of port connection 'RegWr_WR' does not match port width (1) of module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:413]
 WARNING: [Synth 8-689] width (2) of port connection 'ALUSrcA' does not match port width (3) of module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:414]
 WARNING: [Synth 8-689] width (2) of port connection 'ALUSrcB' does not match port width (3) of module 'Forward_detect' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:415]
 INFO: [Synth 8-6157] synthesizing module 'D_Trigger__parameterized2' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 	Parameter WIDTH bound to: 160 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized2' (12#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'D_Trigger__parameterized2' (11#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/D_Trigger.v:23]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'IF_ID'. This will prevent further optimization [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:115]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v-88.7 with 1st driver pin 'DataRoad:/mem/uart' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:88]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v-88.7 with 2nd driver pin 'GND' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:88]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v-88.7 is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:88]
-INFO: [Synth 8-6155] done synthesizing module 'DataRoad' (13#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'DataRoad' (12#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/DataRoad.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Control' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:23]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:107]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:328]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:162]
-INFO: [Synth 8-6155] done synthesizing module 'Control' (14#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'SingleCycle' (15#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/SingleCycle.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Control' (13#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'SingleCycle' (14#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/SingleCycle.v:23]
 WARNING: [Synth 8-3848] Net leds in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:12]
 WARNING: [Synth 8-3848] Net dpy0 in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:13]
 WARNING: [Synth 8-3848] Net dpy1 in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:14]
@@ -137,7 +135,7 @@ WARNING: [Synth 8-3848] Net video_hsync in module/entity thinpad_top does not ha
 WARNING: [Synth 8-3848] Net video_vsync in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:58]
 WARNING: [Synth 8-3848] Net video_clk in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:59]
 WARNING: [Synth 8-3848] Net video_de in module/entity thinpad_top does not have driver. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:60]
-INFO: [Synth 8-6155] done synthesizing module 'thinpad_top' (16#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'thinpad_top' (15#1) [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v:3]
 WARNING: [Synth 8-3331] design Control has unconnected port Inst[25]
 WARNING: [Synth 8-3331] design Control has unconnected port Inst[24]
 WARNING: [Synth 8-3331] design Control has unconnected port Inst[23]
@@ -240,7 +238,7 @@ WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_oe_n
 WARNING: [Synth 8-3331] design thinpad_top has unconnected port flash_we_n
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 961.988 ; gain = 296.137
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 949.340 ; gain = 295.602
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -253,52 +251,51 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 961.988 ; gain = 296.137
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 949.340 ; gain = 295.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 961.988 ; gain = 296.137
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 949.340 ; gain = 295.602
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 961.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 949.340 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_25'
-Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_25'
 Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
 WARNING: [Vivado 12-507] No nets matched 'clk_11M0592_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
-WARNING: [Constraints 18-619] A clock with name 'clk_50M' already exists, overwriting the previous clock with the same name. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'reset_btn_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/thinpad_top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/thinpad_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/thinpad_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1101.648 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1079.375 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1101.648 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1079.375 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1101.648 ; gain = 435.797
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1079.375 ; gain = 425.637
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1101.648 ; gain = 435.797
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1079.375 ; gain = 425.637
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk_50M. (constraint file  d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_50M. (constraint file  d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
-Applied set_property DONT_TOUCH = true for clk_25. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1101.648 ; gain = 435.797
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1079.375 ; gain = 425.637
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'base_sram_control'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ext_sram_control'
@@ -353,7 +350,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'MemWr_reg' [D:/University/C
 WARNING: [Synth 8-327] inferring latch for variable 'MemRead_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:156]
 WARNING: [Synth 8-327] inferring latch for variable 'ExtOp_reg' [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Control.v:173]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1101.648 ; gain = 435.797
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1079.375 ; gain = 425.637
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -385,7 +382,7 @@ Detailed RTL Component Info :
 	   2 Input    160 Bit        Muxes := 1     
 	   2 Input    128 Bit        Muxes := 1     
 	   2 Input     64 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 23    
+	   2 Input     32 Bit        Muxes := 25    
 	   4 Input     32 Bit        Muxes := 2     
 	   7 Input      7 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 2     
@@ -444,6 +441,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 32    
 +---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 32    
 Module D_Trigger__parameterized0 
 Detailed RTL Component Info : 
@@ -627,7 +625,7 @@ CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin uart with 2nd driver pi
 CRITICAL WARNING: [Synth 8-6858] multi-driven net uart is connected to at least one constant driver which has been preserved, other driver is ignored [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/Mem.v:54]
 WARNING: [Synth 8-3332] Sequential element (cpu/Control/Branch_reg[2]) is unused and will be removed from module thinpad_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1101.648 ; gain = 435.797
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1079.375 ; gain = 425.637
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -638,15 +636,14 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-565] redefining clock 'clk_50M'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 1101.648 ; gain = 435.797
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1079.375 ; gain = 425.637
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:09 ; elapsed = 00:01:11 . Memory (MB): peak = 1208.160 ; gain = 542.309
+Finished Timing Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 1198.738 ; gain = 545.000
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -658,7 +655,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Technology Mapping : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -682,13 +679,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished IO Insertion : Time (s): cpu = 00:01:10 ; elapsed = 00:01:11 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:10 ; elapsed = 00:01:11 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -707,73 +704,73 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |clk_wiz_0     |         1|
-+------+--------------+----------+
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    25|
-|3     |LUT1      |    59|
-|4     |LUT2      |   258|
-|5     |LUT3      |   142|
-|6     |LUT4      |    74|
-|7     |LUT5      |   143|
-|8     |LUT6      |  1025|
-|9     |MUXF7     |   256|
-|10    |FDCE      |  1466|
-|11    |FDPE      |    31|
-|12    |FDRE      |    96|
-|13    |LDC       |    15|
-|14    |LDCP      |     2|
-|15    |IBUF      |    35|
-|16    |IOBUF     |    32|
-|17    |OBUF      |    56|
-|18    |OBUFT     |    74|
-+------+----------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    25|
+|3     |LUT1   |    59|
+|4     |LUT2   |   258|
+|5     |LUT3   |   142|
+|6     |LUT4   |    74|
+|7     |LUT5   |   207|
+|8     |LUT6   |   966|
+|9     |MUXF7  |   256|
+|10    |MUXF8  |   128|
+|11    |FDCE   |  1466|
+|12    |FDPE   |    31|
+|13    |FDRE   |    96|
+|14    |LDC    |    15|
+|15    |LDCP   |     2|
+|16    |IBUF   |    36|
+|17    |IOBUF  |    32|
+|18    |OBUF   |    56|
+|19    |OBUFT  |    74|
++------+-------+------+
 
 Report Instance Areas: 
 +------+---------------------+--------------------------+------+
 |      |Instance             |Module                    |Cells |
 +------+---------------------+--------------------------+------+
-|1     |top                  |                          |  3791|
-|2     |  cpu                |SingleCycle               |  3592|
+|1     |top                  |                          |  3924|
+|2     |  cpu                |SingleCycle               |  3725|
 |3     |    Control          |Control                   |    32|
-|4     |    DataRoad         |DataRoad                  |  3560|
+|4     |    DataRoad         |DataRoad                  |  3693|
 |5     |      pc             |PC                        |   183|
 |6     |        base_control |base_sram_control         |   104|
 |7     |      IF_ID          |D_Trigger                 |   129|
-|8     |      regs           |Registers                 |  1888|
+|8     |      regs           |Registers                 |  2020|
 |9     |      EX_MEM         |D_Trigger__parameterized1 |   187|
 |10    |      ID_EX          |D_Trigger__parameterized0 |   800|
 |11    |      MEM_WR         |D_Trigger__parameterized2 |   204|
@@ -784,19 +781,18 @@ Report Instance Areas:
 |16    |        uart_io      |uart_io                   |     8|
 +------+---------------------+--------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1199.805 ; gain = 546.066
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 3 critical warnings and 145 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:13 . Memory (MB): peak = 1209.219 ; gain = 403.707
-Synthesis Optimization Complete : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 1209.219 ; gain = 543.367
+Synthesis finished with 0 errors, 3 critical warnings and 144 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:01 ; elapsed = 00:01:09 . Memory (MB): peak = 1199.805 ; gain = 416.031
+Synthesis Optimization Complete : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1199.805 ; gain = 546.066
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 1216.145 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 330 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.064 . Memory (MB): peak = 1211.656 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 458 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1216.145 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1211.656 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 49 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 32 instances
@@ -804,14 +800,14 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-143 Infos, 164 Warnings, 6 Critical Warnings and 0 Errors encountered.
+140 Infos, 161 Warnings, 9 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 1216.145 ; gain = 876.297
+synth_design: Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 1211.656 ; gain = 904.383
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1216.145 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1211.656 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/thinpad_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file thinpad_top_utilization_synth.rpt -pb thinpad_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jul 20 21:40:49 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 21 16:09:34 2021...

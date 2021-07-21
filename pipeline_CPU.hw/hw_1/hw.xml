@@ -29,12 +29,13 @@
   </ObjectList>
   <ObjectList object_type="hw_probe" gui_info="">
     <Object name="Inst[31:0]" gui_info="hw_vios/hw_vio_1=0"/>
-    <Object name="cpu/DataRoad/Inst[31:0]" gui_info=""/>
+    <Object name="cpu/DataRoad/Inst[31:0]" gui_info="Trigger Setup=0"/>
     <Object name="cpu/DataRoad/mem/oe" gui_info=""/>
     <Object name="cpu/DataRoad/pc/Inst[31:0]" gui_info=""/>
     <Object name="cpu/DataRoad/pc/pc[31:0]" gui_info=""/>
     <Object name="cpu/DataRoad/pc/pc_disp[31:0]" gui_info="Trigger Setup=0"/>
-    <Object name="cpu/DataRoad/regs/reg1[31:0]" gui_info="Trigger Setup=0"/>
+    <Object name="cpu/DataRoad/regs/reg1[31:0]" gui_info=""/>
+    <Object name="cpu/DataRoad/regs/reg_t0[31:0]" gui_info=""/>
     <Object name="cpu/ext_oe" gui_info=""/>
     <Object name="cpu/ext_we" gui_info=""/>
     <Object name="reg1[31:0]" gui_info="hw_vios/hw_vio_1=1"/>
@@ -104,18 +105,18 @@
     <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
-        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;h3409_0001"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe4[31:0]"/>
+        <Option Id="MAP" value="probe5[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
-        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;h3409_0001"/>
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
       </probeOptions>
       <nets>
@@ -303,7 +304,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe3[31:0]"/>
+        <Option Id="MAP" value="probe5[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1087,6 +1088,58 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe7[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="cpu/DataRoad/last_alu_result[31]"/>
+        <net name="cpu/DataRoad/last_alu_result[30]"/>
+        <net name="cpu/DataRoad/last_alu_result[29]"/>
+        <net name="cpu/DataRoad/last_alu_result[28]"/>
+        <net name="cpu/DataRoad/last_alu_result[27]"/>
+        <net name="cpu/DataRoad/last_alu_result[26]"/>
+        <net name="cpu/DataRoad/last_alu_result[25]"/>
+        <net name="cpu/DataRoad/last_alu_result[24]"/>
+        <net name="cpu/DataRoad/last_alu_result[23]"/>
+        <net name="cpu/DataRoad/last_alu_result[22]"/>
+        <net name="cpu/DataRoad/last_alu_result[21]"/>
+        <net name="cpu/DataRoad/last_alu_result[20]"/>
+        <net name="cpu/DataRoad/last_alu_result[19]"/>
+        <net name="cpu/DataRoad/last_alu_result[18]"/>
+        <net name="cpu/DataRoad/last_alu_result[17]"/>
+        <net name="cpu/DataRoad/last_alu_result[16]"/>
+        <net name="cpu/DataRoad/last_alu_result[15]"/>
+        <net name="cpu/DataRoad/last_alu_result[14]"/>
+        <net name="cpu/DataRoad/last_alu_result[13]"/>
+        <net name="cpu/DataRoad/last_alu_result[12]"/>
+        <net name="cpu/DataRoad/last_alu_result[11]"/>
+        <net name="cpu/DataRoad/last_alu_result[10]"/>
+        <net name="cpu/DataRoad/last_alu_result[9]"/>
+        <net name="cpu/DataRoad/last_alu_result[8]"/>
+        <net name="cpu/DataRoad/last_alu_result[7]"/>
+        <net name="cpu/DataRoad/last_alu_result[6]"/>
+        <net name="cpu/DataRoad/last_alu_result[5]"/>
+        <net name="cpu/DataRoad/last_alu_result[4]"/>
+        <net name="cpu/DataRoad/last_alu_result[3]"/>
+        <net name="cpu/DataRoad/last_alu_result[2]"/>
+        <net name="cpu/DataRoad/last_alu_result[1]"/>
+        <net name="cpu/DataRoad/last_alu_result[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe1[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
@@ -1327,7 +1380,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe0[31:0]"/>
+        <Option Id="MAP" value="probe3[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1505,7 +1558,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe5[1:0]"/>
+        <Option Id="MAP" value="probe6[1:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1579,7 +1632,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe1[31:0]"/>
+        <Option Id="MAP" value="probe5[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1631,7 +1684,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe2[31:0]"/>
+        <Option Id="MAP" value="probe4[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1780,18 +1833,18 @@
     <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
-        <Option Id="COMPARE_VALUE.0" value="eq32&apos;h03C5_0EA2"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe3[31:0]"/>
+        <Option Id="MAP" value="probe0[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
-        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;h03C5_0EA2"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
       </probeOptions>
       <nets>
@@ -1839,7 +1892,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe2[31:0]"/>
+        <Option Id="MAP" value="probe1[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1891,7 +1944,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe1[31:0]"/>
+        <Option Id="MAP" value="probe2[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -2037,7 +2090,7 @@
         <net name="cpu/DataRoad/regs/reg_0[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
@@ -2047,7 +2100,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe5[31:0]"/>
+        <Option Id="MAP" value="probe6[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -2089,7 +2142,7 @@
         <net name="cpu/DataRoad/regs/reg_a0[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
@@ -2100,6 +2153,58 @@
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe4[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="cpu/DataRoad/regs/reg_s0[31]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[30]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[29]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[28]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[27]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[26]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[25]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[24]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[23]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[22]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[21]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[20]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[19]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[18]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[17]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[16]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[15]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[14]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[13]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[12]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[11]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[10]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[9]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[8]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[7]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[6]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[5]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[4]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[3]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[2]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[1]"/>
+        <net name="cpu/DataRoad/regs/reg_s0[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe7[31:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -2139,6 +2244,162 @@
         <net name="cpu/DataRoad/regs/reg_s1[2]"/>
         <net name="cpu/DataRoad/regs/reg_s1[1]"/>
         <net name="cpu/DataRoad/regs/reg_s1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="cpu/DataRoad/regs/reg_t0[31]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[30]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[29]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[28]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[27]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[26]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[25]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[24]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[23]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[22]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[21]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[20]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[19]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[18]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[17]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[16]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[15]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[14]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[13]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[12]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[11]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[10]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[9]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[8]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[7]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[6]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[5]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[4]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[3]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[2]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[1]"/>
+        <net name="cpu/DataRoad/regs/reg_t0[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="cpu/DataRoad/regs/reg_t1[31]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[30]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[29]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[28]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[27]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[26]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[25]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[24]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[23]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[22]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[21]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[20]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[19]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[18]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[17]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[16]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[15]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[14]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[13]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[12]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[11]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[10]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[9]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[8]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[7]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[6]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[5]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[4]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[3]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[2]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[1]"/>
+        <net name="cpu/DataRoad/regs/reg_t1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe5[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="cpu/DataRoad/regs/reg_t2[31]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[30]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[29]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[28]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[27]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[26]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[25]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[24]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[23]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[22]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[21]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[20]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[19]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[18]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[17]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[16]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[15]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[14]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[13]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[12]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[11]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[10]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[9]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[8]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[7]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[6]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[5]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[4]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[3]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[2]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[1]"/>
+        <net name="cpu/DataRoad/regs/reg_t2[0]"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">

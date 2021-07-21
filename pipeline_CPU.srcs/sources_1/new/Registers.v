@@ -53,8 +53,8 @@ module Registers#(parameter WIDTH = 32)
     assign reg2 = Registers[9];
     assign reg3 = Registers[10];
 
-    assign busA = Registers[Ra];
-    assign busB = Registers[Rb];
+    assign busA =((Ra==Rw)&WE)?busW: Registers[Ra];
+    assign busB =((Rb==Rw)&WE)?busW: Registers[Rb];
     //write
     always @ (posedge clk, posedge rst)
     begin

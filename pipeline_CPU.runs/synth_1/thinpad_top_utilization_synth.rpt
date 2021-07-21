@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Tue Jul 20 21:40:49 2021
+| Date         : Wed Jul 21 16:09:34 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file thinpad_top_utilization_synth.rpt -pb thinpad_top_utilization_synth.pb
 | Design       : thinpad_top
@@ -30,14 +30,14 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1479 |     0 |    134600 |  1.10 |
-|   LUT as Logic          | 1479 |     0 |    134600 |  1.10 |
+| Slice LUTs*             | 1484 |     0 |    134600 |  1.10 |
+|   LUT as Logic          | 1484 |     0 |    134600 |  1.10 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
 | Slice Registers         | 1610 |     0 |    269200 |  0.60 |
 |   Register as Flip Flop | 1593 |     0 |    269200 |  0.59 |
 |   Register as Latch     |   17 |     0 |    269200 | <0.01 |
 | F7 Muxes                |  256 |     0 |     67300 |  0.38 |
-| F8 Muxes                |    0 |     0 |     33650 |  0.00 |
+| F8 Muxes                |  128 |     0 |     33650 |  0.38 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -115,7 +115,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    0 |     0 |        32 |  0.00 |
+| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
 | BUFIO      |    0 |     0 |        40 |  0.00 |
 | MMCME2_ADV |    0 |     0 |        10 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |        10 |  0.00 |
@@ -150,11 +150,12 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDCE     | 1466 |        Flop & Latch |
-| LUT6     | 1025 |                 LUT |
+| LUT6     |  966 |                 LUT |
 | LUT2     |  258 |                 LUT |
 | MUXF7    |  256 |               MuxFx |
+| LUT5     |  207 |                 LUT |
 | LUT3     |  146 |                 LUT |
-| LUT5     |  143 |                 LUT |
+| MUXF8    |  128 |               MuxFx |
 | OBUFT    |  106 |                  IO |
 | FDRE     |   96 |        Flop & Latch |
 | LUT4     |   74 |                 LUT |
@@ -164,17 +165,16 @@ Table of Contents
 | FDPE     |   31 |        Flop & Latch |
 | CARRY4   |   25 |          CarryLogic |
 | LDCE     |   17 |        Flop & Latch |
+| BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
 
 8. Black Boxes
 --------------
 
-+-----------+------+
-|  Ref Name | Used |
-+-----------+------+
-| clk_wiz_0 |    1 |
-+-----------+------+
++----------+------+
+| Ref Name | Used |
++----------+------+
 
 
 9. Instantiated Netlists
