@@ -84,11 +84,31 @@ module DataRoad#(parameter WIDTH = 32)
     assign branch_real     = real_branch_select;
     assign target_real     = target;
     assign beq_target_real = beq_target;
-    wire uart=1'b0;
+
+    wire uart = 1'b0;
+    wire read_base = 1'b0;
+
+    //base wire select
+    wire [19:0]pc_base_addr;
+    wire pc_base_ce,pc_base_oe,pc_base_we;
+    wire[3:0] pc_base_byte;
+    wire [19:0]mem_base_addr;
+    wire mem_base_ce,mem_base_oe,mem_base_we;
+    wire[3:0] mem_base_byte;
+    
+    assign base_addr=read_base?mem_base_addr:pc_base_addr;
+    assign base_byte=read_base?mem_base_byte:pc_base_byte;
+    assign base_ce=read_base?mem_base_ce:pc_base_ce;
+    assign base_oe=read_base?mem_base_oe:pc_base_oe;
+    assign base_we=read_base?mem_base_we:pc_base_we;
+
+    wire[31:0] pc_base_data_wire;
+    wire[31:0] mem_base_data_wire;
+    assign base_data_wire=read_base?mem_base_data_wire:pc_base_data_wire;
     PC pc(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause|uart),
+    .en(load_use_pause&(!uart)&(!read_base)),
     .branch(branch_real),
     .Jump(Jump),
     .RUN(RUN),
@@ -99,12 +119,12 @@ module DataRoad#(parameter WIDTH = 32)
 
     .uart(uart),
 
-    .base_data_wire(base_data_wire),
-    .base_addr(base_addr),
-    .base_byte(base_byte),
-    .base_ce(base_ce),
-    .base_oe(base_oe),
-    .base_we(base_we)
+    .base_data_wire(pc_base_data_wire),
+    .base_addr(pc_base_addr),
+    .base_byte(pc_base_byte),
+    .base_ce(pc_base_ce),
+    .base_oe(pc_base_oe),
+    .base_we(pc_base_we)
     );
     
     wire[63:0] IF_In;
@@ -115,7 +135,7 @@ module DataRoad#(parameter WIDTH = 32)
     D_Trigger #(64)IF_ID(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause),
+    .en(load_use_pause&(!read_base)),
     .clear(IF_ID_clear|load_use_clear_MEM),
     .d(IF_In),
     .q(ID_Out)
@@ -184,7 +204,7 @@ module DataRoad#(parameter WIDTH = 32)
     D_Trigger #(170)ID_EX(
     .clk(clk),
     .rst(rst),
-    .en(1'b1),
+    .en(!read_base),
     .clear(load_use_clear),
     .d(ID_In),
     .q(EX_Out)
@@ -307,7 +327,7 @@ module DataRoad#(parameter WIDTH = 32)
     .clk(clk),
     .rst(rst),
     .en(1'b1),
-    .clear(1'b0),
+    .clear(read_base),
     .d(EX_In),
     .q(MEM_Out)
     );
@@ -369,14 +389,23 @@ module DataRoad#(parameter WIDTH = 32)
     .Addr(alu_result_MEM),
     .DataIn(real_DataIn),
     .DataOut(DataOut),
+    .MemtoReg(MemtoReg_MEM),
 
-    .base_data_wire(base_data_wire),
+    .base_data_wire(mem_base_data_wire),
+    .base_addr(mem_base_addr),
+    .base_byte(mem_base_byte),
+    .base_ce(mem_base_ce),
+    .base_oe(mem_base_oe),
+    .base_we(mem_base_we),
+
     .rdn(rdn),
     .wrn(wrn),
     .data_ready(data_ready),
     .tbre(tbre),
     .tsre(tsre),
     .uart(uart),
+
+    .read_base(read_base),
 
     .ext_data_wire(ext_data_wire),
     .ext_addr(ext_addr),

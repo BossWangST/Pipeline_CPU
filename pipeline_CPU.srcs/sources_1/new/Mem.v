@@ -28,8 +28,17 @@ module Mem(input Mem_Wr,
            input clk_50M,
            output [31:0] DataOut,
            input rst,
+           input MemtoReg,
+
+           output read_base,
 
            inout wire[31:0] base_data_wire,
+           output wire[19:0] base_addr,
+           output wire[3:0] base_byte,
+           output wire base_ce,              //* select enable, select base ram or ext ram
+           output wire base_oe,               //* read enable
+           output wire base_we,
+
            output uart,
            output rdn,// 读锁存信号
            output wrn,// 写锁存信号
@@ -51,12 +60,7 @@ module Mem(input Mem_Wr,
     //assign Addr_2 = Addr+2;
     //assign Addr_3 = Addr+3;
     
-    assign uart=(Addr==32'hBFD003F8)|
-                (Addr==32'hBFD003F9)|
-                (Addr==32'hBFD003FA)|
-                (Addr==32'hBFD003FB)|
-                (Addr==32'hBFD003FC)|
-                (Addr==32'hBFD003FD);
+    assign uart=(Addr==32'hBFD003F8);
     wire ce;
     wire oe,we;
     assign ce=uart?1'b1:1'b0;
@@ -77,8 +81,14 @@ module Mem(input Mem_Wr,
                          {4{DataIn[7:0]}};
 
     wire[19:0] physical_addr=Addr[21:2];
+
+    wire base_or_ext=Addr[22];//1->ext, 0->base
+    wire uart_state_check=(Addr==32'hBFD003FC);
     
-    wire[31:0] sram_DataOut;
+    assign read_base=(!base_or_ext)&MemtoReg;
+
+    wire[31:0] ext_DataOut;
+    wire[31:0] base_DataOut;
     wire[7:0] uart_DataOut;
     ext_sram_control ext_control(
         .clk(clk_50M),
@@ -89,7 +99,7 @@ module Mem(input Mem_Wr,
         .datain(real_DataIn),
         .addr(physical_addr),
         .byte(byte),
-        .dataout(sram_DataOut),
+        .dataout(ext_DataOut),
 
         .ext_data_wire(ext_data_wire),
         .ext_addr(ext_addr),
@@ -97,6 +107,25 @@ module Mem(input Mem_Wr,
         .ext_ce(ext_ce),
         .ext_oe(ext_oe),
         .ext_we(ext_we)
+    );
+
+    base_sram_control base_control(
+        .clk(clk),
+        .rst(rst),
+        .ce(ce),
+        .oe(oe),
+        .we(we),
+        .datain(32'h0000_0000),
+        .addr(physical_pc),
+        .byte(byte),
+        .dataout(base_DataOut),
+
+        .base_data_wire(base_data_wire),
+        .base_addr(base_addr),
+        .base_byte(base_byte),
+        .base_ce(base_ce),
+        .base_oe(base_oe),
+        .base_we(base_we)
     );
 
     uart_io uart_io(
@@ -114,7 +143,9 @@ module Mem(input Mem_Wr,
         .tsre(tsre)
     );
 
-    assign DataOut=uart?{24'h000_000,uart_DataOut}:sram_DataOut;
+    assign DataOut=uart?{24'h000_000,uart_DataOut}:
+                   uart_state_check?{30'h0,tbre,tsre}:
+                   base_or_ext?ext_DataOut:base_DataOut;
     //Inst_mem_0 memory(
     //    .clk(clk),
     //    .a(physical_addr),

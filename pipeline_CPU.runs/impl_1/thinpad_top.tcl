@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config  -id {DRC REQP-1582}  -string {{ERROR: [DRC REQP-1582] iobuf_io_loaded: IOBUF base_data_wire_IOBUF[1]_inst pin IO drives one or more invalid loads.}}  -suppress 
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -68,12 +69,18 @@ set rc [catch {
   set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 2
   set_param xicom.use_bs_reader 1
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top.dcp
+  create_project -in_memory -part xc7a200tfbg676-2
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/wt [current_project]
   set_property parent.project_path D:/University/CPU/pipeline_CPU/pipeline_CPU.xpr [current_project]
   set_property ip_output_repo D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  add_files -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/thinpad_top.dcp
+  read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_xdc D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc
+  link_design -top thinpad_top -part xc7a200tfbg676-2
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -168,6 +175,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force thinpad_top.mmi }
   write_bitstream -force thinpad_top.bit 
   catch {write_debug_probes -quiet -force thinpad_top}
