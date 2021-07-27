@@ -28,7 +28,8 @@ module Registers#(parameter WIDTH = 32)
                   input [4:0] Rw,
                   input WE,
                   input [WIDTH-1:0] busW,
-                  (*mark_debug = "true"*)output [WIDTH-1:0] reg1, reg2, reg3, 
+                  (*mark_debug = "true"*)output [WIDTH-1:0] reg1,
+                  output[WIDTH-1:0] reg2, reg3, 
                   output [WIDTH-1:0] busA, 
                   output [WIDTH-1:0] busB);
     reg [WIDTH-1:0] Registers [31:0];

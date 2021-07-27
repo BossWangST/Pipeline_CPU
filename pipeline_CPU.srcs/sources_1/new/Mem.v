@@ -32,7 +32,7 @@ module Mem(input Mem_Wr,
            input rst,
            input MemtoReg,
 
-           output read_base,
+           //?(*mark_debug = "true"*)output read_base,
            output [19:0] physical_addr,
 
            //?inout wire[31:0] base_data_wire,
@@ -86,12 +86,15 @@ module Mem(input Mem_Wr,
     //wire[19:0] physical_addr=Addr[21:2];
     assign physical_addr=Addr[21:2];
 
-    (*mark_debug = "true"*)wire base_or_ext;
+    wire base_or_ext;
     assign base_or_ext=Addr[22];//1->ext, 0->base
     wire uart_state_check;
     assign uart_state_check=(Addr==32'hBFD003FC)?1'b1 : 1'b0;
     
-    assign read_base=(!base_or_ext)&MemtoReg;
+    //?assign read_base=(!base_or_ext)&MemtoReg;
+
+    (*mark_debug = "true"*)wire [31:0] disp_base_DataOut;
+    assign disp_base_DataOut=base_DataOut;
 
     wire[31:0] ext_DataOut;
     //?wire[31:0] base_DataOut;

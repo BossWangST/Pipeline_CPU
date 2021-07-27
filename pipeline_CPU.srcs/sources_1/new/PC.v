@@ -42,7 +42,8 @@ module PC(input clk,
           );
     (*mark_debug = "true"*)reg [31:0] pc;
 
-    assign Inst=base_DataOut;
+    assign Inst=en?base_DataOut:Inst;
+
     //initial
     //begin
     //    //pc     = 32'h0000_0000;
