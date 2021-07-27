@@ -15,9 +15,9 @@
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="159"></ValueColumnWidth>
+      <ValueColumnWidth column_width="149"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="13" />
    <wave_markers>
    </wave_markers>
    <wvobject fp_name="cpu/DataRoad/pc/pc" type="array">
@@ -84,10 +84,38 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="cpu/DataRoad/disp_read_base" type="logic">
+   <wvobject fp_name="cpu/DataRoad/uart" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/disp_read_base</obj_property>
-      <obj_property name="ObjectShortName">disp_read_base</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/uart</obj_property>
+      <obj_property name="ObjectShortName">uart</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/read_base" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/read_base</obj_property>
+      <obj_property name="ObjectShortName">read_base</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/mem/read_base" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/mem/read_base</obj_property>
+      <obj_property name="ObjectShortName">read_base</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/mem/disp_MemtoReg" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/mem/disp_MemtoReg</obj_property>
+      <obj_property name="ObjectShortName">disp_MemtoReg</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/mem/base_or_ext" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/mem/base_or_ext</obj_property>
+      <obj_property name="ObjectShortName">base_or_ext</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

@@ -26,18 +26,21 @@ module Mem(input Mem_Wr,
            input [31:0] DataIn,
            input clk,
            input clk_50M,
+
+           input [31:0]base_DataOut,
            output [31:0] DataOut,
            input rst,
            input MemtoReg,
 
            output read_base,
+           output [19:0] physical_addr,
 
-           inout wire[31:0] base_data_wire,
-           output wire[19:0] base_addr,
-           output wire[3:0] base_byte,
-           output wire base_ce,              //* select enable, select base ram or ext ram
-           output wire base_oe,               //* read enable
-           output wire base_we,
+           //?inout wire[31:0] base_data_wire,
+           //?output wire[19:0] base_addr,
+           //?output wire[3:0] base_byte,
+           //?output wire base_ce,              //* select enable, select base ram or ext ram
+           //?output wire base_oe,               //* read enable
+           //?output wire base_we,
 
            output uart,
            output rdn,// 读锁存信号
@@ -60,7 +63,7 @@ module Mem(input Mem_Wr,
     //assign Addr_2 = Addr+2;
     //assign Addr_3 = Addr+3;
     
-    assign uart=(Addr==32'hBFD003F8);
+    assign uart=(Addr==32'hBFD003F8)?1'b1:1'b0;
     wire ce;
     wire oe,we;
     assign ce=uart?1'b1:1'b0;
@@ -80,15 +83,18 @@ module Mem(input Mem_Wr,
     assign real_DataIn = (ByteStore==1'b0)?DataIn:
                          {4{DataIn[7:0]}};
 
-    wire[19:0] physical_addr=Addr[21:2];
+    //wire[19:0] physical_addr=Addr[21:2];
+    assign physical_addr=Addr[21:2];
 
-    wire base_or_ext=Addr[22];//1->ext, 0->base
-    wire uart_state_check=(Addr==32'hBFD003FC);
+    (*mark_debug = "true"*)wire base_or_ext;
+    assign base_or_ext=Addr[22];//1->ext, 0->base
+    wire uart_state_check;
+    assign uart_state_check=(Addr==32'hBFD003FC)?1'b1 : 1'b0;
     
     assign read_base=(!base_or_ext)&MemtoReg;
 
     wire[31:0] ext_DataOut;
-    wire[31:0] base_DataOut;
+    //?wire[31:0] base_DataOut;
     wire[7:0] uart_DataOut;
     ext_sram_control ext_control(
         .clk(clk_50M),
@@ -109,39 +115,39 @@ module Mem(input Mem_Wr,
         .ext_we(ext_we)
     );
 
-    base_sram_control base_control(
-        .clk(clk),
-        .rst(rst),
-        .ce(ce),
-        .oe(oe),
-        .we(we),
-        .datain(32'h0000_0000),
-        .addr(physical_pc),
-        .byte(byte),
-        .dataout(base_DataOut),
+    //?base_sram_control base_control(
+    //?    .clk(clk),
+    //?    .rst(rst),
+    //?    .ce(ce),
+    //?    .oe(oe),
+    //?    .we(we),
+    //?    .datain(32'h0000_0000),
+    //?    .addr(physical_addr),
+    //?    .byte(byte),
+    //?    .dataout(base_DataOut),
 
-        .base_data_wire(base_data_wire),
-        .base_addr(base_addr),
-        .base_byte(base_byte),
-        .base_ce(base_ce),
-        .base_oe(base_oe),
-        .base_we(base_we)
-    );
+    //?    .base_data_wire(base_data_wire),
+    //?    .base_addr(base_addr),
+    //?    .base_byte(base_byte),
+    //?    .base_ce(base_ce),
+    //?    .base_oe(base_oe),
+    //?    .base_we(base_we)
+    //?);
 
-    uart_io uart_io(
-        .clk(clk),
-        .rst(rst),
-        .oe(uart_oe),
-        .we(uart_we),
-        .datain(real_DataIn[7:0]),
-        .dataout(uart_DataOut),
-        .base_data_wire(base_data_wire),
-        .rdn(rdn),
-        .wrn(wrn),
-        .data_ready(data_ready),
-        .tbre(tbre),
-        .tsre(tsre)
-    );
+    //?uart_io uart_io(
+    //?    .clk(clk),
+    //?    .rst(rst),
+    //?    .oe(uart_oe),
+    //?    .we(uart_we),
+    //?    .datain(real_DataIn[7:0]),
+    //?    .dataout(uart_DataOut),
+    //?    .base_data_wire(base_data_wire),
+    //?    .rdn(rdn),
+    //?    .wrn(wrn),
+    //?    .data_ready(data_ready),
+    //?    .tbre(tbre),
+    //?    .tsre(tsre)
+    //?);
 
     assign DataOut=uart?{24'h000_000,uart_DataOut}:
                    uart_state_check?{30'h0,tbre,tsre}:

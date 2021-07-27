@@ -85,30 +85,33 @@ module DataRoad#(parameter WIDTH = 32)
     assign target_real     = target;
     assign beq_target_real = beq_target;
 
-    wire uart = 1'b0;
-    wire read_base = 1'b0;
+    wire uart;
+    wire read_base;
 
     //base wire select
-    wire [19:0]pc_base_addr;
-    wire pc_base_ce,pc_base_oe,pc_base_we;
-    wire[3:0] pc_base_byte;
-    wire [19:0]mem_base_addr;
-    wire mem_base_ce,mem_base_oe,mem_base_we;
-    wire[3:0] mem_base_byte;
+    //?wire [19:0]pc_base_addr;
+    //?wire pc_base_ce,pc_base_oe,pc_base_we;
+    //?wire[3:0] pc_base_byte;
+    //?wire [19:0]mem_base_addr;
+    //?wire mem_base_ce,mem_base_oe,mem_base_we;
+    //?wire[3:0] mem_base_byte;
     
-    assign base_addr=read_base?mem_base_addr:pc_base_addr;
-    assign base_byte=read_base?mem_base_byte:pc_base_byte;
-    assign base_ce=read_base?mem_base_ce:pc_base_ce;
-    assign base_oe=read_base?mem_base_oe:pc_base_oe;
-    assign base_we=read_base?mem_base_we:pc_base_we;
+    //?assign base_addr=read_base?mem_base_addr:pc_base_addr;
+    //?assign base_byte=read_base?mem_base_byte:pc_base_byte;
+    //?assign base_ce=read_base?mem_base_ce:pc_base_ce;
+    //?assign base_oe=read_base?mem_base_oe:pc_base_oe;
+    //?assign base_we=read_base?mem_base_we:pc_base_we;
 
-    wire[31:0] pc_base_data_wire;
-    wire[31:0] mem_base_data_wire;
-    assign base_data_wire=read_base?mem_base_data_wire:pc_base_data_wire;
+    //?wire[31:0] pc_base_data_wire;
+    //?wire[31:0] mem_base_data_wire;
+    //?assign base_data_wire=read_base?mem_base_data_wire:pc_base_data_wire;
+
+    wire[19:0] physical_pc,physical_addr;
+    wire [31:0] base_DataOut; 
     PC pc(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause&(!uart)&(!read_base)),
+    .en(load_use_pause&(!real_uart)&(!read_base)),
     .branch(branch_real),
     .Jump(Jump),
     .RUN(RUN),
@@ -117,16 +120,42 @@ module DataRoad#(parameter WIDTH = 32)
     .pc_add_4(pc_add_4),
     .Inst(Inst),
 
-    .uart(uart),
+    .physical_pc(physical_pc),
+    .base_DataOut(base_DataOut)
+    //?.uart(real_uart),
 
-    .base_data_wire(pc_base_data_wire),
-    .base_addr(pc_base_addr),
-    .base_byte(pc_base_byte),
-    .base_ce(pc_base_ce),
-    .base_oe(pc_base_oe),
-    .base_we(pc_base_we)
+    //?.base_data_wire(base_data_wire),
+    //?.base_addr(pc_base_addr),
+    //?.base_byte(pc_base_byte),
+    //?.base_ce(pc_base_ce),
+    //?.base_oe(pc_base_oe),
+    //?.base_we(pc_base_we)
     );
-    
+    wire ce,oe,we;
+    assign ce=1'b0;
+    assign {oe,we}=2'b01;
+
+    wire [19:0] real_base_addr;
+    assign real_base_addr = read_base?physical_addr:physical_pc;
+    base_sram_control base_control(
+        .clk(clk),
+        .rst(rst),
+        .ce(ce),
+        .oe(oe),
+        .we(we),
+        .datain(32'h0000_0000),
+        .addr(real_base_addr),
+        .byte(4'b0000),
+        .dataout(base_DataOut),
+
+        .base_data_wire(base_data_wire),
+        .base_addr(base_addr),
+        .base_byte(base_byte),
+        .base_ce(base_ce),
+        .base_oe(base_oe),
+        .base_we(base_we)
+    );
+
     wire[63:0] IF_In;
     assign IF_In = {Inst,pc_add_4};
     wire [63:0] ID_Out;
@@ -381,6 +410,7 @@ module DataRoad#(parameter WIDTH = 32)
     //?    .ext_we(ext_we)
     //?);
 
+
     Mem mem(
     .clk(clk),
     .clk_50M(clk_50M),
@@ -391,12 +421,13 @@ module DataRoad#(parameter WIDTH = 32)
     .DataOut(DataOut),
     .MemtoReg(MemtoReg_MEM),
 
-    .base_data_wire(mem_base_data_wire),
-    .base_addr(mem_base_addr),
-    .base_byte(mem_base_byte),
-    .base_ce(mem_base_ce),
-    .base_oe(mem_base_oe),
-    .base_we(mem_base_we),
+    .base_DataOut(base_DataOut),
+    //?.base_data_wire(base_data_wire),
+    //?.base_addr(mem_base_addr),
+    //?.base_byte(mem_base_byte),
+    //?.base_ce(mem_base_ce),
+    //?.base_oe(mem_base_oe),
+    //?.base_we(mem_base_we),
 
     .rdn(rdn),
     .wrn(wrn),
@@ -405,6 +436,7 @@ module DataRoad#(parameter WIDTH = 32)
     .tsre(tsre),
     .uart(uart),
 
+    .physical_addr(physical_addr),
     .read_base(read_base),
 
     .ext_data_wire(ext_data_wire),
