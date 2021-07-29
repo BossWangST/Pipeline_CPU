@@ -20,7 +20,7 @@ proc create_report { reportName command } {
 set_param tcl.collectionResultDisplayLimit 0
 set_param chipscope.maxJobs 2
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config  -id {DRC REQP-1582}  -string {{ERROR: [DRC REQP-1582] iobuf_io_loaded: IOBUF base_data_wire_IOBUF[1]_inst pin IO drives one or more invalid loads.}}  -suppress 
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7a200tfbg676-2
@@ -31,11 +31,12 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/wt [current_project]
 set_property parent.project_path D:/University/CPU/pipeline_CPU/pipeline_CPU.xpr [current_project]
+set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo d:/University/CPU/pipeline_CPU/pipeline_CPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
@@ -93,32 +94,32 @@ write_checkpoint -force -noxdef clk_wiz_0.dcp
 create_report "clk_wiz_0_synth_1_synth_report_utilization_0" "report_utilization -file clk_wiz_0_utilization_synth.rpt -pb clk_wiz_0_utilization_synth.pb"
 
 if { [catch {
-  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
+  write_verilog -force -mode synth_stub D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
+  write_vhdl -force -mode synth_stub D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
+  write_verilog -force -mode funcsim D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -128,32 +129,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
+  file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0.dcp D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_stub.v d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_stub.v D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_stub.vhdl d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_stub.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_sim_netlist.v d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_sim_netlist.v D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_sim_netlist.vhdl d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
+  file rename -force D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/clk_wiz_0_synth_1/clk_wiz_0_sim_netlist.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -162,13 +163,13 @@ if { [catch {
 
 if {[file isdir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/clk_wiz_0]} {
   catch { 
-    file copy -force d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/clk_wiz_0
+    file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/clk_wiz_0
   }
 }
 
 if {[file isdir D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/clk_wiz_0]} {
   catch { 
-    file copy -force d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/clk_wiz_0
+    file copy -force D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl D:/University/CPU/pipeline_CPU/pipeline_CPU.ip_user_files/ip/clk_wiz_0
   }
 }
 file delete __synthesis_is_running__

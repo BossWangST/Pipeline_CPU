@@ -43,6 +43,10 @@ module Mem(input Mem_Wr,
            //?output wire base_we,
 
            output uart,
+           input uart_WR,
+           output uart_oe,uart_we,
+           output [3:0]out_byte,
+
            output rdn,// 读锁存信号
            output wrn,// 写锁存信号
            input data_ready,
@@ -71,9 +75,12 @@ module Mem(input Mem_Wr,
     assign ce=uart?1'b1:1'b0;
     assign {oe,we}=(Mem_Wr==1'b1)?2'b10:2'b01;
 
-    wire uart_oe,uart_we;
-    assign {uart_oe,uart_we}=uart?{oe,we}:2'b11;
+    //?wire uart_oe,uart_we;
+    //assign {uart_oe,uart_we}=uart?{oe,we}:2'b11;
+    assign uart_oe=(uart|uart_WR)?oe:1'b1;
+    assign uart_we=(uart|uart_WR)?we:1'b1;
     wire[3:0] byte;
+    assign out_byte=byte;
     assign byte =(ByteStore==1'b0)?4'b0000:
                  ((Addr[1:0]==2'b00)?4'b1110:
                   (Addr[1:0]==2'b01)?4'b1101:
@@ -140,24 +147,28 @@ module Mem(input Mem_Wr,
     //?    .base_oe(base_oe),
     //?    .base_we(base_we)
     //?);
-    wire uart_rdn,uart_wrn;
-    assign {rdn,wrn}=uart?{uart_rdn,uart_wrn}:2'bz;
-    uart_io uart_io(
-        .clk(clk),
-        .rst(rst),
-        .oe(uart_oe),
-        .we(uart_we),
-        .datain(real_DataIn[7:0]),
-        .dataout(uart_DataOut),
-        .base_data_wire(base_data_wire),
-        .rdn(uart_rdn),
-        .wrn(uart_wrn),
-        .data_ready(data_ready),
-        .tbre(tbre),
-        .tsre(tsre)
-    );
+    //?wire uart_rdn,uart_wrn;
+    //?//assign {rdn,wrn}=uart?{uart_rdn,uart_wrn}:2'bz;
+    //?assign rdn=(uart|uart_WR)?uart_rdn:1'bz;
+    //?assign wrn=(uart|uart_WR)?uart_wrn:1'bz;
+    //?wire [31:0]uart_data_wire;
+    //?assign base_data_wire=(uart|uart_WR)?uart_data_wire:32'bz;
+    //?uart_io uart_io(
+    //?    .clk(clk),
+    //?    .rst(rst),
+    //?    .oe(uart_oe),
+    //?    .we(uart_we),
+    //?    .datain(real_DataIn[7:0]),
+    //?    .dataout(uart_DataOut),
+    //?    .base_data_wire(base_data_wire),
+    //?    .rdn(uart_rdn),
+    //?    .wrn(uart_wrn),
+    //?    .data_ready(data_ready),
+    //?    .tbre(tbre),
+    //?    .tsre(tsre)
+    //?);
 
-    assign DataOut=uart?{24'h000_000,uart_DataOut}:
+    assign DataOut=uart?{24'h000_000,base_DataOut[7:0]}:
                    uart_state_check_WR?32'h0000_0003:
                    base_or_ext?ext_DataOut:base_DataOut;
     //Inst_mem_0 memory(

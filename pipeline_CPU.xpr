@@ -36,13 +36,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="95"/>
-    <Option Name="WTModelSimExportSim" Val="95"/>
-    <Option Name="WTQuestaExportSim" Val="95"/>
-    <Option Name="WTIesExportSim" Val="95"/>
-    <Option Name="WTVcsExportSim" Val="95"/>
-    <Option Name="WTRivieraExportSim" Val="95"/>
-    <Option Name="WTActivehdlExportSim" Val="95"/>
+    <Option Name="WTXSimExportSim" Val="97"/>
+    <Option Name="WTModelSimExportSim" Val="97"/>
+    <Option Name="WTQuestaExportSim" Val="97"/>
+    <Option Name="WTIesExportSim" Val="97"/>
+    <Option Name="WTVcsExportSim" Val="97"/>
+    <Option Name="WTRivieraExportSim" Val="97"/>
+    <Option Name="WTActivehdlExportSim" Val="97"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -169,15 +169,16 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/uart_io.v">
+      <File Path="$PSRCDIR/sources_1/new/thinpad_top.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/thinpad_top.v">
+      <File Path="$PSRCDIR/sources_1/new/uart_io.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

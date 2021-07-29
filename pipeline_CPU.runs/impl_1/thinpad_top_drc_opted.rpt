@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Thu Jul 29 09:35:52 2021
+| Date         : Thu Jul 29 21:08:33 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_drc -file thinpad_top_drc_opted.rpt -pb thinpad_top_drc_opted.pb -rpx thinpad_top_drc_opted.rpx
 | Design       : thinpad_top
@@ -24,173 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 32
-+--------+----------+---------------------------------+------------+
-| Rule   | Severity | Description                     | Violations |
-+--------+----------+---------------------------------+------------+
-| RPBF-3 | Warning  | IO port buffering is incomplete | 32         |
-+--------+----------+---------------------------------+------------+
+             Violations found: 0
++------+----------+-------------+------------+
+| Rule | Severity | Description | Violations |
++------+----------+-------------+------------+
++------+----------+-------------+------------+
 
 2. REPORT DETAILS
 -----------------
-RPBF-3#1 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[0] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#2 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[10] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#3 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[11] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#4 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[12] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#5 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[13] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#6 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[14] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#7 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[15] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#8 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[16] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#9 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[17] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#10 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[18] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#11 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[19] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#12 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[1] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#13 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[20] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#14 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[21] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#15 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[22] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#16 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[23] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#17 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[24] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#18 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[25] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#19 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[26] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#20 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[27] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#21 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[28] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#22 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[29] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#23 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[2] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#24 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[30] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#25 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[31] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#26 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[3] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#27 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[4] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#28 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[5] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#29 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[6] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#30 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[7] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#31 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[8] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
-RPBF-3#32 Warning
-IO port buffering is incomplete  
-Device port base_ram_data[9] expects both input and output buffering but the buffers are incomplete.
-Related violations: <none>
-
 

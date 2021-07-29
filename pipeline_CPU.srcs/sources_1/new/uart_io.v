@@ -38,6 +38,8 @@ module uart_io(
     );
 
     reg[7:0] data;
+    (*mark_debug = "true"*)wire[7:0] disp_datain;
+    assign disp_datain=data;
     reg data_z;
     assign base_data_wire=data_z?32'bz:{24'h000000,data};
 
@@ -99,6 +101,7 @@ module uart_io(
                     dataout<=base_data_wire[7:0];
                     rdn<=1'b1;//锁住读到的数据
                     state<=IDLE;
+                    data_z<=1'b1;
                 end
 
                 WRITE_START:
