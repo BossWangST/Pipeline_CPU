@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1627390501">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1627522287">
   <File Type="PA-TCL" Name="thinpad_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="thinpad_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="thinpad_top_reports.tcl"/>
@@ -122,16 +122,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/thinpad_top.v">
+    <File Path="$PSRCDIR/sources_1/new/uart_io.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/uart_io.v">
+    <File Path="$PSRCDIR/sources_1/new/thinpad_top.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

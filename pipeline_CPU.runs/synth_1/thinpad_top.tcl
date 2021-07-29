@@ -60,6 +60,7 @@ read_verilog -library xil_defaultlib {
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/base_sram_control.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/branch_select.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/ext_sram_control.v
+  D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/uart_io.v
   D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/new/thinpad_top.v
 }
 read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci

@@ -9,13 +9,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1025fs"></ZoomEndTime>
+      <ZoomStartTime time="815fs"></ZoomStartTime>
+      <ZoomEndTime time="828fs"></ZoomEndTime>
       <Cursor1Time time="815fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="119"></ValueColumnWidth>
+      <ValueColumnWidth column_width="109"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="8" />
    <wave_markers>
@@ -68,17 +68,18 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="cpu/DataRoad/mem/disp_uart_state_check" type="logic">
+   <wvobject fp_name="cpu/DataRoad/real_base_addr" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/mem/disp_uart_state_check</obj_property>
-      <obj_property name="ObjectShortName">disp_uart_state_check</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/real_base_addr[19:0]</obj_property>
+      <obj_property name="ObjectShortName">real_base_addr[19:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="cpu/DataRoad/mem/disp_state" type="array">
+   <wvobject fp_name="cpu/DataRoad/base_DataOut" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/mem/disp_state[1:0]</obj_property>
-      <obj_property name="ObjectShortName">disp_state[1:0]</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/base_DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_DataOut[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
