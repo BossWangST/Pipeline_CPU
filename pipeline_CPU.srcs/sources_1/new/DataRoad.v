@@ -181,10 +181,12 @@ module DataRoad#(parameter WIDTH = 32)
     wire [99:0] ID_Out;
     wire IF_ID_clear = branch_real|(load_use_clear_MEM);
     //* IF/ID Reg
+    wire IF_ID_EN;
+    assign IF_ID_EN = load_use_pause&(!read_base)&(!uart)&(!uart_busy);
     D_Trigger #(100)IF_ID(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause&(!read_base)&(!uart)&(!uart_busy)),
+    .en(IF_ID_EN),
     .clear(IF_ID_clear),
     .d(IF_In),
     .q(ID_Out)
@@ -254,10 +256,12 @@ module DataRoad#(parameter WIDTH = 32)
     //* ID/EX Reg
     wire load_use_clear;
     assign load_use_clear = load_use;
+    wire ID_EX_EN;
+    assign ID_EX_EN = (!uart)&(!uart_busy);
     D_Trigger #(170)ID_EX(
     .clk(clk),
     .rst(rst),
-    .en((!uart)&(!uart_busy)),
+    .en(ID_EX_EN),
     .clear(load_use_clear),
     .d(ID_In),
     .q(EX_Out)
@@ -377,10 +381,12 @@ module DataRoad#(parameter WIDTH = 32)
     assign EX_In = {read_base,load_use_clear,store_forward_EX,ByteStore_EX,ByteGet_EX,RegWr_EX,MemWr_EX,MemtoReg_EX,alu_result,busB_EX,Rw};
     wire[127:0] MEM_Out;
     //* EX/MEM reg
+    wire EX_MEM_EN;
+    assign EX_MEM_EN = (!uart)&(!uart_busy);
     D_Trigger #(128)EX_MEM(
     .clk(clk),
     .rst(rst),
-    .en((!uart_busy)),
+    .en(EX_MEM_EN),
     .clear(1'b0),
     .d(EX_In),
     .q(MEM_Out)

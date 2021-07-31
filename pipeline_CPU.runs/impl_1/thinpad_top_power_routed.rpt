@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Sat Jul 31 20:09:25 2021
+| Date             : Sat Jul 31 21:31:58 2021
 | Host             : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command          : report_power -file thinpad_top_power_routed.rpt -pb thinpad_top_power_summary_routed.pb -rpx thinpad_top_power_routed.rpx
 | Design           : thinpad_top
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.008 |        8 |       --- |             --- |
-| Slice Logic              |    <0.001 |    11541 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     3224 |    133800 |            2.41 |
-|   Register               |    <0.001 |     5586 |    267600 |            2.09 |
+| Slice Logic              |    <0.001 |    11545 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     3223 |    133800 |            2.41 |
+|   Register               |    <0.001 |     5588 |    267600 |            2.09 |
 |   CARRY4                 |    <0.001 |      156 |     33450 |            0.47 |
-|   F7/F8 Muxes            |    <0.001 |      505 |    133800 |            0.38 |
 |   LUT as Shift Register  |    <0.001 |      534 |     46200 |            1.16 |
+|   F7/F8 Muxes            |    <0.001 |      505 |    133800 |            0.38 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     46200 |            0.05 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   Others                 |     0.000 |      553 |       --- |             --- |
-| Signals                  |     0.002 |     7974 |       --- |             --- |
+| Signals                  |     0.002 |     7982 |       --- |             --- |
 | Block RAM                |     0.001 |        8 |       365 |            2.19 |
 | MMCM                     |     0.115 |        1 |        10 |           10.00 |
 | I/O                      |     0.002 |      196 |       400 |           49.00 |

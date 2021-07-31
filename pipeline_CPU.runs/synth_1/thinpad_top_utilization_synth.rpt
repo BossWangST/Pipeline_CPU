@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sat Jul 31 20:03:45 2021
+| Date         : Sat Jul 31 21:21:55 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file thinpad_top_utilization_synth.rpt -pb thinpad_top_utilization_synth.pb
 | Design       : thinpad_top
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             | 1458 |     0 |    134600 |  1.08 |
 |   LUT as Logic          | 1458 |     0 |    134600 |  1.08 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         | 1690 |     0 |    269200 |  0.63 |
-|   Register as Flip Flop | 1641 |     0 |    269200 |  0.61 |
+| Slice Registers         | 1692 |     0 |    269200 |  0.63 |
+|   Register as Flip Flop | 1643 |     0 |    269200 |  0.61 |
 |   Register as Latch     |   49 |     0 |    269200 |  0.02 |
 | F7 Muxes                |  256 |     0 |     67300 |  0.38 |
 | F8 Muxes                |  128 |     0 |     33650 |  0.38 |
@@ -57,7 +57,7 @@ Table of Contents
 | 34    |          Yes |           - |          Set |
 | 1572  |          Yes |           - |        Reset |
 | 5     |          Yes |         Set |            - |
-| 77    |          Yes |       Reset |            - |
+| 79    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -150,15 +150,15 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDCE     | 1525 |        Flop & Latch |
-| LUT6     |  856 |                 LUT |
+| LUT6     |  848 |                 LUT |
 | MUXF7    |  256 |               MuxFx |
-| LUT2     |  253 |                 LUT |
-| LUT5     |  226 |                 LUT |
-| LUT3     |  186 |                 LUT |
+| LUT2     |  254 |                 LUT |
+| LUT5     |  227 |                 LUT |
+| LUT3     |  187 |                 LUT |
+| LUT4     |  133 |                 LUT |
 | MUXF8    |  128 |               MuxFx |
-| LUT4     |  126 |                 LUT |
 | OBUFT    |  107 |                  IO |
-| FDRE     |   77 |        Flop & Latch |
+| FDRE     |   79 |        Flop & Latch |
 | IBUF     |   66 |                  IO |
 | OBUF     |   55 |                  IO |
 | LDCE     |   49 |        Flop & Latch |

@@ -42,7 +42,7 @@ module Mem(input Mem_Wr,
            //?output wire base_oe,               //* read enable
            //?output wire base_we,
 
-           output uart,
+           output reg uart,
            output uart_busy_out,
            //?output uart_oe,uart_we,
            //?output [3:0]out_byte,
@@ -75,28 +75,26 @@ module Mem(input Mem_Wr,
     localparam UART_START = 2'b01;
     localparam UART_END = 2'b10;
     reg [1:0] state = IDLE;
-    //?always@(posedge clk_50M)
-    //?    case(state)
-    //?        IDLE:
-    //?        begin
-    //?            uart<=1'b0;
-    //?            if(Addr==32'hBFD003F8)
-    //?                state <= UART_START;
-    //?        end
-    //?        UART_START:
-    //?        begin
-    //?            uart<=1'b1;
-    //?            state<=UART_END;
-    //?        end
-    //?        UART_END:
-    //?        begin
-    //?            if(uart_busy)
-    //?                state<=IDLE;
-    //?        end
-    //?    endcase
+    always@(posedge clk_50M)
+        case(state)
+            IDLE:
+            begin
+                uart<=1'b0;
+                if(Addr==32'hBFD003F8)
+                begin
+                    state <= UART_START;
+                    uart <= 1'b1;
+                end
+            end
+            UART_START:
+            begin
+                if(uart_busy)
+                    state<=IDLE;
+            end
+        endcase
 
             
-    assign uart=(Addr==32'hBFD003F8)?1'b1:1'b0;
+    //?assign uart=(Addr==32'hBFD003F8)?1'b1:1'b0;
     wire ce;
     wire oe,we;
     assign ce=1'b0;
