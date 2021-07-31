@@ -38,17 +38,19 @@ module DataRoad#(parameter WIDTH = 32)
                  input ByteStore,
                  input MemRead,
                  output START,
-                 output[31:0] Inst_ID,
+                 (*mark_debug = "true"*)output[31:0] Inst_ID,
                  output [31:0]reg1,
                  reg2,
                  reg3,
                  input RUN,
 
-                 output rdn,// 读锁存信号
-                 output wrn,// 写锁存信号
-                 input data_ready,
-                 input tbre,// 接收成功信号
-                 input tsre, //发送成功信号
+                 //?output rdn,// 读锁存信号
+                 //?output wrn,// 写锁存信号
+                 //?input data_ready,
+                 //?input tbre,// 接收成功信号
+                 //?input tsre, //发送成功信号
+                 output txd,
+                 input rxd,
 
                  inout wire[31:0] base_data_wire,
                  output [19:0] base_addr,
@@ -84,7 +86,8 @@ module DataRoad#(parameter WIDTH = 32)
     assign beq_target_real = beq_target;
 
     (*mark_debug = "true"*)wire uart;
-    wire read_base;
+    (*mark_debug = "true"*)wire uart_busy;
+    wire read_base;//!no debug
 
     //base wire select
     //?wire [19:0]pc_base_addr;
@@ -109,7 +112,7 @@ module DataRoad#(parameter WIDTH = 32)
     PC pc(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause&(!uart)&(!uart_WR)&(!read_base)&(!read_base_MEM)),
+    .en(load_use_pause&(!uart)&(!read_base)&(!read_base_MEM)&(!uart_busy)),
     .branch(branch_real),
     .Jump(Jump),
     .RUN(RUN),
@@ -130,11 +133,13 @@ module DataRoad#(parameter WIDTH = 32)
     //?.base_we(pc_base_we)
     );
     wire ce,oe,we;
-    wire uart_oe,uart_we;
-    assign ce=uart|uart_WR;
-    assign {oe,we}=(uart|uart_WR)?{uart_oe,uart_we}:2'b01;
-    wire[31:0] real_base_datain;
-    assign real_base_datain=uart?real_DataIn:32'h0000_0000;
+    //?wire uart_oe,uart_we;
+    //?assign ce=uart|uart_WR;
+    assign ce=1'b0;
+    assign {oe,we}=2'b01;//?uart?{uart_oe,uart_we}:uart_WR?{uart_oe_ID,uart_we_ID}:2'b01;
+    //?wire[31:0] real_base_datain;
+    //?wire [31:0] real_DataIn_out;
+    //?assign real_base_datain=uart?real_DataIn_out:uart_WR?real_DataIn_out_ID:32'h0000_0000;
     wire[3:0] byte;
 
     (*mark_debug = "true"*)wire [19:0] real_base_addr;
@@ -151,9 +156,9 @@ module DataRoad#(parameter WIDTH = 32)
         .ce(ce),
         .oe(oe),
         .we(we),
-        .datain(real_base_datain),
+        .datain(32'h0000_0000),
         .addr(real_base_addr),
-        .byte(byte),
+        .byte(4'b0000),
         .dataout(base_DataOut),
 
         .base_data_wire(base_data_wire),
@@ -161,37 +166,41 @@ module DataRoad#(parameter WIDTH = 32)
         .base_byte(base_byte),
         .base_ce(base_ce),
         .base_oe(base_oe),
-        .base_we(base_we),
+        .base_we(base_we)
 
-        .rdn(rdn),
-        .wrn(wrn),
-        .data_ready(data_ready),
-        .tbre(tbre),
-        .tsre(tsre),
-        .uart(uart)
+        //?.rdn(rdn),
+        //?.wrn(wrn),
+        //?.data_ready(data_ready),
+        //?.tbre(tbre),
+        //?.tsre(tsre),
+        //?.uart(uart|uart_WR)
     );
 
-    wire[63:0] IF_In;
+    wire[99:0] IF_In;
     assign IF_In = {Inst,pc_add_4};
-    wire [63:0] ID_Out;
-    wire IF_ID_clear = branch_real;
+    wire [99:0] ID_Out;
+    wire IF_ID_clear = branch_real|(load_use_clear_MEM);
     //* IF/ID Reg
-    D_Trigger #(64)IF_ID(
+    D_Trigger #(100)IF_ID(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause&(!read_base)&(!uart)&(!uart_WR)),
-    .clear(IF_ID_clear|load_use_clear_MEM),
+    .en(load_use_pause&(!read_base)&(!uart)&(!uart_busy)),
+    .clear(IF_ID_clear),
     .d(IF_In),
     .q(ID_Out)
     );
     
     //& ID parse
-    //wire [WIDTH-1:0] Inst_ID;
+    //?wire [WIDTH-1:0] real_DataIn_out_ID = ID_Out[97:66];
+    //?wire uart_oe_ID = ID_Out[65];
+    //?wire uart_we_ID = ID_Out[64];
+    ////wire [WIDTH-1:0] Inst_ID;
+
     wire [WIDTH-1:0] pc_add_4_ID = ID_Out[31:0];
     assign Inst_ID               = ID_Out[63:32];
     //assign pc_add_4_ID         = ID_Out[31:0];
     //wire[5:0] op                 = Inst_ID[31:26];
-    wire[4:0] Rs                 = Inst_ID[25:21];
+    wire[4:0] Rs                 = Inst_ID[25:21];//!no debug
     wire[4:0] Rt                 = Inst_ID[20:16];
     wire[4:0] Rd                 = Inst_ID[15:11];
     wire[15:0] imme16            = Inst_ID[15:0];
@@ -248,8 +257,8 @@ module DataRoad#(parameter WIDTH = 32)
     D_Trigger #(170)ID_EX(
     .clk(clk),
     .rst(rst),
-    .en((!uart)&(!uart_WR)),
-    .clear(load_use_clear|read_base),
+    .en((!uart)&(!uart_busy)),
+    .clear(load_use_clear),
     .d(ID_In),
     .q(EX_Out)
     );
@@ -371,7 +380,7 @@ module DataRoad#(parameter WIDTH = 32)
     D_Trigger #(128)EX_MEM(
     .clk(clk),
     .rst(rst),
-    .en(1'b1),
+    .en((!uart_busy)),
     .clear(1'b0),
     .d(EX_In),
     .q(MEM_Out)
@@ -429,8 +438,14 @@ module DataRoad#(parameter WIDTH = 32)
 
 
     wire uart_state_check;
+    assign byte =(ByteStore_MEM==1'b0)?4'b0000:
+                 ((alu_result_MEM[1:0]==2'b00)?4'b1110:
+                  (alu_result_MEM[1:0]==2'b01)?4'b1101:
+                  (alu_result_MEM[1:0]==2'b10)?4'b1011:
+                  4'b0111);
     Mem mem(
     .clk(clk),
+    .rst(rst),
     .clk_50M(clk_50M),
     .ByteStore(ByteStore_MEM),
     .Mem_Wr(MemWr_MEM),
@@ -447,22 +462,25 @@ module DataRoad#(parameter WIDTH = 32)
     //?.base_oe(mem_base_oe),
     //?.base_we(mem_base_we),
 
-    .rdn(rdn),
-    .wrn(wrn),
-    .data_ready(data_ready),
-    .tbre(tbre),
-    .tsre(tsre),
+    //?.rdn(rdn),
+    //?.wrn(wrn),
+    //?.data_ready(data_ready),
+    //?.tbre(tbre),
+    //?.tsre(tsre),
+    .txd(txd),
+    .rxd(rxd),
     .uart(uart),
-    .uart_WR(uart_WR),
-    .uart_oe(uart_oe),
-    .uart_we(uart_we),
-    .out_byte(byte),
+    .uart_busy_out(uart_busy),
+    //?.uart_WR(uart_WR),
+    //?.uart_oe(uart_oe),
+    //?.uart_we(uart_we),
+    //?.real_DataIn_out(real_DataIn_out),
 
     .uart_state_check(uart_state_check),
     .uart_state_check_WR(uart_state_check_WR),
 
     .physical_addr(physical_addr),
-    //?.read_base(read_base),
+    .read_base(read_base_WR),
 
     .ext_data_wire(ext_data_wire),
     .ext_addr(ext_addr),
@@ -471,6 +489,48 @@ module DataRoad#(parameter WIDTH = 32)
     .ext_oe(ext_oe),
     .ext_we(ext_we)
     );
+
+    //uart
+    //?wire [7:0] uart_rx;
+    //?reg [7:0] uart_buffer, uart_tx;
+    //?wire uart_ready,uart_clear,uart_busy;
+    //?reg uart_start,uart_available;
+
+    //?//rxd_uart #(.ClkFrequency(50000000),.Baud(9600))
+    //?//    uart_r(
+    //?//        .clk(clk_50M),
+    //?//        .RxD(rxd),
+    //?//        .RxD_data_ready(uart_ready),
+    //?//        .RxD_clear(uart_clear),
+    //?//        .RxD_data(uart_rx)
+    //?//    );
+
+    //?txd_uart #(.ClkFrequency(50000000),.Baud(9600))
+    //?    uart_t(
+    //?        .clk(clk_50M),
+    //?        .TxD(txd),
+    //?        .TxD_busy(uart_busy),
+    //?        .TxD_start(uart_start),
+    //?        .TxD_data(uart_tx)
+    //?    );
+    //?always@(posedge clk_50M)
+    //?begin
+    //?    if(!uart_busy && uart_available && uart)
+    //?    begin
+    //?        uart_tx<=real_DataIn[7:0];
+    //?        uart_start<=1;
+    //?    end
+    //?    else
+    //?    begin
+    //?        uart_start<=0;
+    //?    end
+
+    //?end
+
+
+
+
+    //uart-end
     
     wire [WIDTH-1:0] DataByte;
     assign DataByte = (alu_result_WR[1:0]==2'b00)?{{24{DataOut[7]}},DataOut[7:0]}:
@@ -508,20 +568,20 @@ module DataRoad#(parameter WIDTH = 32)
     
     
     wire [179:0] MEM_In;
-    assign MEM_In = {uart,alu_result_MEM,uart_state_check,ByteGet_MEM,sw_lw_WR,sw_lw,DataIn_WR,real_DataIn_2,RegWr_MEM,MemtoReg_MEM,alu_result_MEM,real_DataOut,Rw_MEM};
+    assign MEM_In = {read_base_MEM,alu_result_MEM,uart_state_check,ByteGet_MEM,sw_lw_WR,sw_lw,DataIn_WR,real_DataIn_2,RegWr_MEM,MemtoReg_MEM,alu_result_MEM,real_DataOut,Rw_MEM};
     wire [179:0] WR_Out;
     //* MEM/WR reg
     D_Trigger #(180)MEM_WR(
     .clk(clk),
     .rst(rst),
-    .en(1'b1),
+    .en(!uart_busy),
     .clear(1'b0),
     .d(MEM_In),
     .q(WR_Out)
     );
     
     //& WR parse
-    wire uart_WR = WR_Out[171];
+    wire read_base_WR = WR_Out[171];
     wire [31:0] alu_result_WR = WR_Out[170:139];
     wire uart_state_check_WR = WR_Out[138];
     wire ByteGet_WR  = WR_Out[137];

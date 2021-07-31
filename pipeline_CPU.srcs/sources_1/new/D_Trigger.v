@@ -38,10 +38,10 @@ module D_Trigger#(parameter WIDTH = 32)
         begin
             q <= {WIDTH{1'b0}};
         end
-            else if (en)
-            begin
-            q <= d;
-            end
+        else if (en)
+        begin
+        q <= d;
+        end
         else
         begin
             q <= q;

@@ -389,6 +389,68 @@ connect_debug_port u_ila_0/probe6 [get_nets [list {cpu/DataRoad/disp_base_DataOu
 connect_debug_port u_ila_0/probe0 [get_nets [list {cpu/DataRoad/mem/uart_io/disp_datain[0]} {cpu/DataRoad/mem/uart_io/disp_datain[1]} {cpu/DataRoad/mem/uart_io/disp_datain[2]} {cpu/DataRoad/mem/uart_io/disp_datain[3]} {cpu/DataRoad/mem/uart_io/disp_datain[4]} {cpu/DataRoad/mem/uart_io/disp_datain[5]} {cpu/DataRoad/mem/uart_io/disp_datain[6]} {cpu/DataRoad/mem/uart_io/disp_datain[7]}]]
 
 
+
+connect_debug_port u_ila_0/probe7 [get_nets [list {cpu/DataRoad/base_control/disp_state[0]} {cpu/DataRoad/base_control/disp_state[1]} {cpu/DataRoad/base_control/disp_state[2]} {cpu/DataRoad/base_control/disp_state[3]}]]
+connect_debug_port u_ila_0/probe9 [get_nets [list cpu/DataRoad/uart_0]]
+
+
+
+
+
+
+connect_debug_port u_ila_0/probe10 [get_nets [list {cpu/DataRoad/disp_Branch_EX[0]} {cpu/DataRoad/disp_Branch_EX[1]} {cpu/DataRoad/disp_Branch_EX[2]}]]
+
+connect_debug_port u_ila_0/probe7 [get_nets [list {cpu/DataRoad/disp_Branch[0]} {cpu/DataRoad/disp_Branch[1]} {cpu/DataRoad/disp_Branch[2]}]]
+
+connect_debug_port u_ila_0/probe10 [get_nets [list {cpu/DataRoad/Inst_ID[0]} {cpu/DataRoad/Inst_ID[1]} {cpu/DataRoad/Inst_ID[2]} {cpu/DataRoad/Inst_ID[3]} {cpu/DataRoad/Inst_ID[4]} {cpu/DataRoad/Inst_ID[5]} {cpu/DataRoad/Inst_ID[6]} {cpu/DataRoad/Inst_ID[7]} {cpu/DataRoad/Inst_ID[8]} {cpu/DataRoad/Inst_ID[9]} {cpu/DataRoad/Inst_ID[10]} {cpu/DataRoad/Inst_ID[11]} {cpu/DataRoad/Inst_ID[12]} {cpu/DataRoad/Inst_ID[13]} {cpu/DataRoad/Inst_ID[14]} {cpu/DataRoad/Inst_ID[15]} {cpu/DataRoad/Inst_ID[16]} {cpu/DataRoad/Inst_ID[17]} {cpu/DataRoad/Inst_ID[18]} {cpu/DataRoad/Inst_ID[19]} {cpu/DataRoad/Inst_ID[20]} {cpu/DataRoad/Inst_ID[21]} {cpu/DataRoad/Inst_ID[22]} {cpu/DataRoad/Inst_ID[23]} {cpu/DataRoad/Inst_ID[24]} {cpu/DataRoad/Inst_ID[25]} {cpu/DataRoad/Inst_ID[26]} {cpu/DataRoad/Inst_ID[27]} {cpu/DataRoad/Inst_ID[28]} {cpu/DataRoad/Inst_ID[29]} {cpu/DataRoad/Inst_ID[30]} {cpu/DataRoad/Inst_ID[31]}]]
+
+
+
+connect_debug_port u_ila_0/probe12 [get_nets [list cpu/DataRoad/read_base]]
+
+connect_debug_port u_ila_0/probe12 [get_nets [list cpu/DataRoad/mem/disp_read_base]]
+
+
+
+
+connect_debug_port u_ila_0/probe11 [get_nets [list cpu/DataRoad/pc/disp_branch]]
+
+
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[4]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[9]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[0]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[7]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[18]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[24]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[3]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[6]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[17]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[20]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[21]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[22]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[26]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[31]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[2]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[5]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[1]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[10]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[16]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[19]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[25]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[28]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[29]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[30]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[8]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[11]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[12]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[13]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[14]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[15]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[23]}]
+set_property MARK_DEBUG false [get_nets {cpu/DataRoad/ID_Out[27]}]
+connect_debug_port u_ila_0/probe0 [get_nets [list {cpu/DataRoad/pc/disp_branch_pc[0]} {cpu/DataRoad/pc/disp_branch_pc[1]} {cpu/DataRoad/pc/disp_branch_pc[2]} {cpu/DataRoad/pc/disp_branch_pc[3]} {cpu/DataRoad/pc/disp_branch_pc[4]} {cpu/DataRoad/pc/disp_branch_pc[5]} {cpu/DataRoad/pc/disp_branch_pc[6]} {cpu/DataRoad/pc/disp_branch_pc[7]} {cpu/DataRoad/pc/disp_branch_pc[8]} {cpu/DataRoad/pc/disp_branch_pc[9]} {cpu/DataRoad/pc/disp_branch_pc[10]} {cpu/DataRoad/pc/disp_branch_pc[11]} {cpu/DataRoad/pc/disp_branch_pc[12]} {cpu/DataRoad/pc/disp_branch_pc[13]} {cpu/DataRoad/pc/disp_branch_pc[14]} {cpu/DataRoad/pc/disp_branch_pc[15]} {cpu/DataRoad/pc/disp_branch_pc[16]} {cpu/DataRoad/pc/disp_branch_pc[17]} {cpu/DataRoad/pc/disp_branch_pc[18]} {cpu/DataRoad/pc/disp_branch_pc[19]} {cpu/DataRoad/pc/disp_branch_pc[20]} {cpu/DataRoad/pc/disp_branch_pc[21]} {cpu/DataRoad/pc/disp_branch_pc[22]} {cpu/DataRoad/pc/disp_branch_pc[23]} {cpu/DataRoad/pc/disp_branch_pc[24]} {cpu/DataRoad/pc/disp_branch_pc[25]} {cpu/DataRoad/pc/disp_branch_pc[26]} {cpu/DataRoad/pc/disp_branch_pc[27]} {cpu/DataRoad/pc/disp_branch_pc[28]} {cpu/DataRoad/pc/disp_branch_pc[29]} {cpu/DataRoad/pc/disp_branch_pc[30]} {cpu/DataRoad/pc/disp_branch_pc[31]}]]
+
+
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 2 [get_debug_cores u_ila_0]
@@ -402,39 +464,47 @@ set_property port_width 1 [get_debug_ports u_ila_0/clk]
 connect_debug_port u_ila_0/clk [get_nets [list clk_25/inst/clk_out1]]
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
 set_property port_width 32 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list {cpu/DataRoad/pc/pc[0]} {cpu/DataRoad/pc/pc[1]} {cpu/DataRoad/pc/pc[2]} {cpu/DataRoad/pc/pc[3]} {cpu/DataRoad/pc/pc[4]} {cpu/DataRoad/pc/pc[5]} {cpu/DataRoad/pc/pc[6]} {cpu/DataRoad/pc/pc[7]} {cpu/DataRoad/pc/pc[8]} {cpu/DataRoad/pc/pc[9]} {cpu/DataRoad/pc/pc[10]} {cpu/DataRoad/pc/pc[11]} {cpu/DataRoad/pc/pc[12]} {cpu/DataRoad/pc/pc[13]} {cpu/DataRoad/pc/pc[14]} {cpu/DataRoad/pc/pc[15]} {cpu/DataRoad/pc/pc[16]} {cpu/DataRoad/pc/pc[17]} {cpu/DataRoad/pc/pc[18]} {cpu/DataRoad/pc/pc[19]} {cpu/DataRoad/pc/pc[20]} {cpu/DataRoad/pc/pc[21]} {cpu/DataRoad/pc/pc[22]} {cpu/DataRoad/pc/pc[23]} {cpu/DataRoad/pc/pc[24]} {cpu/DataRoad/pc/pc[25]} {cpu/DataRoad/pc/pc[26]} {cpu/DataRoad/pc/pc[27]} {cpu/DataRoad/pc/pc[28]} {cpu/DataRoad/pc/pc[29]} {cpu/DataRoad/pc/pc[30]} {cpu/DataRoad/pc/pc[31]}]]
+connect_debug_port u_ila_0/probe0 [get_nets [list {cpu/DataRoad/regs/reg1[0]} {cpu/DataRoad/regs/reg1[1]} {cpu/DataRoad/regs/reg1[2]} {cpu/DataRoad/regs/reg1[3]} {cpu/DataRoad/regs/reg1[4]} {cpu/DataRoad/regs/reg1[5]} {cpu/DataRoad/regs/reg1[6]} {cpu/DataRoad/regs/reg1[7]} {cpu/DataRoad/regs/reg1[8]} {cpu/DataRoad/regs/reg1[9]} {cpu/DataRoad/regs/reg1[10]} {cpu/DataRoad/regs/reg1[11]} {cpu/DataRoad/regs/reg1[12]} {cpu/DataRoad/regs/reg1[13]} {cpu/DataRoad/regs/reg1[14]} {cpu/DataRoad/regs/reg1[15]} {cpu/DataRoad/regs/reg1[16]} {cpu/DataRoad/regs/reg1[17]} {cpu/DataRoad/regs/reg1[18]} {cpu/DataRoad/regs/reg1[19]} {cpu/DataRoad/regs/reg1[20]} {cpu/DataRoad/regs/reg1[21]} {cpu/DataRoad/regs/reg1[22]} {cpu/DataRoad/regs/reg1[23]} {cpu/DataRoad/regs/reg1[24]} {cpu/DataRoad/regs/reg1[25]} {cpu/DataRoad/regs/reg1[26]} {cpu/DataRoad/regs/reg1[27]} {cpu/DataRoad/regs/reg1[28]} {cpu/DataRoad/regs/reg1[29]} {cpu/DataRoad/regs/reg1[30]} {cpu/DataRoad/regs/reg1[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
 set_property port_width 32 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list {cpu/DataRoad/Inst[0]} {cpu/DataRoad/Inst[1]} {cpu/DataRoad/Inst[2]} {cpu/DataRoad/Inst[3]} {cpu/DataRoad/Inst[4]} {cpu/DataRoad/Inst[5]} {cpu/DataRoad/Inst[6]} {cpu/DataRoad/Inst[7]} {cpu/DataRoad/Inst[8]} {cpu/DataRoad/Inst[9]} {cpu/DataRoad/Inst[10]} {cpu/DataRoad/Inst[11]} {cpu/DataRoad/Inst[12]} {cpu/DataRoad/Inst[13]} {cpu/DataRoad/Inst[14]} {cpu/DataRoad/Inst[15]} {cpu/DataRoad/Inst[16]} {cpu/DataRoad/Inst[17]} {cpu/DataRoad/Inst[18]} {cpu/DataRoad/Inst[19]} {cpu/DataRoad/Inst[20]} {cpu/DataRoad/Inst[21]} {cpu/DataRoad/Inst[22]} {cpu/DataRoad/Inst[23]} {cpu/DataRoad/Inst[24]} {cpu/DataRoad/Inst[25]} {cpu/DataRoad/Inst[26]} {cpu/DataRoad/Inst[27]} {cpu/DataRoad/Inst[28]} {cpu/DataRoad/Inst[29]} {cpu/DataRoad/Inst[30]} {cpu/DataRoad/Inst[31]}]]
+connect_debug_port u_ila_0/probe1 [get_nets [list {cpu/DataRoad/regs/reg_a0[0]} {cpu/DataRoad/regs/reg_a0[1]} {cpu/DataRoad/regs/reg_a0[2]} {cpu/DataRoad/regs/reg_a0[3]} {cpu/DataRoad/regs/reg_a0[4]} {cpu/DataRoad/regs/reg_a0[5]} {cpu/DataRoad/regs/reg_a0[6]} {cpu/DataRoad/regs/reg_a0[7]} {cpu/DataRoad/regs/reg_a0[8]} {cpu/DataRoad/regs/reg_a0[9]} {cpu/DataRoad/regs/reg_a0[10]} {cpu/DataRoad/regs/reg_a0[11]} {cpu/DataRoad/regs/reg_a0[12]} {cpu/DataRoad/regs/reg_a0[13]} {cpu/DataRoad/regs/reg_a0[14]} {cpu/DataRoad/regs/reg_a0[15]} {cpu/DataRoad/regs/reg_a0[16]} {cpu/DataRoad/regs/reg_a0[17]} {cpu/DataRoad/regs/reg_a0[18]} {cpu/DataRoad/regs/reg_a0[19]} {cpu/DataRoad/regs/reg_a0[20]} {cpu/DataRoad/regs/reg_a0[21]} {cpu/DataRoad/regs/reg_a0[22]} {cpu/DataRoad/regs/reg_a0[23]} {cpu/DataRoad/regs/reg_a0[24]} {cpu/DataRoad/regs/reg_a0[25]} {cpu/DataRoad/regs/reg_a0[26]} {cpu/DataRoad/regs/reg_a0[27]} {cpu/DataRoad/regs/reg_a0[28]} {cpu/DataRoad/regs/reg_a0[29]} {cpu/DataRoad/regs/reg_a0[30]} {cpu/DataRoad/regs/reg_a0[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
 set_property port_width 32 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list {cpu/DataRoad/regs/reg_s1[0]} {cpu/DataRoad/regs/reg_s1[1]} {cpu/DataRoad/regs/reg_s1[2]} {cpu/DataRoad/regs/reg_s1[3]} {cpu/DataRoad/regs/reg_s1[4]} {cpu/DataRoad/regs/reg_s1[5]} {cpu/DataRoad/regs/reg_s1[6]} {cpu/DataRoad/regs/reg_s1[7]} {cpu/DataRoad/regs/reg_s1[8]} {cpu/DataRoad/regs/reg_s1[9]} {cpu/DataRoad/regs/reg_s1[10]} {cpu/DataRoad/regs/reg_s1[11]} {cpu/DataRoad/regs/reg_s1[12]} {cpu/DataRoad/regs/reg_s1[13]} {cpu/DataRoad/regs/reg_s1[14]} {cpu/DataRoad/regs/reg_s1[15]} {cpu/DataRoad/regs/reg_s1[16]} {cpu/DataRoad/regs/reg_s1[17]} {cpu/DataRoad/regs/reg_s1[18]} {cpu/DataRoad/regs/reg_s1[19]} {cpu/DataRoad/regs/reg_s1[20]} {cpu/DataRoad/regs/reg_s1[21]} {cpu/DataRoad/regs/reg_s1[22]} {cpu/DataRoad/regs/reg_s1[23]} {cpu/DataRoad/regs/reg_s1[24]} {cpu/DataRoad/regs/reg_s1[25]} {cpu/DataRoad/regs/reg_s1[26]} {cpu/DataRoad/regs/reg_s1[27]} {cpu/DataRoad/regs/reg_s1[28]} {cpu/DataRoad/regs/reg_s1[29]} {cpu/DataRoad/regs/reg_s1[30]} {cpu/DataRoad/regs/reg_s1[31]}]]
+connect_debug_port u_ila_0/probe2 [get_nets [list {cpu/DataRoad/pc/pc[0]} {cpu/DataRoad/pc/pc[1]} {cpu/DataRoad/pc/pc[2]} {cpu/DataRoad/pc/pc[3]} {cpu/DataRoad/pc/pc[4]} {cpu/DataRoad/pc/pc[5]} {cpu/DataRoad/pc/pc[6]} {cpu/DataRoad/pc/pc[7]} {cpu/DataRoad/pc/pc[8]} {cpu/DataRoad/pc/pc[9]} {cpu/DataRoad/pc/pc[10]} {cpu/DataRoad/pc/pc[11]} {cpu/DataRoad/pc/pc[12]} {cpu/DataRoad/pc/pc[13]} {cpu/DataRoad/pc/pc[14]} {cpu/DataRoad/pc/pc[15]} {cpu/DataRoad/pc/pc[16]} {cpu/DataRoad/pc/pc[17]} {cpu/DataRoad/pc/pc[18]} {cpu/DataRoad/pc/pc[19]} {cpu/DataRoad/pc/pc[20]} {cpu/DataRoad/pc/pc[21]} {cpu/DataRoad/pc/pc[22]} {cpu/DataRoad/pc/pc[23]} {cpu/DataRoad/pc/pc[24]} {cpu/DataRoad/pc/pc[25]} {cpu/DataRoad/pc/pc[26]} {cpu/DataRoad/pc/pc[27]} {cpu/DataRoad/pc/pc[28]} {cpu/DataRoad/pc/pc[29]} {cpu/DataRoad/pc/pc[30]} {cpu/DataRoad/pc/pc[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
 set_property port_width 32 [get_debug_ports u_ila_0/probe3]
-connect_debug_port u_ila_0/probe3 [get_nets [list {cpu/DataRoad/regs/reg_s0[0]} {cpu/DataRoad/regs/reg_s0[1]} {cpu/DataRoad/regs/reg_s0[2]} {cpu/DataRoad/regs/reg_s0[3]} {cpu/DataRoad/regs/reg_s0[4]} {cpu/DataRoad/regs/reg_s0[5]} {cpu/DataRoad/regs/reg_s0[6]} {cpu/DataRoad/regs/reg_s0[7]} {cpu/DataRoad/regs/reg_s0[8]} {cpu/DataRoad/regs/reg_s0[9]} {cpu/DataRoad/regs/reg_s0[10]} {cpu/DataRoad/regs/reg_s0[11]} {cpu/DataRoad/regs/reg_s0[12]} {cpu/DataRoad/regs/reg_s0[13]} {cpu/DataRoad/regs/reg_s0[14]} {cpu/DataRoad/regs/reg_s0[15]} {cpu/DataRoad/regs/reg_s0[16]} {cpu/DataRoad/regs/reg_s0[17]} {cpu/DataRoad/regs/reg_s0[18]} {cpu/DataRoad/regs/reg_s0[19]} {cpu/DataRoad/regs/reg_s0[20]} {cpu/DataRoad/regs/reg_s0[21]} {cpu/DataRoad/regs/reg_s0[22]} {cpu/DataRoad/regs/reg_s0[23]} {cpu/DataRoad/regs/reg_s0[24]} {cpu/DataRoad/regs/reg_s0[25]} {cpu/DataRoad/regs/reg_s0[26]} {cpu/DataRoad/regs/reg_s0[27]} {cpu/DataRoad/regs/reg_s0[28]} {cpu/DataRoad/regs/reg_s0[29]} {cpu/DataRoad/regs/reg_s0[30]} {cpu/DataRoad/regs/reg_s0[31]}]]
+connect_debug_port u_ila_0/probe3 [get_nets [list {cpu/DataRoad/Inst[0]} {cpu/DataRoad/Inst[1]} {cpu/DataRoad/Inst[2]} {cpu/DataRoad/Inst[3]} {cpu/DataRoad/Inst[4]} {cpu/DataRoad/Inst[5]} {cpu/DataRoad/Inst[6]} {cpu/DataRoad/Inst[7]} {cpu/DataRoad/Inst[8]} {cpu/DataRoad/Inst[9]} {cpu/DataRoad/Inst[10]} {cpu/DataRoad/Inst[11]} {cpu/DataRoad/Inst[12]} {cpu/DataRoad/Inst[13]} {cpu/DataRoad/Inst[14]} {cpu/DataRoad/Inst[15]} {cpu/DataRoad/Inst[16]} {cpu/DataRoad/Inst[17]} {cpu/DataRoad/Inst[18]} {cpu/DataRoad/Inst[19]} {cpu/DataRoad/Inst[20]} {cpu/DataRoad/Inst[21]} {cpu/DataRoad/Inst[22]} {cpu/DataRoad/Inst[23]} {cpu/DataRoad/Inst[24]} {cpu/DataRoad/Inst[25]} {cpu/DataRoad/Inst[26]} {cpu/DataRoad/Inst[27]} {cpu/DataRoad/Inst[28]} {cpu/DataRoad/Inst[29]} {cpu/DataRoad/Inst[30]} {cpu/DataRoad/Inst[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
 set_property port_width 32 [get_debug_ports u_ila_0/probe4]
-connect_debug_port u_ila_0/probe4 [get_nets [list {cpu/DataRoad/regs/reg1[0]} {cpu/DataRoad/regs/reg1[1]} {cpu/DataRoad/regs/reg1[2]} {cpu/DataRoad/regs/reg1[3]} {cpu/DataRoad/regs/reg1[4]} {cpu/DataRoad/regs/reg1[5]} {cpu/DataRoad/regs/reg1[6]} {cpu/DataRoad/regs/reg1[7]} {cpu/DataRoad/regs/reg1[8]} {cpu/DataRoad/regs/reg1[9]} {cpu/DataRoad/regs/reg1[10]} {cpu/DataRoad/regs/reg1[11]} {cpu/DataRoad/regs/reg1[12]} {cpu/DataRoad/regs/reg1[13]} {cpu/DataRoad/regs/reg1[14]} {cpu/DataRoad/regs/reg1[15]} {cpu/DataRoad/regs/reg1[16]} {cpu/DataRoad/regs/reg1[17]} {cpu/DataRoad/regs/reg1[18]} {cpu/DataRoad/regs/reg1[19]} {cpu/DataRoad/regs/reg1[20]} {cpu/DataRoad/regs/reg1[21]} {cpu/DataRoad/regs/reg1[22]} {cpu/DataRoad/regs/reg1[23]} {cpu/DataRoad/regs/reg1[24]} {cpu/DataRoad/regs/reg1[25]} {cpu/DataRoad/regs/reg1[26]} {cpu/DataRoad/regs/reg1[27]} {cpu/DataRoad/regs/reg1[28]} {cpu/DataRoad/regs/reg1[29]} {cpu/DataRoad/regs/reg1[30]} {cpu/DataRoad/regs/reg1[31]}]]
+connect_debug_port u_ila_0/probe4 [get_nets [list {cpu/DataRoad/regs/reg_s0[0]} {cpu/DataRoad/regs/reg_s0[1]} {cpu/DataRoad/regs/reg_s0[2]} {cpu/DataRoad/regs/reg_s0[3]} {cpu/DataRoad/regs/reg_s0[4]} {cpu/DataRoad/regs/reg_s0[5]} {cpu/DataRoad/regs/reg_s0[6]} {cpu/DataRoad/regs/reg_s0[7]} {cpu/DataRoad/regs/reg_s0[8]} {cpu/DataRoad/regs/reg_s0[9]} {cpu/DataRoad/regs/reg_s0[10]} {cpu/DataRoad/regs/reg_s0[11]} {cpu/DataRoad/regs/reg_s0[12]} {cpu/DataRoad/regs/reg_s0[13]} {cpu/DataRoad/regs/reg_s0[14]} {cpu/DataRoad/regs/reg_s0[15]} {cpu/DataRoad/regs/reg_s0[16]} {cpu/DataRoad/regs/reg_s0[17]} {cpu/DataRoad/regs/reg_s0[18]} {cpu/DataRoad/regs/reg_s0[19]} {cpu/DataRoad/regs/reg_s0[20]} {cpu/DataRoad/regs/reg_s0[21]} {cpu/DataRoad/regs/reg_s0[22]} {cpu/DataRoad/regs/reg_s0[23]} {cpu/DataRoad/regs/reg_s0[24]} {cpu/DataRoad/regs/reg_s0[25]} {cpu/DataRoad/regs/reg_s0[26]} {cpu/DataRoad/regs/reg_s0[27]} {cpu/DataRoad/regs/reg_s0[28]} {cpu/DataRoad/regs/reg_s0[29]} {cpu/DataRoad/regs/reg_s0[30]} {cpu/DataRoad/regs/reg_s0[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
 set_property port_width 32 [get_debug_ports u_ila_0/probe5]
-connect_debug_port u_ila_0/probe5 [get_nets [list {cpu/DataRoad/regs/reg_a0[0]} {cpu/DataRoad/regs/reg_a0[1]} {cpu/DataRoad/regs/reg_a0[2]} {cpu/DataRoad/regs/reg_a0[3]} {cpu/DataRoad/regs/reg_a0[4]} {cpu/DataRoad/regs/reg_a0[5]} {cpu/DataRoad/regs/reg_a0[6]} {cpu/DataRoad/regs/reg_a0[7]} {cpu/DataRoad/regs/reg_a0[8]} {cpu/DataRoad/regs/reg_a0[9]} {cpu/DataRoad/regs/reg_a0[10]} {cpu/DataRoad/regs/reg_a0[11]} {cpu/DataRoad/regs/reg_a0[12]} {cpu/DataRoad/regs/reg_a0[13]} {cpu/DataRoad/regs/reg_a0[14]} {cpu/DataRoad/regs/reg_a0[15]} {cpu/DataRoad/regs/reg_a0[16]} {cpu/DataRoad/regs/reg_a0[17]} {cpu/DataRoad/regs/reg_a0[18]} {cpu/DataRoad/regs/reg_a0[19]} {cpu/DataRoad/regs/reg_a0[20]} {cpu/DataRoad/regs/reg_a0[21]} {cpu/DataRoad/regs/reg_a0[22]} {cpu/DataRoad/regs/reg_a0[23]} {cpu/DataRoad/regs/reg_a0[24]} {cpu/DataRoad/regs/reg_a0[25]} {cpu/DataRoad/regs/reg_a0[26]} {cpu/DataRoad/regs/reg_a0[27]} {cpu/DataRoad/regs/reg_a0[28]} {cpu/DataRoad/regs/reg_a0[29]} {cpu/DataRoad/regs/reg_a0[30]} {cpu/DataRoad/regs/reg_a0[31]}]]
+connect_debug_port u_ila_0/probe5 [get_nets [list {cpu/DataRoad/regs/reg_s1[0]} {cpu/DataRoad/regs/reg_s1[1]} {cpu/DataRoad/regs/reg_s1[2]} {cpu/DataRoad/regs/reg_s1[3]} {cpu/DataRoad/regs/reg_s1[4]} {cpu/DataRoad/regs/reg_s1[5]} {cpu/DataRoad/regs/reg_s1[6]} {cpu/DataRoad/regs/reg_s1[7]} {cpu/DataRoad/regs/reg_s1[8]} {cpu/DataRoad/regs/reg_s1[9]} {cpu/DataRoad/regs/reg_s1[10]} {cpu/DataRoad/regs/reg_s1[11]} {cpu/DataRoad/regs/reg_s1[12]} {cpu/DataRoad/regs/reg_s1[13]} {cpu/DataRoad/regs/reg_s1[14]} {cpu/DataRoad/regs/reg_s1[15]} {cpu/DataRoad/regs/reg_s1[16]} {cpu/DataRoad/regs/reg_s1[17]} {cpu/DataRoad/regs/reg_s1[18]} {cpu/DataRoad/regs/reg_s1[19]} {cpu/DataRoad/regs/reg_s1[20]} {cpu/DataRoad/regs/reg_s1[21]} {cpu/DataRoad/regs/reg_s1[22]} {cpu/DataRoad/regs/reg_s1[23]} {cpu/DataRoad/regs/reg_s1[24]} {cpu/DataRoad/regs/reg_s1[25]} {cpu/DataRoad/regs/reg_s1[26]} {cpu/DataRoad/regs/reg_s1[27]} {cpu/DataRoad/regs/reg_s1[28]} {cpu/DataRoad/regs/reg_s1[29]} {cpu/DataRoad/regs/reg_s1[30]} {cpu/DataRoad/regs/reg_s1[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
 set_property port_width 32 [get_debug_ports u_ila_0/probe6]
-connect_debug_port u_ila_0/probe6 [get_nets [list {cpu/DataRoad/base_DataOut[0]} {cpu/DataRoad/base_DataOut[1]} {cpu/DataRoad/base_DataOut[2]} {cpu/DataRoad/base_DataOut[3]} {cpu/DataRoad/base_DataOut[4]} {cpu/DataRoad/base_DataOut[5]} {cpu/DataRoad/base_DataOut[6]} {cpu/DataRoad/base_DataOut[7]} {cpu/DataRoad/base_DataOut[8]} {cpu/DataRoad/base_DataOut[9]} {cpu/DataRoad/base_DataOut[10]} {cpu/DataRoad/base_DataOut[11]} {cpu/DataRoad/base_DataOut[12]} {cpu/DataRoad/base_DataOut[13]} {cpu/DataRoad/base_DataOut[14]} {cpu/DataRoad/base_DataOut[15]} {cpu/DataRoad/base_DataOut[16]} {cpu/DataRoad/base_DataOut[17]} {cpu/DataRoad/base_DataOut[18]} {cpu/DataRoad/base_DataOut[19]} {cpu/DataRoad/base_DataOut[20]} {cpu/DataRoad/base_DataOut[21]} {cpu/DataRoad/base_DataOut[22]} {cpu/DataRoad/base_DataOut[23]} {cpu/DataRoad/base_DataOut[24]} {cpu/DataRoad/base_DataOut[25]} {cpu/DataRoad/base_DataOut[26]} {cpu/DataRoad/base_DataOut[27]} {cpu/DataRoad/base_DataOut[28]} {cpu/DataRoad/base_DataOut[29]} {cpu/DataRoad/base_DataOut[30]} {cpu/DataRoad/base_DataOut[31]}]]
+connect_debug_port u_ila_0/probe6 [get_nets [list {cpu/DataRoad/Inst_ID[0]} {cpu/DataRoad/Inst_ID[1]} {cpu/DataRoad/Inst_ID[2]} {cpu/DataRoad/Inst_ID[3]} {cpu/DataRoad/Inst_ID[4]} {cpu/DataRoad/Inst_ID[5]} {cpu/DataRoad/Inst_ID[6]} {cpu/DataRoad/Inst_ID[7]} {cpu/DataRoad/Inst_ID[8]} {cpu/DataRoad/Inst_ID[9]} {cpu/DataRoad/Inst_ID[10]} {cpu/DataRoad/Inst_ID[11]} {cpu/DataRoad/Inst_ID[12]} {cpu/DataRoad/Inst_ID[13]} {cpu/DataRoad/Inst_ID[14]} {cpu/DataRoad/Inst_ID[15]} {cpu/DataRoad/Inst_ID[16]} {cpu/DataRoad/Inst_ID[17]} {cpu/DataRoad/Inst_ID[18]} {cpu/DataRoad/Inst_ID[19]} {cpu/DataRoad/Inst_ID[20]} {cpu/DataRoad/Inst_ID[21]} {cpu/DataRoad/Inst_ID[22]} {cpu/DataRoad/Inst_ID[23]} {cpu/DataRoad/Inst_ID[24]} {cpu/DataRoad/Inst_ID[25]} {cpu/DataRoad/Inst_ID[26]} {cpu/DataRoad/Inst_ID[27]} {cpu/DataRoad/Inst_ID[28]} {cpu/DataRoad/Inst_ID[29]} {cpu/DataRoad/Inst_ID[30]} {cpu/DataRoad/Inst_ID[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
-set_property port_width 20 [get_debug_ports u_ila_0/probe7]
-connect_debug_port u_ila_0/probe7 [get_nets [list {cpu/DataRoad/real_base_addr[0]} {cpu/DataRoad/real_base_addr[1]} {cpu/DataRoad/real_base_addr[2]} {cpu/DataRoad/real_base_addr[3]} {cpu/DataRoad/real_base_addr[4]} {cpu/DataRoad/real_base_addr[5]} {cpu/DataRoad/real_base_addr[6]} {cpu/DataRoad/real_base_addr[7]} {cpu/DataRoad/real_base_addr[8]} {cpu/DataRoad/real_base_addr[9]} {cpu/DataRoad/real_base_addr[10]} {cpu/DataRoad/real_base_addr[11]} {cpu/DataRoad/real_base_addr[12]} {cpu/DataRoad/real_base_addr[13]} {cpu/DataRoad/real_base_addr[14]} {cpu/DataRoad/real_base_addr[15]} {cpu/DataRoad/real_base_addr[16]} {cpu/DataRoad/real_base_addr[17]} {cpu/DataRoad/real_base_addr[18]} {cpu/DataRoad/real_base_addr[19]}]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {cpu/DataRoad/base_DataOut[0]} {cpu/DataRoad/base_DataOut[1]} {cpu/DataRoad/base_DataOut[2]} {cpu/DataRoad/base_DataOut[3]} {cpu/DataRoad/base_DataOut[4]} {cpu/DataRoad/base_DataOut[5]} {cpu/DataRoad/base_DataOut[6]} {cpu/DataRoad/base_DataOut[7]} {cpu/DataRoad/base_DataOut[8]} {cpu/DataRoad/base_DataOut[9]} {cpu/DataRoad/base_DataOut[10]} {cpu/DataRoad/base_DataOut[11]} {cpu/DataRoad/base_DataOut[12]} {cpu/DataRoad/base_DataOut[13]} {cpu/DataRoad/base_DataOut[14]} {cpu/DataRoad/base_DataOut[15]} {cpu/DataRoad/base_DataOut[16]} {cpu/DataRoad/base_DataOut[17]} {cpu/DataRoad/base_DataOut[18]} {cpu/DataRoad/base_DataOut[19]} {cpu/DataRoad/base_DataOut[20]} {cpu/DataRoad/base_DataOut[21]} {cpu/DataRoad/base_DataOut[22]} {cpu/DataRoad/base_DataOut[23]} {cpu/DataRoad/base_DataOut[24]} {cpu/DataRoad/base_DataOut[25]} {cpu/DataRoad/base_DataOut[26]} {cpu/DataRoad/base_DataOut[27]} {cpu/DataRoad/base_DataOut[28]} {cpu/DataRoad/base_DataOut[29]} {cpu/DataRoad/base_DataOut[30]} {cpu/DataRoad/base_DataOut[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
-set_property port_width 1 [get_debug_ports u_ila_0/probe8]
-connect_debug_port u_ila_0/probe8 [get_nets [list cpu/DataRoad/uart]]
+set_property port_width 20 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {cpu/DataRoad/real_base_addr[0]} {cpu/DataRoad/real_base_addr[1]} {cpu/DataRoad/real_base_addr[2]} {cpu/DataRoad/real_base_addr[3]} {cpu/DataRoad/real_base_addr[4]} {cpu/DataRoad/real_base_addr[5]} {cpu/DataRoad/real_base_addr[6]} {cpu/DataRoad/real_base_addr[7]} {cpu/DataRoad/real_base_addr[8]} {cpu/DataRoad/real_base_addr[9]} {cpu/DataRoad/real_base_addr[10]} {cpu/DataRoad/real_base_addr[11]} {cpu/DataRoad/real_base_addr[12]} {cpu/DataRoad/real_base_addr[13]} {cpu/DataRoad/real_base_addr[14]} {cpu/DataRoad/real_base_addr[15]} {cpu/DataRoad/real_base_addr[16]} {cpu/DataRoad/real_base_addr[17]} {cpu/DataRoad/real_base_addr[18]} {cpu/DataRoad/real_base_addr[19]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 1 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list cpu/DataRoad/uart]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+set_property port_width 1 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list cpu/DataRoad/uart_busy]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]

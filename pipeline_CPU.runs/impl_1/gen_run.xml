@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1627563896">
-  <File Type="OPT-HWDEF" Name="thinpad_top.hwdef"/>
-  <File Type="ROUTE-BUS-SKEW" Name="thinpad_top_bus_skew_routed.rpt"/>
-  <File Type="PA-DCP" Name="thinpad_top.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1627732931">
   <File Type="BITSTR-BMM" Name="thinpad_top_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="thinpad_top_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="thinpad_top_timing_summary_init.rpt"/>
@@ -13,6 +10,7 @@
   <File Type="ROUTE-PWR-SUM" Name="thinpad_top_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="thinpad_top_reports.tcl"/>
   <File Type="OPT-DRC" Name="thinpad_top_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="thinpad_top.hwdef"/>
   <File Type="PWROPT-DCP" Name="thinpad_top_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="thinpad_top_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="thinpad_top_timing_summary_pwropted.rpt"/>
@@ -50,6 +48,7 @@
   <File Type="ROUTE-TIMING-RPX" Name="thinpad_top_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="thinpad_top_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="thinpad_top_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="thinpad_top_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="thinpad_top_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="thinpad_top_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="thinpad_top_postroute_physopt.dcp"/>
@@ -183,6 +182,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/ext_sram_control.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/uart.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

@@ -173,6 +173,7 @@ begin
                     ExtOp    = 1'b0;
                     MemRead  = 1'b0;
                     ALU_A    = 1'b0;
+                    ByteStore = 1'b0;
                 end
                 6'b001001://* addiu
                 begin
@@ -187,6 +188,7 @@ begin
                     ExtOp    = 1'b1;
                     MemRead  = 1'b0;
                     ALU_A    = 1'b0;
+                    ByteStore = 1'b0;
                 end
                 6'b100011://* lw
                 begin
@@ -202,6 +204,7 @@ begin
                     MemRead  = 1'b1;
                     ALU_A    = 1'b0;
                     ByteGet  = 1'b0;
+                    ByteStore = 1'b0;
                 end
                 6'b101011://* sw
                 begin
@@ -227,6 +230,7 @@ begin
                     MemRead = 1'b0;
                     ExtOp   = 1'b1;
                     ALU_A   = 1'b0;
+                    ByteStore = 1'b0;
                 end
                 6'b000010://* jump
                 begin
@@ -236,6 +240,7 @@ begin
                     MemWr   = 1'b0;
                     MemRead = 1'b0;
                     ALU_A   = 1'b0;
+                    ByteStore = 1'b0;
                 end
                 6'b001000://* addi
                 begin
@@ -250,6 +255,7 @@ begin
                     ExtOp    = 1'b1;
                     MemRead  = 1'b0;
                     ALU_A    = 1'b0;
+                    ByteStore = 1'b0;
                 end
                 6'b000101: //*bne
                 begin
@@ -262,6 +268,7 @@ begin
                     MemRead = 1'b0;
                     ALU_A   = 1'b0;
                     ExtOp   = 1'b1;
+                    ByteStore = 1'b0;
                 end
                 6'b100000: //*lb
                 begin
@@ -277,6 +284,7 @@ begin
                     ALU_A    = 1'b0;
                     RegWr    = 1'b1;
                     ByteGet  = 1'b1;
+                    ByteStore = 1'b0;
                 end
                 6'b101000://*sb
                 begin
@@ -335,6 +343,7 @@ begin
                             RegWr    = 1'b0;
                             ALUSrc   = 1'b1;
                             ExtOp    = 1'b1;
+                            ByteStore = 1'b0;
                         end
                     endcase
                 end
