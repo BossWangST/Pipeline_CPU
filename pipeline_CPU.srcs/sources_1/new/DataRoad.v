@@ -38,7 +38,7 @@ module DataRoad#(parameter WIDTH = 32)
                  input ByteStore,
                  input MemRead,
                  output START,
-                 (*mark_debug = "true"*)output[31:0] Inst_ID,
+                 output[31:0] Inst_ID,
                  output [31:0]reg1,
                  reg2,
                  reg3,
@@ -143,7 +143,9 @@ module DataRoad#(parameter WIDTH = 32)
     wire[3:0] byte;
 
     (*mark_debug = "true"*)wire [19:0] real_base_addr;
-    assign real_base_addr = read_base?physical_addr:physical_pc;
+    wire[19:0] physical_addr_EX;
+    assign physical_addr_EX = alu_result[21:2];
+    assign real_base_addr = read_base?physical_addr_EX:physical_pc;
 
     //?(*mark_debug = "true"*)wire [19:0] disp_real_base_addr;
     //?assign disp_real_base_addr=real_base_addr;
@@ -198,16 +200,16 @@ module DataRoad#(parameter WIDTH = 32)
     //?wire uart_we_ID = ID_Out[64];
     ////wire [WIDTH-1:0] Inst_ID;
 
-    wire [WIDTH-1:0] pc_add_4_ID = ID_Out[31:0];
+    wire [WIDTH-1:0] pc_add_4_ID;assign pc_add_4_ID = ID_Out[31:0];
     assign Inst_ID               = ID_Out[63:32];
     //assign pc_add_4_ID         = ID_Out[31:0];
     //wire[5:0] op                 = Inst_ID[31:26];
-    wire[4:0] Rs                 = Inst_ID[25:21];//!no debug
-    wire[4:0] Rt                 = Inst_ID[20:16];
-    wire[4:0] Rd                 = Inst_ID[15:11];
-    wire[15:0] imme16            = Inst_ID[15:0];
-    wire[25:0] target            = Inst_ID[25:0];
-    wire[4:0] sa                 = Inst_ID[10:6];
+    wire[4:0] Rs;assign Rs = Inst_ID[25:21];//!no debug
+    wire[4:0] Rt;assign Rt = Inst_ID[20:16];
+    wire[4:0] Rd;assign Rd = Inst_ID[15:11];
+    wire[15:0] imme16;assign imme16 = Inst_ID[15:0];
+    wire[25:0] target;assign target = Inst_ID[25:0];
+    wire[4:0] sa;assign sa = Inst_ID[10:6];
     
     assign START = |Inst_ID;
     //* Extend immediate
@@ -255,7 +257,8 @@ module DataRoad#(parameter WIDTH = 32)
     wire [169:0]EX_Out;
     //* ID/EX Reg
     wire load_use_clear;
-    assign load_use_clear = load_use;
+    assign load_use_clear = load_use&(!uart)&(!uart_busy);
+    wire load_use;
     wire ID_EX_EN;
     assign ID_EX_EN = (!uart)&(!uart_busy);
     D_Trigger #(170)ID_EX(
@@ -268,27 +271,27 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //& EX parse
-    wire store_forward_EX = EX_Out[164];
-    wire ByteStore_EX     = EX_Out[163];
-    wire ByteGet_EX       = EX_Out[162];
-    wire ALU_A_EX         = EX_Out[161];
-    wire [4:0]sa_EX       = EX_Out[160:156];
-    wire MemRead_EX       = EX_Out[155];
-    wire [4:0]Rs_EX       = EX_Out[154:150];
-    wire RegWr_EX         = EX_Out[149];
-    wire MemWr_EX         = EX_Out[148];
-    wire MemtoReg_EX      = EX_Out[147];
-    wire [3:0]ALUctr_EX   = EX_Out[146:143];
-    wire ALUSrc_EX        = EX_Out[142];
-    wire RegDst_EX        = EX_Out[141];
-    wire [2:0]Branch_EX   = EX_Out[140:138];
+    wire store_forward_EX; assign store_forward_EX = EX_Out[164];
+    wire ByteStore_EX; assign ByteStore_EX = EX_Out[163];
+    wire ByteGet_EX; assign ByteGet_EX = EX_Out[162];
+    wire ALU_A_EX; assign ALU_A_EX = EX_Out[161];
+    wire [4:0]sa_EX;assign sa_EX = EX_Out[160:156];
+    wire MemRead_EX;assign MemRead_EX = EX_Out[155];
+    wire [4:0]Rs_EX;assign Rs_EX = EX_Out[154:150];
+    wire RegWr_EX;assign RegWr_EX = EX_Out[149];
+    wire MemWr_EX;assign MemWr_EX = EX_Out[148];
+    wire MemtoReg_EX;assign MemtoReg_EX = EX_Out[147];
+    wire [3:0]ALUctr_EX;assign ALUctr_EX = EX_Out[146:143];
+    wire ALUSrc_EX;assign ALUSrc_EX = EX_Out[142];
+    wire RegDst_EX;assign RegDst_EX = EX_Out[141];
+    wire [2:0]Branch_EX;assign Branch_EX = EX_Out[140:138];
     //-----------------------------
-    wire [31:0]busA_EX        = EX_Out[137:106];
-    wire [31:0]busB_EX        = EX_Out[105:74];
-    wire [4:0]Rt_EX           = EX_Out[73:69];
-    wire [4:0]Rd_EX           = EX_Out[68:64];
-    wire [31:0]real_imme16_EX = EX_Out[63:32];
-    wire [31:0] pc_add_4_EX   = EX_Out[31:0];
+    wire [31:0]busA_EX;assign busA_EX = EX_Out[137:106];
+    wire [31:0]busB_EX;assign busB_EX = EX_Out[105:74];
+    wire [4:0]Rt_EX;assign Rt_EX = EX_Out[73:69];
+    wire [4:0]Rd_EX;assign Rd_EX = EX_Out[68:64];
+    wire [31:0]real_imme16_EX;assign real_imme16_EX = EX_Out[63:32];
+    wire [31:0] pc_add_4_EX;assign pc_add_4_EX = EX_Out[31:0];
 
     
     // //* ALU B select
@@ -373,7 +376,7 @@ module DataRoad#(parameter WIDTH = 32)
     //.Result(Rw)
     //);
     // load-use
-    wire load_use = MemRead_EX&((Rw == Rt)|(Rw == Rs));
+    assign load_use = MemRead_EX&((Rw == Rt)|(Rw == Rs));
     
     assign read_base=(!alu_result[22])&MemtoReg_EX;
     
@@ -393,20 +396,20 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //& MEM parse
-    wire read_base_MEM        = MEM_Out[76];
-    wire load_use_clear_MEM   = MEM_Out[75];
-    wire store_forward_MEM    = MEM_Out[74];
-    wire ByteStore_MEM        = MEM_Out[73];
-    wire ByteGet_MEM          = MEM_Out[72];
-    wire RegWr_MEM            = MEM_Out[71];
-    wire MemWr_MEM            = MEM_Out[70];
-    wire MemtoReg_MEM         = MEM_Out[69];
+    wire read_base_MEM;assign read_base_MEM = MEM_Out[76];
+    wire load_use_clear_MEM;assign load_use_clear_MEM = MEM_Out[75];
+    wire store_forward_MEM;assign store_forward_MEM = MEM_Out[74];
+    wire ByteStore_MEM;assign ByteStore_MEM = MEM_Out[73];
+    wire ByteGet_MEM;assign ByteGet_MEM = MEM_Out[72];
+    wire RegWr_MEM;assign RegWr_MEM = MEM_Out[71];
+    wire MemWr_MEM;assign MemWr_MEM = MEM_Out[70];
+    wire MemtoReg_MEM;assign MemtoReg_MEM = MEM_Out[69];
     //wire [2:0]Branch_MEM      = MEM_Out[104:102];
-    wire [31:0]alu_result_MEM = MEM_Out[68:37];
+    wire [31:0]alu_result_MEM;assign alu_result_MEM = MEM_Out[68:37];
     //wire Zero_MEM             = MEM_Out[69];
-    wire [31:0]busB_MEM       = MEM_Out[36:5];
+    wire [31:0]busB_MEM;assign busB_MEM = MEM_Out[36:5];
     //wire [31:0]beq_target_MEM = MEM_Out[36:5];
-    wire [4:0]Rw_MEM          = MEM_Out[4:0];
+    wire [4:0]Rw_MEM;assign Rw_MEM = MEM_Out[4:0];
     
     
     //* store forward
@@ -461,6 +464,7 @@ module DataRoad#(parameter WIDTH = 32)
     .MemtoReg(MemtoReg_MEM),
 
     .base_DataOut(base_DataOut),
+    .alu_result(alu_result),
     //?.base_data_wire(base_data_wire),
     //?.base_addr(mem_base_addr),
     //?.base_byte(mem_base_byte),
@@ -558,6 +562,8 @@ module DataRoad#(parameter WIDTH = 32)
     assign real_RegWr_WR = RegWr_WR;
     wire [1:0] ALUSrcA;
     wire [1:0] ALUSrcB;
+    wire Forward_EN;
+    assign Forward_EN = (!uart)&(!uart_busy);
     Forward_detect forward(
     .ALUSrc(ALUSrc_EX),
     .Rs(Rs_EX),
@@ -566,6 +572,8 @@ module DataRoad#(parameter WIDTH = 32)
     .Rw_MEM(Rw_MEM),
     .Rw_WR(real_Rw_WR),
     .RegWr_WR(real_RegWr_WR),
+    .EN(Forward_EN),
+    .clk_50M(clk_50M),
     .ALUSrcA(ALUSrcA),
     .ALUSrcB(ALUSrcB)
     );
@@ -574,32 +582,33 @@ module DataRoad#(parameter WIDTH = 32)
     
     
     wire [179:0] MEM_In;
-    assign MEM_In = {read_base_MEM,alu_result_MEM,uart_state_check,ByteGet_MEM,sw_lw_WR,sw_lw,DataIn_WR,real_DataIn_2,RegWr_MEM,MemtoReg_MEM,alu_result_MEM,real_DataOut,Rw_MEM};
+    assign MEM_In = {read_base_MEM,uart_state_check,ByteGet_MEM,sw_lw_WR,sw_lw,DataIn_WR,real_DataIn_2,RegWr_MEM,MemtoReg_MEM,alu_result_MEM,real_DataOut,Rw_MEM};
     wire [179:0] WR_Out;
     //* MEM/WR reg
+    wire MEM_WR_EN;
+    assign MEM_WR_EN = (!uart)&(!uart_busy);
     D_Trigger #(180)MEM_WR(
     .clk(clk),
     .rst(rst),
-    .en(!uart_busy),
+    .en(MEM_WR_EN),
     .clear(1'b0),
     .d(MEM_In),
     .q(WR_Out)
     );
     
     //& WR parse
-    wire read_base_WR = WR_Out[171];
-    wire [31:0] alu_result_WR = WR_Out[170:139];
-    wire uart_state_check_WR = WR_Out[138];
-    wire ByteGet_WR  = WR_Out[137];
-    wire last_sw_lw_WR = WR_Out[136];
-    wire sw_lw_WR          =WR_Out[135];
-    wire [31:0] last_DataIn_WR = WR_Out [134:103];
-    wire [31:0] DataIn_WR    = WR_Out[102:71];
-    wire RegWr_WR            = WR_Out[70];
-    wire MemtoReg_WR         = WR_Out[69];
-    wire[31:0] alu_result_WR = WR_Out[68:37];
-    wire[31:0] DataOut_WR    = WR_Out[36:5];
-    wire[4:0] Rw_WR          = WR_Out[4:0];
+    wire read_base_WR;assign read_base_WR = WR_Out[139];
+    wire uart_state_check_WR;assign uart_state_check_WR= WR_Out[138];
+    wire ByteGet_WR;assign ByteGet_WR  = WR_Out[137];
+    wire last_sw_lw_WR;assign last_sw_lw_WR = WR_Out[136];
+    wire sw_lw_WR;assign sw_lw_WR =WR_Out[135];
+    wire [31:0] last_DataIn_WR;assign last_DataIn_WR= WR_Out [134:103];
+    wire [31:0] DataIn_WR;assign DataIn_WR = WR_Out[102:71];
+    wire RegWr_WR;assign RegWr_WR = WR_Out[70];
+    wire MemtoReg_WR;assign MemtoReg_WR = WR_Out[69];
+    wire[31:0] alu_result_WR;assign alu_result_WR= WR_Out[68:37];
+    wire[31:0] DataOut_WR;assign DataOut_WR = WR_Out[36:5];
+    wire[4:0] Rw_WR;assign Rw_WR = WR_Out[4:0];
     
     //* reg write data select
     assign busW=MemtoReg_WR?real_DataOut:alu_result_WR;

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sat Jul 31 21:31:48 2021
+| Date         : Sun Aug  1 22:15:19 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_drc -file thinpad_top_drc_routed.rpt -pb thinpad_top_drc_routed.pb -rpx thinpad_top_drc_routed.rpx
 | Design       : thinpad_top
@@ -20,69 +20,75 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: design_1
+          Floorplan: checkpoint_thinpad_top
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 43
-+-----------+----------+---------------------------------+------------+
-| Rule      | Severity | Description                     | Violations |
-+-----------+----------+---------------------------------+------------+
-| PDRC-153  | Warning  | Gated clock check               | 10         |
-| RPBF-3    | Warning  | IO port buffering is incomplete | 32         |
-| RTSTAT-10 | Warning  | No routable loads               | 1          |
-+-----------+----------+---------------------------------+------------+
+             Violations found: 44
++-----------+------------------+---------------------------------+------------+
+| Rule      | Severity         | Description                     | Violations |
++-----------+------------------+---------------------------------+------------+
+| LUTLP-1   | Critical Warning | Combinatorial Loop Alert        | 1          |
+| PDRC-153  | Warning          | Gated clock check               | 10         |
+| RPBF-3    | Warning          | IO port buffering is incomplete | 32         |
+| RTSTAT-10 | Warning          | No routable loads               | 1          |
++-----------+------------------+---------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+LUTLP-1#1 Critical Warning
+Combinatorial Loop Alert  
+469 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is cpu/DataRoad/ID_EX/q_reg[147]_0[5]. Please evaluate your design. The cells in the loop are: cpu/DataRoad/mem/uart_r/DataOut[0]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[1]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[2]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[3]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[4]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[5]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[6]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[7]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[8]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[9]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[10]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[11]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[12]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[13]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[14]_INST_0 (the first 15 of 469 listed).
+Related violations: <none>
+
 PDRC-153#1 Warning
-Gated clock check  
-Net cpu/Control/ALUSrc_reg_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/ALUSrc_reg_i_2/O, cell cpu/Control/ALUSrc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#2 Warning
-Gated clock check  
-Net cpu/Control/ALU_A_reg_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/ALU_A_reg_i_2/O, cell cpu/Control/ALU_A_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#3 Warning
-Gated clock check  
-Net cpu/Control/ALUctr_reg[3]_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/ALUctr_reg[3]_i_2/O, cell cpu/Control/ALUctr_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#4 Warning
-Gated clock check  
-Net cpu/Control/Branch_reg[1]_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/Branch_reg[1]_i_2/O, cell cpu/Control/Branch_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#5 Warning
-Gated clock check  
-Net cpu/Control/ByteGet_reg_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/ByteGet_reg_i_2/O, cell cpu/Control/ByteGet_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#6 Warning
-Gated clock check  
-Net cpu/Control/ExtOp_reg_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/ExtOp_reg_i_2/O, cell cpu/Control/ExtOp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#7 Warning
-Gated clock check  
-Net cpu/Control/MemRead_reg_i_1_n_0 is a gated clock net sourced by a combinational pin cpu/Control/MemRead_reg_i_1/O, cell cpu/Control/MemRead_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#8 Warning
-Gated clock check  
-Net cpu/Control/MemtoReg_reg_i_2_n_0 is a gated clock net sourced by a combinational pin cpu/Control/MemtoReg_reg_i_2/O, cell cpu/Control/MemtoReg_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#9 Warning
 Gated clock check  
 Net cpu/Control/RegDst_reg/G0 is a gated clock net sourced by a combinational pin cpu/Control/RegDst_reg/L3_2/O, cell cpu/Control/RegDst_reg/L3_2 (in cpu/Control/RegDst_reg macro). This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
-PDRC-153#10 Warning
+PDRC-153#2 Warning
 Gated clock check  
 Net cpu/Control/RegWr_reg/G0 is a gated clock net sourced by a combinational pin cpu/Control/RegWr_reg/L3_2/O, cell cpu/Control/RegWr_reg/L3_2 (in cpu/Control/RegWr_reg macro). This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net cpu/DataRoad/E[0] is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUctr_reg[3]_i_2/O, cell cpu/DataRoad/ALUctr_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[36] is a gated clock net sourced by a combinational pin cpu/DataRoad/ALU_A_reg_i_2/O, cell cpu/DataRoad/ALU_A_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[59]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUSrc_reg_i_2/O, cell cpu/DataRoad/ALUSrc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[62] is a gated clock net sourced by a combinational pin cpu/DataRoad/ByteGet_reg_i_2/O, cell cpu/DataRoad/ByteGet_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[62]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/MemtoReg_reg_i_2/O, cell cpu/DataRoad/MemtoReg_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[62]_1 is a gated clock net sourced by a combinational pin cpu/DataRoad/ExtOp_reg_i_2/O, cell cpu/DataRoad/ExtOp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#9 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[63] is a gated clock net sourced by a combinational pin cpu/DataRoad/MemRead_reg_i_1/O, cell cpu/DataRoad/MemRead_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#10 Warning
+Gated clock check  
+Net cpu/DataRoad/q_reg[63]_1 is a gated clock net sourced by a combinational pin cpu/DataRoad/Branch_reg[1]_i_2/O, cell cpu/DataRoad/Branch_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 RPBF-3#1 Warning
@@ -247,7 +253,7 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-25 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14] (the first 15 of 23 listed).
+25 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14] (the first 15 of 23 listed).
 Related violations: <none>
 
 

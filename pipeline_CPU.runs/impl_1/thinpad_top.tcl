@@ -69,18 +69,13 @@ set rc [catch {
   set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 2
   set_param xicom.use_bs_reader 1
-  create_project -in_memory -part xc7a200tfbg676-2
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
+  reset_param project.defaultXPMLibraries 
+  open_checkpoint D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top.dcp
   set_property webtalk.parent_dir D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/wt [current_project]
   set_property parent.project_path D:/University/CPU/pipeline_CPU/pipeline_CPU.xpr [current_project]
   set_property ip_output_repo D:/University/CPU/pipeline_CPU/pipeline_CPU.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/synth_1/thinpad_top.dcp
-  read_ip -quiet D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_xdc D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc
-  link_design -top thinpad_top -part xc7a200tfbg676-2
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

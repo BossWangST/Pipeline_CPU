@@ -23,6 +23,7 @@
 module Mem(input Mem_Wr,
            input ByteStore,
            input [31:0] Addr,
+           input [31:0] alu_result,
            input [31:0] DataIn,
            input clk,
            input clk_50M,
@@ -71,26 +72,51 @@ module Mem(input Mem_Wr,
     //assign Addr_1 = Addr+1;
     //assign Addr_2 = Addr+2;
     //assign Addr_3 = Addr+3;
-    localparam IDLE=2'b00;
-    localparam UART_START = 2'b01;
-    localparam UART_END = 2'b10;
-    reg [1:0] state = IDLE;
-    always@(posedge clk_50M)
+
+    wire uart_check=(alu_result==32'hBFD003F8)?1'b1:1'b0;
+    
+    localparam IDLE=3'b000;
+    localparam UART_START = 3'b001;
+    localparam UART_END = 3'b010;
+    localparam UART_READ_START = 3'b011;
+    localparam UART_READ_END = 3'b100;
+    reg [2:0] state = IDLE;
+    always@(posedge clk)
         case(state)
             IDLE:
             begin
                 uart<=1'b0;
-                if(Addr==32'hBFD003F8)
+                if(uart_check&Mem_Wr)
                 begin
                     state <= UART_START;
+                    uart <= 1'b1;
+                end
+                else if(uart_check&(!Mem_Wr))
+                begin
+                    state <= UART_READ_START;
                     uart <= 1'b1;
                 end
             end
             UART_START:
             begin
                 if(uart_busy)
-                    state<=IDLE;
+                begin
+                    uart <= 1'b0;
+                    state<=UART_END;
+                end
             end
+            UART_END:
+                if(!uart_busy)
+                    state<=IDLE;
+            UART_READ_START:
+                if(!uart_ready)
+                begin
+                    uart<= 1'b0;
+                    state <= UART_READ_END;
+                end
+            UART_READ_END:
+                if(uart_ready)
+                    state<=IDLE;
         endcase
 
             
@@ -221,7 +247,7 @@ module Mem(input Mem_Wr,
     
     always@(posedge clk_50M)
     begin
-        if(!uart_busy && uart)
+        if(!uart_busy && uart && Mem_Wr)
         begin
             uart_tx<=real_DataIn[7:0];
             uart_start<=1;
@@ -232,7 +258,17 @@ module Mem(input Mem_Wr,
         end
 
     end
-    assign DataOut=uart_state_check_WR?32'h0000_0003:
+
+    rxd_uart #(.ClkFrequency(50000000),.Baud(9600))
+        uart_r(
+            .clk(clk_50M),
+            .RxD(rxd),
+            .RxD_data_ready(uart_ready),
+            .RxD_clear(uart_clear),
+            .RxD_data(uart_rx)
+        );
+
+    assign DataOut=(uart_check&(!Mem_Wr))?{24'h000000,uart_rx}:uart_state_check_WR?32'h0000_0003:
                    read_base?base_DataOut:ext_DataOut;
     //Inst_mem_0 memory(
     //    .clk(clk),

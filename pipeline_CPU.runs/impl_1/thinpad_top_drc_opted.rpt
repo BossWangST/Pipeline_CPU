@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sat Jul 31 21:23:24 2021
+| Date         : Sun Aug  1 21:59:19 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_drc -file thinpad_top_drc_opted.rpt -pb thinpad_top_drc_opted.pb -rpx thinpad_top_drc_opted.rpx
 | Design       : thinpad_top
@@ -20,19 +20,25 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: design_1
+          Floorplan: checkpoint_thinpad_top
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 32
-+--------+----------+---------------------------------+------------+
-| Rule   | Severity | Description                     | Violations |
-+--------+----------+---------------------------------+------------+
-| RPBF-3 | Warning  | IO port buffering is incomplete | 32         |
-+--------+----------+---------------------------------+------------+
+             Violations found: 33
++---------+------------------+---------------------------------+------------+
+| Rule    | Severity         | Description                     | Violations |
++---------+------------------+---------------------------------+------------+
+| LUTLP-1 | Critical Warning | Combinatorial Loop Alert        | 1          |
+| RPBF-3  | Warning          | IO port buffering is incomplete | 32         |
++---------+------------------+---------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+LUTLP-1#1 Critical Warning
+Combinatorial Loop Alert  
+469 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is cpu/DataRoad/ID_EX/q_reg[147]_0[5]. Please evaluate your design. The cells in the loop are: cpu/DataRoad/mem/uart_r/DataOut[0]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[1]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[2]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[3]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[4]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[5]_INST_0, cpu/DataRoad/mem/uart_r/DataOut[6]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[7]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[8]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[9]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[10]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[11]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[12]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[13]_INST_0, cpu/DataRoad/mem/ext_control/DataOut[14]_INST_0 (the first 15 of 469 listed).
+Related violations: <none>
+
 RPBF-3#1 Warning
 IO port buffering is incomplete  
 Device port base_ram_data[0] expects both input and output buffering but the buffers are incomplete.
