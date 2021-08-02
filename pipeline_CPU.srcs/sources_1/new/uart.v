@@ -131,7 +131,7 @@ wire sampleNow = tick && (OversamplingCnt==Oversampling/2-1);
 
 always @(posedge clk)
     case(RxD_state)
-	    4'b0000: if(~RxD_bit) RxD_state <= `ifdef SIMULATION 4'b1000 `else 4'b0001 `endif;  // start bit found?
+	    4'b0000: if(~RxD_bit) RxD_state <=  4'b0001;  // start bit found?
 	    4'b0001: if(sampleNow) RxD_state <= 4'b1000;  // sync start bit to sampleNow
 	    4'b1000: if(sampleNow) RxD_state <= 4'b1001;  // bit 0
 	    4'b1001: if(sampleNow) RxD_state <= 4'b1010;  // bit 1

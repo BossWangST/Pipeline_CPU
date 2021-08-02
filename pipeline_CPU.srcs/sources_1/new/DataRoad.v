@@ -87,6 +87,7 @@ module DataRoad#(parameter WIDTH = 32)
 
     (*mark_debug = "true"*)wire uart;
     (*mark_debug = "true"*)wire uart_busy;
+    wire uart_receiver_busy;
     wire read_base;//!no debug
 
     //base wire select
@@ -109,10 +110,12 @@ module DataRoad#(parameter WIDTH = 32)
 
     wire[19:0] physical_pc,physical_addr;
     (*mark_debug = "true"*)wire [31:0] base_DataOut; 
+    wire pc_EN;
+    assign pc_EN = load_use_pause&(!uart)&(!read_base)&(!read_base_MEM)&(!uart_busy)&(!uart_receiver_busy);
     PC pc(
     .clk(clk),
     .rst(rst),
-    .en(load_use_pause&(!uart)&(!read_base)&(!read_base_MEM)&(!uart_busy)),
+    .en(pc_EN),
     .branch(branch_real),
     .Jump(Jump),
     .RUN(RUN),
@@ -184,7 +187,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire IF_ID_clear = branch_real|(load_use_clear_MEM);
     //* IF/ID Reg
     wire IF_ID_EN;
-    assign IF_ID_EN = load_use_pause&(!read_base)&(!uart)&(!uart_busy);
+    assign IF_ID_EN = load_use_pause&(!read_base)&(!uart)&(!uart_busy)&(!uart_receiver_busy);
     D_Trigger #(100)IF_ID(
     .clk(clk),
     .rst(rst),
@@ -260,7 +263,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign load_use_clear = load_use&(!uart)&(!uart_busy);
     wire load_use;
     wire ID_EX_EN;
-    assign ID_EX_EN = (!uart)&(!uart_busy);
+    assign ID_EX_EN = (!uart)&(!uart_busy)&(!uart_receiver_busy);
     D_Trigger #(170)ID_EX(
     .clk(clk),
     .rst(rst),
@@ -385,7 +388,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire[127:0] MEM_Out;
     //* EX/MEM reg
     wire EX_MEM_EN;
-    assign EX_MEM_EN = (!uart)&(!uart_busy);
+    assign EX_MEM_EN = (!uart)&(!uart_busy)&(!uart_receiver_busy);
     D_Trigger #(128)EX_MEM(
     .clk(clk),
     .rst(rst),
@@ -452,6 +455,7 @@ module DataRoad#(parameter WIDTH = 32)
                   (alu_result_MEM[1:0]==2'b01)?4'b1101:
                   (alu_result_MEM[1:0]==2'b10)?4'b1011:
                   4'b0111);
+    (*mark_debug = "true"*)wire uart_check_out;
     Mem mem(
     .clk(clk),
     .rst(rst),
@@ -465,22 +469,16 @@ module DataRoad#(parameter WIDTH = 32)
 
     .base_DataOut(base_DataOut),
     .alu_result(alu_result),
-    //?.base_data_wire(base_data_wire),
-    //?.base_addr(mem_base_addr),
-    //?.base_byte(mem_base_byte),
-    //?.base_ce(mem_base_ce),
-    //?.base_oe(mem_base_oe),
-    //?.base_we(mem_base_we),
+    .MemWr_EX(MemWr_EX),
 
-    //?.rdn(rdn),
-    //?.wrn(wrn),
-    //?.data_ready(data_ready),
-    //?.tbre(tbre),
-    //?.tsre(tsre),
+
     .txd(txd),
     .rxd(rxd),
     .uart(uart),
     .uart_busy_out(uart_busy),
+    .uart_receiver_busy_out(uart_receiver_busy),
+    .uart_check_out(uart_check_out),
+    .uart_check_WR(uart_check_WR),
     //?.uart_WR(uart_WR),
     //?.uart_oe(uart_oe),
     //?.uart_we(uart_we),
@@ -563,7 +561,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire [1:0] ALUSrcA;
     wire [1:0] ALUSrcB;
     wire Forward_EN;
-    assign Forward_EN = (!uart)&(!uart_busy);
+    assign Forward_EN = (!uart)&(!uart_busy)&(!uart_receiver_busy);
     Forward_detect forward(
     .ALUSrc(ALUSrc_EX),
     .Rs(Rs_EX),
@@ -582,11 +580,11 @@ module DataRoad#(parameter WIDTH = 32)
     
     
     wire [179:0] MEM_In;
-    assign MEM_In = {read_base_MEM,uart_state_check,ByteGet_MEM,sw_lw_WR,sw_lw,DataIn_WR,real_DataIn_2,RegWr_MEM,MemtoReg_MEM,alu_result_MEM,real_DataOut,Rw_MEM};
+    assign MEM_In = {uart_check_out,read_base_MEM,uart_state_check,ByteGet_MEM,sw_lw_WR,sw_lw,DataIn_WR,real_DataIn_2,RegWr_MEM,MemtoReg_MEM,alu_result_MEM,real_DataOut,Rw_MEM};
     wire [179:0] WR_Out;
     //* MEM/WR reg
     wire MEM_WR_EN;
-    assign MEM_WR_EN = (!uart)&(!uart_busy);
+    assign MEM_WR_EN = (!uart)&(!uart_busy)&(!uart_receiver_busy);
     D_Trigger #(180)MEM_WR(
     .clk(clk),
     .rst(rst),
@@ -597,6 +595,7 @@ module DataRoad#(parameter WIDTH = 32)
     );
     
     //& WR parse
+    (*mark_debug = "true"*)wire uart_check_WR;assign uart_check_WR = WR_Out[140];
     wire read_base_WR;assign read_base_WR = WR_Out[139];
     wire uart_state_check_WR;assign uart_state_check_WR= WR_Out[138];
     wire ByteGet_WR;assign ByteGet_WR  = WR_Out[137];
