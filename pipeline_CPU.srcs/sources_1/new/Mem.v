@@ -49,6 +49,8 @@ module Mem(input Mem_Wr,
            (*mark_debug = "true"*)output uart_receiver_busy_out,
            output uart_check_out,
            input uart_check_WR,
+           input last_uart_check_WR,
+           input [31:0] DataOut_WR,
            //?output uart_oe,uart_we,
            //?output [3:0]out_byte,
            //?output [31:0] real_DataIn_out,
@@ -295,7 +297,8 @@ module Mem(input Mem_Wr,
             .RxD_data(uart_rx)
         );
 
-    assign DataOut=uart_check_WR?{24'h000_000,uart_rx}:
+    assign DataOut=last_uart_check_WR?DataOut_WR:
+                   uart_check_WR?{24'h000_000,uart_rx}:
                    uart_state_check_WR?32'h0000_0003:
                    read_base?base_DataOut:ext_DataOut;
     //Inst_mem_0 memory(

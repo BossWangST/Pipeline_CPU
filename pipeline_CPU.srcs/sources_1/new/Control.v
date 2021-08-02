@@ -140,6 +140,16 @@ begin
                     ALUctr = leftshift;
                     ALU_A  = 1'b0;
                 end
+                6'b100110://* xor
+                begin
+                    ALUctr = _xor;
+                    ALU_A = 1'b0;
+                end
+                6'b100101://* or
+                begin
+                    ALUctr = _or;
+                    ALU_A = 1'b0;
+                end
                 6'b000000://* sll
                 begin
                     ALUctr = leftshift;
@@ -268,6 +278,19 @@ begin
                     MemRead = 1'b0;
                     ALU_A   = 1'b0;
                     ExtOp   = 1'b1;
+                    ByteStore = 1'b0;
+                end
+                6'b000110: //*blez
+                begin
+                    ALUctr = subu;
+                    Branch = 3'b101;
+                    Jump = 1'b0;
+                    ALUSrc = 1'b0;
+                    RegWr = 1'b0;
+                    MemWr = 1'b0;
+                    MemRead   = 1'b0;
+                    ALU_A     = 1'b0;
+                    ExtOp    = 1'b1;
                     ByteStore = 1'b0;
                 end
                 6'b100000: //*lb

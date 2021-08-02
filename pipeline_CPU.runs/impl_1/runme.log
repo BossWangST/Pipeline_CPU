@@ -9,36 +9,226 @@
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
 source thinpad_top.tcl -notrace
-Command: open_checkpoint D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top.dcp
-
-Starting open_checkpoint Task
-
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 306.012 ; gain = 0.000
+Command: link_design -top thinpad_top -part xc7a200tfbg676-2
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a200tfbg676-2
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 655.641 ; gain = 0.000
+INFO: [Project 1-454] Reading design checkpoint 'd:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'clk_25'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 686.676 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 456 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2019.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-35] Removing redundant IBUF, clk_25/inst/clkin1_ibufg, from the path connected to top-level port: clk_50M 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
 WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_25/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1297.211 ; gain = 5.027
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1297.211 ; gain = 5.027
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1297.211 ; gain = 0.000
+Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_25/inst'
+Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_25/inst'
+Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_25/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1418.578 ; gain = 616.055
+Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_25/inst'
+Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
+WARNING: [Vivado 12-507] No nets matched 'clk_11M0592_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[2]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[3]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[4]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[5]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[6]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[7]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[8]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[9]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[10]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[11]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[12]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[13]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[14]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[15]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[16]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[17]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[18]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[19]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[20]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[21]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[22]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[23]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[24]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[25]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[26]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[27]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[28]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[29]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[30]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[31]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:291]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[2]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[3]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[4]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[5]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[6]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[7]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[8]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[9]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[10]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[11]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[12]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[13]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[14]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[15]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[16]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[17]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[18]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[19]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[20]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[21]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[22]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[23]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[24]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[25]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[26]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[27]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[28]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[29]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[30]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[31]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:292]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[2]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[3]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[4]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[5]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[6]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[7]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[8]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[9]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[10]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[11]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[12]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[13]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[14]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[15]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[16]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[17]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[18]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[19]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[20]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[21]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[22]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[23]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[24]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[25]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[26]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[27]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[28]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[29]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[30]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/pc_add_4_EX[31]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:296]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/imme16_shift[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:296]
+INFO: [Common 17-14] Message 'Vivado 12-507' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:296]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:296]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:301]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:302]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:304]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:310]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:312]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:313]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:315]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:316]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:317]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:318]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:321]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:325]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:327]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:331]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:337]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:338]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:339]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:340]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:342]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:344]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:347]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:350]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:351]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:352]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:354]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:355]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:356]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:357]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:359]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:360]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:362]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:364]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:365]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:369]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:370]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:371]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:374]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:375]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:377]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:380]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:383]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:384]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:389]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:393]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:394]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:401]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:403]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:405]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:409]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:411]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:416]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:451]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:455]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:457]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:459]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:461]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:464]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:465]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:466]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:467]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:471]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:472]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:473]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:474]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:475]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:477]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:479]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:481]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:483]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:487]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:491]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:497]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:498]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:499]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:500]
+Finished Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1420.574 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 34 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 32 instances
   LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 2 instances
 
-INFO: [Project 1-604] Checkpoint was created with Vivado v2019.2 (64-bit) build 2708876
-open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1297.211 ; gain = 991.199
+11 Infos, 102 Warnings, 83 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1420.574 ; gain = 1080.113
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
@@ -81,78 +271,76 @@ WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port base_ram_data
 INFO: [Project 1-461] DRC finished with 0 Errors, 32 Warnings
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.799 . Memory (MB): peak = 1320.168 ; gain = 21.008
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.809 . Memory (MB): peak = 1420.574 ; gain = 0.000
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 22f2134f4
+Ending Cache Timing Information Task | Checksum: 151ccce7f
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.131 . Memory (MB): peak = 1408.121 ; gain = 87.953
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.132 . Memory (MB): peak = 1435.539 ; gain = 14.965
 
 Starting Logic Optimization Task
 
 Phase 1 Generate And Synthesize Debug Cores
 INFO: [Chipscope 16-329] Generating Script for core instance : dbg_hub 
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/Vivado/2019.2/data/ip'.
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
 INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_0 
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_0_CV.
 INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:xsdbm:3.0", from Vivado IP cache entry "f01083c1c196d0ea".
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.261 . Memory (MB): peak = 1733.055 ; gain = 0.000
-Phase 1 Generate And Synthesize Debug Cores | Checksum: 1eb5f1b44
+INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:ila:6.2", from Vivado IP cache entry "d59848d0f2111bc2".
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.220 . Memory (MB): peak = 1723.574 ; gain = 0.000
+Phase 1 Generate And Synthesize Debug Cores | Checksum: 136ad8bb3
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:03:22 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:37 . Memory (MB): peak = 1723.574 ; gain = 106.664
 
 Phase 2 Retarget
-INFO: [Opt 31-138] Pushed 1 inverter(s) to 4 load pin(s).
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 5 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 2 Retarget | Checksum: 1da67d8e5
+Phase 2 Retarget | Checksum: 174897d3b
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:03:23 . Memory (MB): peak = 1733.055 ; gain = 142.203
-INFO: [Opt 31-389] Phase Retarget created 4 cells and removed 12 cells
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:38 . Memory (MB): peak = 1723.574 ; gain = 106.664
+INFO: [Opt 31-389] Phase Retarget created 4 cells and removed 14 cells
 INFO: [Opt 31-1021] In phase Retarget, 66 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 3 Constant propagation | Checksum: 194bbd12c
+Phase 3 Constant propagation | Checksum: 192cb6247
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:03:23 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:38 . Memory (MB): peak = 1723.574 ; gain = 106.664
 INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 16 cells
 INFO: [Opt 31-1021] In phase Constant propagation, 48 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 Sweep
-Phase 4 Sweep | Checksum: 1c3f3ae1d
+Phase 4 Sweep | Checksum: 15ff019bb
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:03:24 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:39 . Memory (MB): peak = 1723.574 ; gain = 106.664
 INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 46 cells
-INFO: [Opt 31-1021] In phase Sweep, 1642 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+INFO: [Opt 31-1021] In phase Sweep, 1442 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 5 BUFG optimization
 INFO: [Opt 31-194] Inserted BUFG clk_50M_IBUF_BUFG_inst to drive 195 load(s) on clock net clk_50M_IBUF_BUFG
-INFO: [Opt 31-194] Inserted BUFG cpu/DataRoad/ID_EX/q_reg[147]_0_BUFG_inst to drive 90 load(s) on clock net cpu/DataRoad/ID_EX/q_reg[147]_0_BUFG
+INFO: [Opt 31-194] Inserted BUFG cpu/DataRoad/ID_EX/en_BUFG_inst to drive 90 load(s) on clock net cpu/DataRoad/ID_EX/en_BUFG
 INFO: [Opt 31-193] Inserted 2 BUFG(s) on clock nets
 INFO: [Opt 31-1112] Starts optimizing BUFG(s) with a common MMCM/DPLL/XPLL driver.
 INFO: [Opt 31-1112] Starts optimizing BUFG(s) with a common driver.
 INFO: [Opt 31-1092] Phase BUFG optimization transformed 0 BUFG(s) to MBUFG(s).
-Phase 5 BUFG optimization | Checksum: 1f4f87ac8
+Phase 5 BUFG optimization | Checksum: 1e48aa5ff
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:03:24 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:39 . Memory (MB): peak = 1723.574 ; gain = 106.664
 INFO: [Opt 31-662] Phase BUFG optimization created 2 cells of which 2 are BUFGs and removed 0 cells.
 INFO: [Opt 31-1021] In phase BUFG optimization, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 6 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 6 Shift Register Optimization | Checksum: 1f4f87ac8
+Phase 6 Shift Register Optimization | Checksum: 1e48aa5ff
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:03:24 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:39 . Memory (MB): peak = 1723.574 ; gain = 106.664
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 7 Post Processing Netlist
-Phase 7 Post Processing Netlist | Checksum: 1f4f87ac8
+Phase 7 Post Processing Netlist | Checksum: 1e48aa5ff
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:03:24 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:39 . Memory (MB): peak = 1723.574 ; gain = 106.664
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 INFO: [Opt 31-1021] In phase Post Processing Netlist, 57 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
@@ -162,9 +350,9 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |               4  |              12  |                                             66  |
+|  Retarget                     |               4  |              14  |                                             66  |
 |  Constant propagation         |               0  |              16  |                                             48  |
-|  Sweep                        |               0  |              46  |                                           1642  |
+|  Sweep                        |               0  |              46  |                                           1442  |
 |  BUFG optimization            |               2  |               0  |                                              1  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
 |  Post Processing Netlist      |               0  |               0  |                                             57  |
@@ -174,59 +362,59 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1733.055 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 119d5ebf8
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1723.574 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 15fc91c51
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:03:25 . Memory (MB): peak = 1733.055 ; gain = 142.203
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:39 . Memory (MB): peak = 1723.574 ; gain = 106.664
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Pwropt 34-9] Applying IDT optimizations ...
 INFO: [Pwropt 34-10] Applying ODC optimizations ...
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=8.330 | TNS=0.000 |
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=7.349 | TNS=0.000 |
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 11 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 9 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
-Number of BRAM Ports augmented: 11 newly gated: 0 Total Ports: 22
-Ending PowerOpt Patch Enables Task | Checksum: 156b5d34a
+Number of BRAM Ports augmented: 9 newly gated: 0 Total Ports: 18
+Ending PowerOpt Patch Enables Task | Checksum: eefa11c5
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.140 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 156b5d34a
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.097 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Ending Power Optimization Task | Checksum: eefa11c5
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1940.840 ; gain = 207.785
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 1928.766 ; gain = 205.191
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 156b5d34a
+Ending Final Cleanup Task | Checksum: eefa11c5
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 15d35e3d5
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: d55841aa
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-59 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
+58 Infos, 134 Warnings, 83 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:28 ; elapsed = 00:03:33 . Memory (MB): peak = 1940.840 ; gain = 643.629
+opt_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:47 . Memory (MB): peak = 1928.766 ; gain = 508.191
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.124 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.190 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top_opt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1940.840 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_drc -file thinpad_top_drc_opted.rpt -pb thinpad_top_drc_opted.pb -rpx thinpad_top_drc_opted.rpx
 Command: report_drc -file thinpad_top_drc_opted.rpt -pb thinpad_top_drc_opted.pb -rpx thinpad_top_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
@@ -283,42 +471,42 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: be7a9fe1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 84c3e99f
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 109667b97
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: d5378d8f
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 13e890301
+Phase 1.3 Build Placer Netlist Model | Checksum: 108d0fd55
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 13e890301
+Phase 1.4 Constrain Clocks/Macros | Checksum: 108d0fd55
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 13e890301
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 108d0fd55
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 165a4bd90
+Phase 2.1 Floorplanning | Checksum: 125cc5a9b
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 2.2 Global Placement Core
 
 Phase 2.2.1 Physical Synthesis In Placer
-INFO: [Physopt 32-1018] Found 180 candidate LUT instances to create LUTNM shape
-INFO: [Physopt 32-775] End 1 Pass. Optimized 65 nets or cells. Created 0 new cell, deleted 65 existing cells and moved 0 existing cell
+INFO: [Physopt 32-1018] Found 167 candidate LUT instances to create LUTNM shape
+INFO: [Physopt 32-775] End 1 Pass. Optimized 63 nets or cells. Created 0 new cell, deleted 63 existing cells and moved 0 existing cell
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -328,7 +516,7 @@ INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization wa
 INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
 INFO: [Physopt 32-949] No candidate nets found for HD net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -337,71 +525,66 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            0  |             65  |                    65  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |            0  |             63  |                    63  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            0  |             65  |                    65  |           0  |           3  |  00:00:00  |
+|  Total                                            |            0  |             63  |                    63  |           0  |           3  |  00:00:00  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.2.1 Physical Synthesis In Placer | Checksum: 29e388c3e
+Phase 2.2.1 Physical Synthesis In Placer | Checksum: 100bd1e1f
 
-Time (s): cpu = 00:00:28 ; elapsed = 00:00:16 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 2.2 Global Placement Core | Checksum: 2333524e2
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:15 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 2.2 Global Placement Core | Checksum: ee1a80c5
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:16 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 2 Global Placement | Checksum: 2333524e2
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:16 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 2 Global Placement | Checksum: ee1a80c5
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:16 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:16 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 233b411f0
+Phase 3.1 Commit Multi Column Macros | Checksum: 1a4dbd373
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:17 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:16 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 13532d3b1
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1713aa85a
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:18 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 16d070934
+Phase 3.3 Area Swap Optimization | Checksum: 1a7c8481b
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 14118c566
+Phase 3.4 Pipeline Register Optimization | Checksum: 1af2d7e54
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3.5 Small Shape Detail Placement
+Phase 3.5 Small Shape Detail Placement | Checksum: 1af6f3964
 
-Phase 3.5.1 Place Remaining
-Phase 3.5.1 Place Remaining | Checksum: 155a59054
-
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:24 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 3.5 Small Shape Detail Placement | Checksum: 155a59054
-
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:24 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:22 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3.6 Re-assign LUT pins
-Phase 3.6 Re-assign LUT pins | Checksum: 21330d5f9
+Phase 3.6 Re-assign LUT pins | Checksum: 1395095d5
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:25 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:22 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 3.7 Pipeline Register Optimization
-Phase 3.7 Pipeline Register Optimization | Checksum: 1c2cbd4be
+Phase 3.7 Pipeline Register Optimization | Checksum: 12777d8dc
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:25 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 1c2cbd4be
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:22 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 12777d8dc
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:25 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:22 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -409,78 +592,77 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 22516a94a
+Post Placement Optimization Initialization | Checksum: 10fdb2f4d
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Place 46-33] Processed net reset_btn_IBUF, BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 22516a94a
+Phase 4.1.1.1 BUFG Insertion | Checksum: 10fdb2f4d
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
-INFO: [Place 30-746] Post Placement Timing Summary WNS=2.683. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 1b14910a3
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=1.533. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 11795360a
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 1b14910a3
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 11795360a
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1b14910a3
+Phase 4.2 Post Placement Cleanup | Checksum: 11795360a
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 1b14910a3
+Phase 4.3 Placer Reporting | Checksum: 11795360a
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 4.4 Final Placement Cleanup | Checksum: 23c8655d0
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 4.4 Final Placement Cleanup | Checksum: 9c967dfc
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 23c8655d0
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 9c967dfc
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Ending Placer Task | Checksum: 1b12ebfdf
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Ending Placer Task | Checksum: 73b9c983
 
-Time (s): cpu = 00:00:44 ; elapsed = 00:00:28 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:25 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-92 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+91 Infos, 166 Warnings, 83 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:31 . Memory (MB): peak = 1940.840 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1940.840 ; gain = 0.000
+place_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:27 . Memory (MB): peak = 1928.766 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top_placed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1940.840 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_io -file thinpad_top_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.388 . Memory (MB): peak = 1940.840 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.419 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file thinpad_top_utilization_placed.rpt -pb thinpad_top_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file thinpad_top_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.096 . Memory (MB): peak = 1940.840 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.084 . Memory (MB): peak = 1928.766 ; gain = 0.000
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
 INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.250 ns. Skipping all physical synthesis optimizations.
 INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
 INFO: [Common 17-83] Releasing license: Implementation
-101 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+100 Infos, 166 Warnings, 83 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 1940.840 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1928.766 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top_physopt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1940.840 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1928.766 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
@@ -492,126 +674,130 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: d13c7c51 ConstDB: 0 ShapeSum: dff2438e RouteDB: 0
+Checksum: PlaceDB: c0bff0 ConstDB: 0 ShapeSum: 72f90993 RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 91f45b4d
+Phase 1 Build RT Design | Checksum: fa7fe604
 
-Time (s): cpu = 00:01:57 ; elapsed = 00:01:46 . Memory (MB): peak = 2063.961 ; gain = 123.121
-Post Restoration Checksum: NetGraph: 7f4cef79 NumContArr: 12a76bd4 Constraints: 0 Timing: 0
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:51 . Memory (MB): peak = 2044.168 ; gain = 115.402
+Post Restoration Checksum: NetGraph: 592037f4 NumContArr: a15fae10 Constraints: 0 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 91f45b4d
+Phase 2.1 Create Timer | Checksum: fa7fe604
 
-Time (s): cpu = 00:01:57 ; elapsed = 00:01:46 . Memory (MB): peak = 2063.961 ; gain = 123.121
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:51 . Memory (MB): peak = 2044.168 ; gain = 115.402
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 91f45b4d
+Phase 2.2 Fix Topology Constraints | Checksum: fa7fe604
 
-Time (s): cpu = 00:01:57 ; elapsed = 00:01:46 . Memory (MB): peak = 2070.883 ; gain = 130.043
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:51 . Memory (MB): peak = 2051.086 ; gain = 122.320
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 91f45b4d
+Phase 2.3 Pre Route Cleanup | Checksum: fa7fe604
 
-Time (s): cpu = 00:01:57 ; elapsed = 00:01:46 . Memory (MB): peak = 2070.883 ; gain = 130.043
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:51 . Memory (MB): peak = 2051.086 ; gain = 122.320
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 15363085e
+Phase 2.4 Update Timing | Checksum: 1d5f2e6e8
 
-Time (s): cpu = 00:02:04 ; elapsed = 00:01:51 . Memory (MB): peak = 2125.223 ; gain = 184.383
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.107  | TNS=0.000  | WHS=-1.567 | THS=-553.473|
+Time (s): cpu = 00:02:08 ; elapsed = 00:01:55 . Memory (MB): peak = 2105.969 ; gain = 177.203
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.498  | TNS=0.000  | WHS=-1.616 | THS=-473.471|
 
 
 Phase 2.5 Update Timing for Bus Skew
 
 Phase 2.5.1 Update Timing
-Phase 2.5.1 Update Timing | Checksum: 12ac195c1
+Phase 2.5.1 Update Timing | Checksum: 14299f1d3
 
-Time (s): cpu = 00:02:07 ; elapsed = 00:01:53 . Memory (MB): peak = 2125.223 ; gain = 184.383
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.107  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:58 . Memory (MB): peak = 2105.969 ; gain = 177.203
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.498  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 2.5 Update Timing for Bus Skew | Checksum: 18d9d82f1
+Phase 2.5 Update Timing for Bus Skew | Checksum: 196ecba4d
 
-Time (s): cpu = 00:02:07 ; elapsed = 00:01:53 . Memory (MB): peak = 2125.785 ; gain = 184.945
-Phase 2 Router Initialization | Checksum: 13b43063d
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:58 . Memory (MB): peak = 2117.281 ; gain = 188.516
+Phase 2 Router Initialization | Checksum: 1aa8e1164
 
-Time (s): cpu = 00:02:07 ; elapsed = 00:01:53 . Memory (MB): peak = 2125.785 ; gain = 184.945
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:58 . Memory (MB): peak = 2117.281 ; gain = 188.516
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.010244 %
-  Global Horizontal Routing Utilization  = 0.017614 %
+  Global Vertical Routing Utilization    = 0.0276546 %
+  Global Horizontal Routing Utilization  = 0.0277264 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 9854
+  Number of Failed Nets               = 8781
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 9748
-  Number of Partially Routed Nets     = 106
-  Number of Node Overlaps             = 279
+  Number of Unrouted Nets             = 8646
+  Number of Partially Routed Nets     = 135
+  Number of Node Overlaps             = 613
 
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 101205780
+Phase 3 Initial Routing | Checksum: 1c539fd7b
 
-Time (s): cpu = 00:02:21 ; elapsed = 00:02:00 . Memory (MB): peak = 2163.500 ; gain = 222.660
+Time (s): cpu = 00:02:25 ; elapsed = 00:02:05 . Memory (MB): peak = 2157.777 ; gain = 229.012
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 1677
- Number of Nodes with overlaps = 382
- Number of Nodes with overlaps = 94
- Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 1696
+ Number of Nodes with overlaps = 358
+ Number of Nodes with overlaps = 100
+ Number of Nodes with overlaps = 38
  Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.905  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.340  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 13db772c2
+Phase 4.1 Global Iteration 0 | Checksum: 12515c38f
 
-Time (s): cpu = 00:03:53 ; elapsed = 00:03:00 . Memory (MB): peak = 2187.211 ; gain = 246.371
-Phase 4 Rip-up And Reroute | Checksum: 13db772c2
+Time (s): cpu = 00:08:54 ; elapsed = 00:06:29 . Memory (MB): peak = 2505.422 ; gain = 576.656
+Phase 4 Rip-up And Reroute | Checksum: 12515c38f
 
-Time (s): cpu = 00:03:54 ; elapsed = 00:03:00 . Memory (MB): peak = 2187.211 ; gain = 246.371
+Time (s): cpu = 00:08:54 ; elapsed = 00:06:29 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 13db772c2
+Phase 5.1 Delay CleanUp | Checksum: 12515c38f
 
-Time (s): cpu = 00:03:54 ; elapsed = 00:03:00 . Memory (MB): peak = 2187.211 ; gain = 246.371
+Time (s): cpu = 00:08:54 ; elapsed = 00:06:29 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 13db772c2
+Phase 5.2 Clock Skew Optimization | Checksum: 12515c38f
 
-Time (s): cpu = 00:03:54 ; elapsed = 00:03:00 . Memory (MB): peak = 2187.211 ; gain = 246.371
-Phase 5 Delay and Skew Optimization | Checksum: 13db772c2
+Time (s): cpu = 00:08:54 ; elapsed = 00:06:29 . Memory (MB): peak = 2505.422 ; gain = 576.656
+Phase 5 Delay and Skew Optimization | Checksum: 12515c38f
 
-Time (s): cpu = 00:03:54 ; elapsed = 00:03:00 . Memory (MB): peak = 2187.211 ; gain = 246.371
+Time (s): cpu = 00:08:54 ; elapsed = 00:06:29 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 1e2b23666
+Phase 6.1.1 Update Timing | Checksum: 121ef077e
 
-Time (s): cpu = 00:03:55 ; elapsed = 00:03:01 . Memory (MB): peak = 2187.211 ; gain = 246.371
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.905  | TNS=0.000  | WHS=-0.753 | THS=-24.370|
+Time (s): cpu = 00:08:55 ; elapsed = 00:06:29 . Memory (MB): peak = 2505.422 ; gain = 576.656
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.340  | TNS=0.000  | WHS=-0.637 | THS=-19.622|
 
-Phase 6.1 Hold Fix Iter | Checksum: 13b3fe861
+Phase 6.1 Hold Fix Iter | Checksum: 27c6cda27
 
-Time (s): cpu = 00:04:05 ; elapsed = 00:03:10 . Memory (MB): peak = 2396.336 ; gain = 455.496
-Phase 6 Post Hold Fix | Checksum: 12c933cfc
+Time (s): cpu = 00:09:16 ; elapsed = 00:06:50 . Memory (MB): peak = 2505.422 ; gain = 576.656
+Phase 6 Post Hold Fix | Checksum: 1b388e395
 
-Time (s): cpu = 00:04:05 ; elapsed = 00:03:10 . Memory (MB): peak = 2396.336 ; gain = 455.496
+Time (s): cpu = 00:09:16 ; elapsed = 00:06:50 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 1.40456 %
-  Global Horizontal Routing Utilization  = 1.46804 %
+  Global Vertical Routing Utilization    = 1.29932 %
+  Global Horizontal Routing Utilization  = 1.33199 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -621,73 +807,73 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: b62e121c
+Phase 7 Route finalize | Checksum: 1dc4e4538
 
-Time (s): cpu = 00:04:05 ; elapsed = 00:03:10 . Memory (MB): peak = 2396.336 ; gain = 455.496
+Time (s): cpu = 00:09:16 ; elapsed = 00:06:50 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: b62e121c
+Phase 8 Verifying routed nets | Checksum: 1dc4e4538
 
-Time (s): cpu = 00:04:05 ; elapsed = 00:03:10 . Memory (MB): peak = 2396.336 ; gain = 455.496
+Time (s): cpu = 00:09:16 ; elapsed = 00:06:50 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 15d10bded
+Phase 9 Depositing Routes | Checksum: 209731e5c
 
-Time (s): cpu = 00:04:06 ; elapsed = 00:03:11 . Memory (MB): peak = 2396.336 ; gain = 455.496
+Time (s): cpu = 00:09:17 ; elapsed = 00:06:51 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Phase 10 Post Router Timing
 
 Phase 10.1 Update Timing
-Phase 10.1 Update Timing | Checksum: 22a41f0f7
+Phase 10.1 Update Timing | Checksum: 27db90751
 
-Time (s): cpu = 00:04:07 ; elapsed = 00:03:12 . Memory (MB): peak = 2396.336 ; gain = 455.496
-INFO: [Route 35-57] Estimated Timing Summary | WNS=2.905  | TNS=0.000  | WHS=0.058  | THS=0.000  |
+Time (s): cpu = 00:09:18 ; elapsed = 00:06:52 . Memory (MB): peak = 2505.422 ; gain = 576.656
+INFO: [Route 35-57] Estimated Timing Summary | WNS=1.340  | TNS=0.000  | WHS=0.053  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 22a41f0f7
+Phase 10 Post Router Timing | Checksum: 27db90751
 
-Time (s): cpu = 00:04:07 ; elapsed = 00:03:12 . Memory (MB): peak = 2396.336 ; gain = 455.496
+Time (s): cpu = 00:09:18 ; elapsed = 00:06:52 . Memory (MB): peak = 2505.422 ; gain = 576.656
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:04:07 ; elapsed = 00:03:12 . Memory (MB): peak = 2396.336 ; gain = 455.496
+Time (s): cpu = 00:09:18 ; elapsed = 00:06:52 . Memory (MB): peak = 2505.422 ; gain = 576.656
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-116 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+115 Infos, 166 Warnings, 83 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:04:13 ; elapsed = 00:03:16 . Memory (MB): peak = 2396.336 ; gain = 455.496
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2396.336 ; gain = 0.000
+route_design: Time (s): cpu = 00:09:24 ; elapsed = 00:06:56 . Memory (MB): peak = 2505.422 ; gain = 576.656
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2505.422 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 2396.336 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 2505.422 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top_routed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 2396.336 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 2505.422 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_drc -file thinpad_top_drc_routed.rpt -pb thinpad_top_drc_routed.pb -rpx thinpad_top_drc_routed.rpx
 Command: report_drc -file thinpad_top_drc_routed.rpt -pb thinpad_top_drc_routed.pb -rpx thinpad_top_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top_drc_routed.rpt.
 report_drc completed successfully
-report_drc: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 2396.336 ; gain = 0.000
+report_drc: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 2505.422 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_methodology -file thinpad_top_methodology_drc_routed.rpt -pb thinpad_top_methodology_drc_routed.pb -rpx thinpad_top_methodology_drc_routed.rpx
 Command: report_methodology -file thinpad_top_methodology_drc_routed.rpt -pb thinpad_top_methodology_drc_routed.pb -rpx thinpad_top_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 2 threads
 INFO: [Coretcl 2-1520] The results of Report Methodology are in file D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/thinpad_top_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 2396.336 ; gain = 0.000
+report_methodology: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2505.422 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_power -file thinpad_top_power_routed.rpt -pb thinpad_top_power_summary_routed.pb -rpx thinpad_top_power_routed.rpx
 Command: report_power -file thinpad_top_power_routed.rpt -pb thinpad_top_power_summary_routed.pb -rpx thinpad_top_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-128 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+127 Infos, 166 Warnings, 83 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [runtcl-4] Executing : report_route_status -file thinpad_top_route_status.rpt -pb thinpad_top_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file thinpad_top_timing_summary_routed.rpt -pb thinpad_top_timing_summary_routed.pb -rpx thinpad_top_timing_summary_routed.rpx -warn_on_violation 
@@ -710,12 +896,12 @@ WARNING: [DRC PDRC-153] Gated clock check: Net cpu/Control/RegDst_reg/G0 is a ga
 WARNING: [DRC PDRC-153] Gated clock check: Net cpu/Control/RegWr_reg/G0 is a gated clock net sourced by a combinational pin cpu/Control/RegWr_reg/L3_2/O, cell cpu/Control/RegWr_reg/L3_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/E[0] is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUctr_reg[3]_i_2/O, cell cpu/DataRoad/ALUctr_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[36] is a gated clock net sourced by a combinational pin cpu/DataRoad/ALU_A_reg_i_2/O, cell cpu/DataRoad/ALU_A_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[59] is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUSrc_reg_i_2/O, cell cpu/DataRoad/ALUSrc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[59]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/ExtOp_reg_i_2/O, cell cpu/DataRoad/ExtOp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62] is a gated clock net sourced by a combinational pin cpu/DataRoad/MemtoReg_reg_i_2/O, cell cpu/DataRoad/MemtoReg_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62] is a gated clock net sourced by a combinational pin cpu/DataRoad/MemRead_reg_i_1/O, cell cpu/DataRoad/MemRead_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/ByteGet_reg_i_2/O, cell cpu/DataRoad/ByteGet_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[63] is a gated clock net sourced by a combinational pin cpu/DataRoad/MemRead_reg_i_1/O, cell cpu/DataRoad/MemRead_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[63]_0 is a gated clock net sourced by a combinational pin cpu/DataRoad/Branch_reg[1]_i_2/O, cell cpu/DataRoad/Branch_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62]_1 is a gated clock net sourced by a combinational pin cpu/DataRoad/Branch_reg[2]_i_2/O, cell cpu/DataRoad/Branch_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62]_3 is a gated clock net sourced by a combinational pin cpu/DataRoad/ExtOp_reg_i_2/O, cell cpu/DataRoad/ExtOp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62]_4 is a gated clock net sourced by a combinational pin cpu/DataRoad/MemtoReg_reg_i_2/O, cell cpu/DataRoad/MemtoReg_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cpu/DataRoad/q_reg[62]_5 is a gated clock net sourced by a combinational pin cpu/DataRoad/ALUSrc_reg_i_2/O, cell cpu/DataRoad/ALUSrc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC RTSTAT-10] No routable loads: 25 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14]... and (the first 15 of 23 listed).
 INFO: [Vivado 12-3199] DRC finished with 0 Errors, 11 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
@@ -726,13 +912,13 @@ Loading route data...
 Processing options...
 Creating bitmap...
 Creating bitstream...
-Bitstream compression saved 59754784 bits.
+Bitstream compression saved 59423200 bits.
 Writing bitstream ./thinpad_top.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Mon Aug  2 19:01:11 2021. For additional details about this file, please refer to the WebTalk help file at E:/Vivado/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-186] 'D:/University/CPU/pipeline_CPU/pipeline_CPU.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Mon Aug  2 21:38:10 2021. For additional details about this file, please refer to the WebTalk help file at E:/Vivado/Vivado/2019.2/doc/webtalk_introduction.html.
 INFO: [Common 17-83] Releasing license: Implementation
-148 Infos, 77 Warnings, 0 Critical Warnings and 0 Errors encountered.
+147 Infos, 178 Warnings, 83 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:35 ; elapsed = 00:00:34 . Memory (MB): peak = 2655.898 ; gain = 259.562
-INFO: [Common 17-206] Exiting Vivado at Mon Aug  2 19:01:11 2021...
+write_bitstream: Time (s): cpu = 00:00:38 ; elapsed = 00:00:37 . Memory (MB): peak = 2631.949 ; gain = 126.527
+INFO: [Common 17-206] Exiting Vivado at Mon Aug  2 21:38:11 2021...

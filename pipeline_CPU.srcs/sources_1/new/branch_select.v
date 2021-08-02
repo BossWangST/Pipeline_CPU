@@ -23,15 +23,18 @@
 module branch_select(
     input [2:0] branch,
     input zero,
-    input rs,
+    input [31:0] rs,
     output real_branch
     );
     wire BGEZ;
     wire BGTZ;
-    assign BGEZ = (rs>=0) ?1:0;//branch 011
-    assign BGTZ = (rs>0)?1:0;//branch 100
+    wire BLEZ;
+    assign BGEZ = (rs>=32'h0)?1'b1:1'b0;//branch 011
+    assign BGTZ = (rs>32'h0)?1'b1:1'b0;//branch 100
+    assign BLEZ = (rs<=32'h0)?1'b1:1'b0;//branch 101
     assign real_branch=(branch==3'b001)?(branch[0]&zero):
                        (branch==3'b010)?(branch[1]&(!zero)):
                        (branch==3'b011)?(branch[1]&branch[0]&BGEZ):
-                       (branch==3'b100)?(branch[2]&BGTZ):0;
+                       (branch==3'b100)?(branch[2]&BGTZ):
+                       (branch==3'b101)?(branch[2]&branch[0]&BLEZ):0;
 endmodule
