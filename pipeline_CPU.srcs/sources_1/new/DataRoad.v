@@ -184,7 +184,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire[99:0] IF_In;
     assign IF_In = {Inst,pc_add_4};
     wire [99:0] ID_Out;
-    wire IF_ID_clear = branch_real|load_use_clear_MEM|branch_real_MEM;
+    wire IF_ID_clear;assign IF_ID_clear = branch_real|load_use_clear_MEM|branch_real_MEM;
     //* IF/ID Reg
     wire IF_ID_EN;
     assign IF_ID_EN = load_use_pause&(!read_base)&(!uart)&(!uart_busy)&(!uart_receiver_busy);
@@ -217,8 +217,8 @@ module DataRoad#(parameter WIDTH = 32)
     assign START = |Inst_ID;
     //* Extend immediate
     wire [WIDTH-1:0] real_imme16;
-    wire [WIDTH-1:0] zero_ext_imme16={16'h0000,imme16[15:0]};
-    wire [WIDTH-1:0] sign_ext_imme16={{16{imme16[15]}},imme16[15:0]};
+    wire [WIDTH-1:0] zero_ext_imme16;assign zero_ext_imme16={16'h0000,imme16[15:0]};
+    wire [WIDTH-1:0] sign_ext_imme16;assign sign_ext_imme16={{16{imme16[15]}},imme16[15:0]};
     assign real_imme16 =ExtOp?sign_ext_imme16:zero_ext_imme16;
     //Extend extend(
     //.ExtOp(ExtOp),
@@ -361,13 +361,13 @@ module DataRoad#(parameter WIDTH = 32)
     branch_select branch_select(
         .branch(Branch_EX),
         .zero(Zero),
-        .rs(busA_EX),
+        .rs(real_busA),
         .real_branch(real_branch_select)
     );
     //assign branch_select = (Branch_EX == 3'b001)?(Branch_EX[0]&Zero):
     //(Branch_EX == 3'b010)?(Branch_EX[1]&(!Zero)):0;
     wire[WIDTH-1:0] beq_target;
-    wire[WIDTH-1:0] imme16_shift={real_imme16_EX[29:0],2'b00};
+    wire[WIDTH-1:0] imme16_shift;assign imme16_shift={real_imme16_EX[29:0],2'b00};
     assign beq_target = pc_add_4_EX+imme16_shift;
 
     //* Reg write select
@@ -551,7 +551,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign real_DataOut =(last_sw_lw_WR)?last_DataIn_WR:DataOut_1;
     
     //*Forward module
-    wire sw_lw=MemWr_MEM&MemtoReg_EX&(~(|(alu_result_MEM^alu_result)));
+    wire sw_lw;assign sw_lw=MemWr_MEM&MemtoReg_EX&(~(|(alu_result_MEM^alu_result)));
     
     wire [4:0]real_Rw_WR;
     wire [4:0]real_RegWr_WR;

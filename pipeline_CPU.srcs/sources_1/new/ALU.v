@@ -69,9 +69,9 @@ module ALU#(parameter WIDTH = 32)
     assign SHIFTctr[0] = (ALUctr == 4'b1001)?1:0;
     
     //A B logic calculation
-    wire[WIDTH-1:0] AorB  = A|B;
-    wire[WIDTH-1:0] AandB = A&B;
-    wire[WIDTH-1:0] AxorB = A^B;
+    wire[WIDTH-1:0] AorB;assign AorB = A|B;
+    wire[WIDTH-1:0] AandB;assign AandB = A&B;
+    wire[WIDTH-1:0] AxorB;assign AxorB = A^B;
     wire[WIDTH-1:0] LogicalResult;
     assign LogicalResult = (LOGICctr == 2'b00)?AorB:
     (LOGICctr == 2'b01)?AandB:
@@ -86,8 +86,9 @@ module ALU#(parameter WIDTH = 32)
     
     //A B shift calculation
     //shift reg[rt]
-    wire[4:0] shamt = A[4:0];
-    wire[WIDTH-1:0] shift_B = (SHIFTctr == 2'b00)?{
+    wire[4:0] shamt;assign shamt = A[4:0];
+    wire[WIDTH-1:0] shift_B;
+    assign shift_B = (SHIFTctr == 2'b00)?{
     B[0], B[1], B[2], B[3],
     B[4], B[5], B[6], B[7],
     B[8], B[9], B[10], B[11],
@@ -97,9 +98,10 @@ module ALU#(parameter WIDTH = 32)
     B[24], B[25], B[26], B[27],
     B[28], B[29], B[30], B[31]
     }:B[31:0];
-    wire[WIDTH-1:0] shift_result = shift_B[31:0]>>shamt[4:0];
-    wire[WIDTH-1:0] sra_mask     = ~(32'hffff_ffff>>shamt[4:0]);
-    wire[WIDTH-1:0] LeftShift = {
+    wire[WIDTH-1:0] shift_result;assign shift_result = shift_B[31:0]>>shamt[4:0];
+    wire[WIDTH-1:0] sra_mask;assign sra_mask = ~(32'hffff_ffff>>shamt[4:0]);
+    wire[WIDTH-1:0] LeftShift;
+    assign LeftShift = {
     shift_result[0], shift_result[1], shift_result[2],shift_result[3],
     shift_result[4], shift_result[5], shift_result[6],shift_result[7],
     shift_result[8], shift_result[9], shift_result[10],shift_result[11],
@@ -109,10 +111,10 @@ module ALU#(parameter WIDTH = 32)
     shift_result[24], shift_result[25], shift_result[26],shift_result[27],
     shift_result[28], shift_result[29], shift_result[30],shift_result[31]
     };
-    wire[WIDTH-1:0] ArithRightShift   = ({32{B[31]}}&sra_mask)|shift_result;
-    wire[WIDTH-1:0] LogicalRightShift = shift_result;
+    wire[WIDTH-1:0] ArithRightShift;assign ArithRightShift = ({32{B[31]}}&sra_mask)|shift_result;
+    wire[WIDTH-1:0] LogicalRightShift;assign LogicalRightShift = shift_result;
     
-    wire[WIDTH-1:0] LUI_result = {B[15:0],16'h0000};
+    wire[WIDTH-1:0] LUI_result;assign LUI_result = {B[15:0],16'h0000};
     
     //reg signed [WIDTH-1:0] LeftShift        ;
     //reg signed [WIDTH-1:0] ArithRightShift  ;

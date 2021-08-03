@@ -46,7 +46,7 @@ module Mem(input Mem_Wr,
 
            output reg uart,
            output uart_busy_out,
-           (*mark_debug = "true"*)output uart_receiver_busy_out,
+           output uart_receiver_busy_out,
            output uart_check_out,
            input uart_check_WR,
            input last_uart_check_WR,
@@ -78,8 +78,6 @@ module Mem(input Mem_Wr,
     //assign Addr_1 = Addr+1;
     //assign Addr_2 = Addr+2;
     //assign Addr_3 = Addr+3;
-    (*mark_debug = "true"*)wire disp_rxd;
-    assign disp_rxd = rxd;
 
     wire uart_check=(alu_result==32'hBFD003F8)?1'b1:1'b0;
     assign uart_check_out = uart_check;
@@ -247,7 +245,7 @@ module Mem(input Mem_Wr,
     //?);
 
     //?uart?{24'h000_000,base_DataOut[7:0]}:
-    (*mark_debug = "true"*)wire [7:0] uart_rx;
+    wire [7:0] uart_rx;
     reg [7:0] uart_buffer, uart_tx;
     (*mark_debug = "true"*)wire uart_ready;
     wire uart_busy;

@@ -155,6 +155,21 @@ begin
                     ALUctr = leftshift;
                     ALU_A  = 1'b1;
                 end
+                6'b000011://* sra
+                begin
+                    ALUctr = arithrightshift;
+                    ALU_A  = 1'b1;
+                end
+                6'b000111://* srav
+                begin
+                    ALUctr = arithrightshift;
+                    ALU_A = 1'b0;
+                end
+                6'b000110://* srlv
+                begin
+                    ALUctr = logicalrightshift;
+                    ALU_A = 1'b0;
+                end
             endcase
             RegWr     = 1'b1;
             Branch    = 3'b000;
@@ -166,6 +181,7 @@ begin
             MemRead   = 1'b0;
             ByteGet   = 1'b0;
             ByteStore = 1'b0;
+            ExtOp     = 1'b0;
         end
         else
         begin
@@ -357,7 +373,7 @@ begin
                 6'b000001://*REG IMM
                 begin
                     case(reggim)
-                        6'b00001://*bgez
+                        5'b00001://*bgez
                         begin
                             Branch   = 3'b011;
                             Jump     = 1'b0;
