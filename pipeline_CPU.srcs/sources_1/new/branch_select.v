@@ -21,7 +21,7 @@
 
 
 module branch_select(
-    input [2:0] branch,
+    input [3:0] branch,
     input zero,
     input [31:0] rs,
     output real_branch
@@ -33,10 +33,12 @@ module branch_select(
     //?assign BGTZ = (rs>32'h0)?1'b1:1'b0;//branch 100
     //?assign BLEZ = (rs<=32'h0)?1'b1:1'b0;//branch 101
     (*mark_debug = "true"*)
-    assign real_branch=(branch==3'b001)?zero:
-                       (branch==3'b010)?(!zero):
-                       (branch==3'b011)?(!rs[31]):
-                       (branch==3'b101)?((rs[31])|(rs==32'h0)):1'b0;
+    assign real_branch=(branch==4'b0001)?zero:
+                       (branch==4'b0010)?(!zero):
+                       (branch==4'b0011)?(!rs[31]):
+                       (branch==4'b0101)?((rs[31])|(rs==32'h0)):
+                       (branch==4'b0110)?((!rs[31])&(rs!=32'h0)):
+                       (branch==4'b0111)?1'b1:1'b0;
                        //?(branch==3'b100)?(branch[2]&BGTZ):
                        //?(branch==3'b101)?(branch[2]&branch[0]&BLEZ):0;
 endmodule
