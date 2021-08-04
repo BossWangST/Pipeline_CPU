@@ -604,7 +604,7 @@ module DataRoad#(parameter WIDTH = 32)
     
     //& WR parse
     wire Link_WR;assign Link_WR = WR_Out[174];
-    wire link_addr_WR;assign link_addr_WR = WR_Out[173:142];
+    wire [31:0]link_addr_WR;assign link_addr_WR = WR_Out[173:142];
     wire last_uart_check_WR;assign last_uart_check_WR = WR_Out[141];
     (*mark_debug = "true"*)wire uart_check_WR;assign uart_check_WR = WR_Out[140];
     wire read_base_WR;assign read_base_WR = WR_Out[139];

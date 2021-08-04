@@ -104,7 +104,7 @@ always@(*)
 begin
     if (RUN == 1)
     begin
-        if ((op == 6'b000_000)&&(func!=6'b001000))
+        if ((op == 6'b000_000)&(func!=6'b001000))
         begin
             case(func)
                 6'b100000://* add
@@ -192,7 +192,7 @@ begin
             Link = 1'b0;
             JR = 1'b0;
         end
-        else if ((op == 6'b000000)&&(func == 6'b001000))//* jr
+        else if ((op == 6'b000000)&(func == 6'b001000))//* jr
         begin
             Branch   = 4'b0111;
             Jump = 1'b0;

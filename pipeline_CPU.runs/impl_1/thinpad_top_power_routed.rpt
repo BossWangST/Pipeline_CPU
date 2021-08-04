@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Wed Aug  4 10:10:16 2021
+| Date             : Wed Aug  4 10:52:04 2021
 | Host             : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command          : report_power -file thinpad_top_power_routed.rpt -pb thinpad_top_power_summary_routed.pb -rpx thinpad_top_power_routed.rpx
 | Design           : thinpad_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.270        |
+| Total On-Chip Power (W)  | 0.269        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.131        |
+| Dynamic (W)              | 0.130        |
 | Device Static (W)        | 0.139        |
 | Effective TJA (C/W)      | 1.9          |
 | Max Ambient (C)          | 84.5         |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.008 |        8 |       --- |             --- |
-| Slice Logic              |     0.001 |    12499 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     3545 |    133800 |            2.65 |
-|   Register               |    <0.001 |     5979 |    267600 |            2.23 |
-|   CARRY4                 |    <0.001 |      176 |     33450 |            0.53 |
+| Slice Logic              |     0.001 |    12574 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     3549 |    133800 |            2.65 |
+|   CARRY4                 |    <0.001 |      184 |     33450 |            0.55 |
+|   Register               |    <0.001 |     6041 |    267600 |            2.26 |
 |   LUT as Shift Register  |    <0.001 |      573 |     46200 |            1.24 |
-|   F7/F8 Muxes            |    <0.001 |      511 |    133800 |            0.38 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     46200 |            0.05 |
+|   F7/F8 Muxes            |    <0.001 |      511 |    133800 |            0.38 |
 |   Others                 |     0.000 |      616 |       --- |             --- |
 |   BUFG                   |     0.000 |        1 |        32 |            3.13 |
-| Signals                  |     0.002 |     8622 |       --- |             --- |
+| Signals                  |     0.002 |     8694 |       --- |             --- |
 | Block RAM                |     0.001 |        8 |       365 |            2.19 |
 | MMCM                     |     0.115 |        1 |        10 |           10.00 |
 | I/O                      |     0.003 |      197 |       400 |           49.25 |
 | Static Power             |     0.139 |          |           |                 |
-| Total                    |     0.270 |          |           |                 |
+| Total                    |     0.269 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -150,7 +150,7 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| thinpad_top              |     0.131 |
+| thinpad_top              |     0.130 |
 |   clk_25                 |     0.116 |
 |     inst                 |     0.116 |
 |   cpu                    |     0.005 |
@@ -159,9 +159,9 @@ Table of Contents
 |   dbg_hub                |     0.002 |
 |     inst                 |     0.002 |
 |       BSCANID.u_xsdbm_id |     0.002 |
-|   u_ila_0                |     0.006 |
-|     inst                 |     0.006 |
-|       ila_core_inst      |     0.006 |
+|   u_ila_0                |     0.005 |
+|     inst                 |     0.005 |
+|       ila_core_inst      |     0.005 |
 +--------------------------+-----------+
 
 
