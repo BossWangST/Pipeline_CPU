@@ -17,7 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param tcl.collectionResultDisplayLimit 0
 set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 set_msg_config  -id {DRC REQP-1582}  -string {{ERROR: [DRC REQP-1582] iobuf_io_loaded: IOBUF base_data_wire_IOBUF[1]_inst pin IO drives one or more invalid loads.}}  -suppress 
 create_project -in_memory -part xc7a200tfbg676-2
 

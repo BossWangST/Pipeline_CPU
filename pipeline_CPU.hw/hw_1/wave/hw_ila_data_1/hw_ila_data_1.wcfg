@@ -9,15 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="45fs"></ZoomStartTime>
-      <ZoomEndTime time="2850fs"></ZoomEndTime>
+      <ZoomStartTime time="507fs"></ZoomStartTime>
+      <ZoomEndTime time="521fs"></ZoomEndTime>
       <Cursor1Time time="512fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="187"></NameColumnWidth>
+      <NameColumnWidth column_width="142"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="15" />
    <wave_markers>
    </wave_markers>
    <wvobject fp_name="cpu/DataRoad/pc/pc" type="array">
@@ -50,6 +50,22 @@
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="cpu/DataRoad/regs/reg_k0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/regs/reg_k0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_k0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/regs/reg_k1" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/regs/reg_k1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_k1[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
    <wvobject fp_name="cpu/DataRoad/regs/reg_s0" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">cpu/DataRoad/regs/reg_s0[31:0]</obj_property>
@@ -78,30 +94,51 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="cpu/DataRoad/real_base_addr" type="array">
+   <wvobject fp_name="cpu/DataRoad/mem/DataOut" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/real_base_addr[19:0]</obj_property>
-      <obj_property name="ObjectShortName">real_base_addr[19:0]</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/mem/DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataOut[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="cpu/DataRoad/base_DataOut" type="array">
+   <wvobject fp_name="cpu/DataRoad/real_ALUSrcA" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/base_DataOut[31:0]</obj_property>
-      <obj_property name="ObjectShortName">base_DataOut[31:0]</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/real_ALUSrcA[1:0]</obj_property>
+      <obj_property name="ObjectShortName">real_ALUSrcA[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="cpu/DataRoad/uart" type="logic">
+   <wvobject fp_name="cpu/DataRoad/real_busA" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/uart</obj_property>
-      <obj_property name="ObjectShortName">uart</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/real_busA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">real_busA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/real_busA" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/real_busA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">real_busA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/Rs" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/Rs[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Rs[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="cpu/DataRoad/Rw_MEM" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">cpu/DataRoad/Rw_MEM[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Rw_MEM[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
@@ -109,35 +146,6 @@
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">cpu/DataRoad/uart_busy</obj_property>
       <obj_property name="ObjectShortName">uart_busy</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cpu/DataRoad/mem/uart_ready" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/mem/uart_ready</obj_property>
-      <obj_property name="ObjectShortName">uart_ready</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cpu/DataRoad/uart_check_out" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/uart_check_out</obj_property>
-      <obj_property name="ObjectShortName">uart_check_out</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cpu/DataRoad/uart_check_WR" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/uart_check_WR</obj_property>
-      <obj_property name="ObjectShortName">uart_check_WR</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="cpu/DataRoad/mem/DataOut" type="array">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">cpu/DataRoad/mem/DataOut[31:0]</obj_property>
-      <obj_property name="ObjectShortName">DataOut[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

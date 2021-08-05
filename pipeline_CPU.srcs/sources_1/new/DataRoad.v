@@ -87,7 +87,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign target_real     = target;
     assign beq_target_real = beq_target;
 
-    (*mark_debug = "true"*)wire uart;
+    wire uart;
     (*mark_debug = "true"*)wire uart_busy;
     wire uart_receiver_busy;
     wire read_base;//!no debug
@@ -186,7 +186,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire[99:0] IF_In;
     assign IF_In = {Inst,pc_add_4};
     wire [99:0] ID_Out;
-    wire IF_ID_clear;assign IF_ID_clear = branch_real|load_use_clear_MEM|branch_real_MEM;
+    wire IF_ID_clear;assign IF_ID_clear = branch_real|load_use_clear_MEM|branch_real_MEM|read_base_WR|Jump;
     //* IF/ID Reg
     wire IF_ID_EN;
     assign IF_ID_EN = load_use_pause&(!read_base)&(!uart)&(!uart_busy)&(!uart_receiver_busy);
@@ -209,7 +209,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign Inst_ID               = ID_Out[63:32];
     //assign pc_add_4_ID         = ID_Out[31:0];
     //wire[5:0] op                 = Inst_ID[31:26];
-    wire[4:0] Rs;assign Rs = Inst_ID[25:21];//!no debug
+    (*mark_debug = "true"*)wire[4:0] Rs;assign Rs = Inst_ID[25:21];//!no debug
     wire[4:0] Rt;assign Rt = Inst_ID[20:16];
     wire[4:0] Rd;assign Rd = Inst_ID[15:11];
     wire[15:0] imme16;assign imme16 = Inst_ID[15:0];
@@ -277,7 +277,7 @@ module DataRoad#(parameter WIDTH = 32)
     
     //& EX parse
     wire JR_EX;assign JR_EX = EX_Out[167];
-    wire Link_EX;assign Link_EX = EX_Out[166];
+    (*mark_debug = "true"*)wire Link_EX;assign Link_EX = EX_Out[166];
     wire store_forward_EX; assign store_forward_EX = EX_Out[165];
     wire ByteStore_EX; assign ByteStore_EX = EX_Out[164];
     wire ByteGet_EX; assign ByteGet_EX = EX_Out[163];
@@ -315,11 +315,11 @@ module DataRoad#(parameter WIDTH = 32)
     
     //*---------Forward module------------
     
-    wire [WIDTH-1:0] real_busA;
+    (*mark_debug = "true"*)wire [WIDTH-1:0] real_busA;
     wire [WIDTH-1:0] real_busB;
     wire [WIDTH-1:0] last_alu_result;
     wire [WIDTH-1:0] last_before_last_alu_result;
-    wire [1:0] real_ALUSrcA;
+    (*mark_debug = "true"*)wire [1:0] real_ALUSrcA;
     wire [1:0] real_ALUSrcB;
     
     assign last_alu_result             = alu_result_MEM;
@@ -378,7 +378,7 @@ module DataRoad#(parameter WIDTH = 32)
     assign link_addr = pc_add_4_EX + 4;
 
     //* Reg write select
-    assign Rw=Link_EX?5'h1F:RegDst_EX?Rd_EX:Rt_EX;
+    assign Rw=Link_EX?5'b11111:RegDst_EX?Rd_EX:Rt_EX;
     //mux2to1 mux_reg(
     //.select(RegDst_EX),
     //.a(Rt_EX),
@@ -388,7 +388,10 @@ module DataRoad#(parameter WIDTH = 32)
     // load-use
     assign load_use = MemRead_EX&((Rw == Rt)|(Rw == Rs));
     
-    assign read_base=(!alu_result[22])&MemtoReg_EX;
+    //assign read_base=(!alu_result[22])&MemtoReg_EX;
+    wire base_addr_check;
+    assign base_addr_check=(alu_result[31:22]==10'b1000_0000_00)?1'b1:1'b0;
+    assign read_base=(MemtoReg_EX&base_addr_check)?1'b1:1'b0;
     
     wire[127:0] EX_In;
     assign EX_In = {Link_EX,link_addr,branch_real,read_base,load_use_clear,store_forward_EX,ByteStore_EX,ByteGet_EX,RegWr_EX,MemWr_EX,MemtoReg_EX,alu_result,busB_EX,Rw};
@@ -422,7 +425,7 @@ module DataRoad#(parameter WIDTH = 32)
     //wire Zero_MEM             = MEM_Out[69];
     wire [31:0]busB_MEM;assign busB_MEM = MEM_Out[36:5];
     //wire [31:0]beq_target_MEM = MEM_Out[36:5];
-    wire [4:0]Rw_MEM;assign Rw_MEM = MEM_Out[4:0];
+    (*mark_debug = "true"*)wire [4:0]Rw_MEM;assign Rw_MEM = MEM_Out[4:0];
     
     
     //* store forward
@@ -465,7 +468,7 @@ module DataRoad#(parameter WIDTH = 32)
                   (alu_result_MEM[1:0]==2'b01)?4'b1101:
                   (alu_result_MEM[1:0]==2'b10)?4'b1011:
                   4'b0111);
-    (*mark_debug = "true"*)wire uart_check_out;
+    wire uart_check_out;
     Mem mem(
     .clk(clk),
     .rst(rst),
@@ -569,7 +572,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire [1:0] ALUSrcA;
     wire [1:0] ALUSrcB;
     wire Forward_EN;
-    assign Forward_EN = (!uart)&(!uart_busy)&(!uart_receiver_busy);
+    assign Forward_EN = (!uart_busy)&(!uart_receiver_busy);
     Forward_detect forward(
     .ALUSrc(ALUSrc_EX),
     .Rs(Rs_EX),
@@ -606,7 +609,7 @@ module DataRoad#(parameter WIDTH = 32)
     wire Link_WR;assign Link_WR = WR_Out[174];
     wire [31:0]link_addr_WR;assign link_addr_WR = WR_Out[173:142];
     wire last_uart_check_WR;assign last_uart_check_WR = WR_Out[141];
-    (*mark_debug = "true"*)wire uart_check_WR;assign uart_check_WR = WR_Out[140];
+    wire uart_check_WR;assign uart_check_WR = WR_Out[140];
     wire read_base_WR;assign read_base_WR = WR_Out[139];
     wire uart_state_check_WR;assign uart_state_check_WR= WR_Out[138];
     wire ByteGet_WR;assign ByteGet_WR  = WR_Out[137];

@@ -200,6 +200,7 @@ begin
             RegDst = 1'b1;
             ALUSrc    = 1'b0;
             MemtoReg = 1'b0;
+            ALU_A     = 1'b0;
             MemWr = 1'b0;
             MemRead   = 1'b0;
             ByteGet   = 1'b0;
@@ -366,7 +367,7 @@ begin
                 6'b000011://*jal
                 begin
                     ALUctr = addu;
-                    Branch   = 4'b0111;
+                    Branch   = 4'b0000;
                     Jump = 1'b1;
                     ALUSrc    = 1'b0;
                     RegWr     = 1'b1;

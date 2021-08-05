@@ -54,10 +54,13 @@ module Registers#(parameter WIDTH = 32)
     assign reg2 = Registers[9];
     assign reg3 = Registers[10];
 
-    (*mark_debug = "true"*)wire[31:0] reg_a0,reg_s0,reg_s1;
+    (*mark_debug = "true"*)wire[31:0] reg_a0,reg_s0,reg_s1,reg_k0,reg_k1;
     assign reg_a0 = Registers[4];
     assign reg_s0 = Registers[16];
     assign reg_s1 = Registers[17];
+    assign reg_k0 = Registers[26];
+    assign reg_k1 = Registers[27];
+
 
     assign busA = ((Ra==Rw)&WE)?busW:Registers[Ra];
     assign busB = ((Rb==Rw)&WE)?busW:Registers[Rb];
