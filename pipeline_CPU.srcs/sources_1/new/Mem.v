@@ -34,7 +34,8 @@ module Mem(input Mem_Wr,
            input rst,
            input MemtoReg,
 
-           input read_base,
+           input read_base_WR,
+
            output [19:0] physical_addr,
 
            //?inout wire[31:0] base_data_wire,
@@ -298,7 +299,7 @@ module Mem(input Mem_Wr,
     assign DataOut=last_uart_check_WR?DataOut_WR:
                    uart_check_WR?{24'h000_000,uart_rx}:
                    uart_state_check_WR?32'h0000_0003:
-                   read_base?base_DataOut:ext_DataOut;
+                   read_base_WR?base_DataOut:ext_DataOut;
     //Inst_mem_0 memory(
     //    .clk(clk),
     //    .a(physical_addr),

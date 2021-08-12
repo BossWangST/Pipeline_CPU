@@ -23,6 +23,7 @@
 module Registers#(parameter WIDTH = 32)
                  (input clk,
                   input rst,
+                  input read_base,read_base_MEM,read_base_WR,
                   input [4:0] Ra,
                   input [4:0] Rb,
                   input [4:0] Rw,
