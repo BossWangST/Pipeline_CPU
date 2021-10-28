@@ -91,6 +91,11 @@ public class Transform {
         map_inst.put("001111", "lui");
     }
 
+    static HashMap<String,String> map_inst_REGIMM;
+    static{
+        map_inst_REGIMM = new HashMap<String,String>();
+        map_inst_REGIMM.put("00001", "bgez");
+    }
     // static HashMap<String, String> map_reg
 
     public static String getBinary_complete(String[] str) {
@@ -100,11 +105,16 @@ public class Transform {
         }
         String op = res.substring(0, 6);
         String func = res.substring(26, 32);
+        String rs=res.substring(11,16);
         res = res.substring(0, 6) + " " + res.substring(6, 11) + " " + res.substring(11, 16) + " "
                 + res.substring(16, 21) + " " + res.substring(21, 26) + " " + res.substring(26, 32);
         if (op.equals("000000")) {
             res += " " + map_inst_R.get(func);
-        } else
+        }
+        else if(op.equals("000001")){
+            res+= " " + map_inst_REGIMM.get(rs);
+        }
+        else
             res += " " + map_inst.get(op);
         return res;
     }

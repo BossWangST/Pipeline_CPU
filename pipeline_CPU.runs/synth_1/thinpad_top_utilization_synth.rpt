@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Thu Jul 15 17:46:18 2021
+| Date         : Thu Aug  5 22:11:40 2021
 | Host         : LAPTOP-0FSA8U4L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file thinpad_top_utilization_synth.rpt -pb thinpad_top_utilization_synth.pb
 | Design       : thinpad_top
@@ -30,14 +30,14 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1357 |     0 |    134600 |  1.01 |
-|   LUT as Logic          | 1357 |     0 |    134600 |  1.01 |
+| Slice LUTs*             | 1760 |     0 |    134600 |  1.31 |
+|   LUT as Logic          | 1760 |     0 |    134600 |  1.31 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         | 1567 |     0 |    269200 |  0.58 |
-|   Register as Flip Flop | 1551 |     0 |    269200 |  0.58 |
-|   Register as Latch     |   16 |     0 |    269200 | <0.01 |
+| Slice Registers         | 1859 |     0 |    269200 |  0.69 |
+|   Register as Flip Flop | 1807 |     0 |    269200 |  0.67 |
+|   Register as Latch     |   52 |     0 |    269200 |  0.02 |
 | F7 Muxes                |  256 |     0 |     67300 |  0.38 |
-| F8 Muxes                |    0 |     0 |     33650 |  0.00 |
+| F8 Muxes                |  128 |     0 |     33650 |  0.38 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -54,10 +54,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 22    |          Yes |           - |          Set |
-| 1453  |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 90    |          Yes |       Reset |            - |
+| 35    |          Yes |           - |          Set |
+| 1686  |          Yes |           - |        Reset |
+| 5     |          Yes |         Set |            - |
+| 131   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,21 +149,23 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     | 1439 |        Flop & Latch |
-| LUT6     |  963 |                 LUT |
+| FDCE     | 1636 |        Flop & Latch |
+| LUT6     |  905 |                 LUT |
+| LUT2     |  380 |                 LUT |
+| LUT5     |  370 |                 LUT |
 | MUXF7    |  256 |               MuxFx |
-| LUT2     |  230 |                 LUT |
-| LUT5     |  136 |                 LUT |
-| LUT3     |  132 |                 LUT |
-| OBUFT    |  108 |                  IO |
-| FDRE     |   90 |        Flop & Latch |
+| LUT3     |  220 |                 LUT |
+| LUT4     |  151 |                 LUT |
+| FDRE     |  131 |        Flop & Latch |
+| MUXF8    |  128 |               MuxFx |
+| OBUFT    |  107 |                  IO |
 | IBUF     |   67 |                  IO |
-| LUT4     |   57 |                 LUT |
-| OBUF     |   54 |                  IO |
-| FDPE     |   22 |        Flop & Latch |
-| CARRY4   |   21 |          CarryLogic |
-| LDCE     |   16 |        Flop & Latch |
-| LUT1     |    6 |                 LUT |
+| OBUF     |   55 |                  IO |
+| LDCE     |   52 |        Flop & Latch |
+| CARRY4   |   45 |          CarryLogic |
+| FDPE     |   35 |        Flop & Latch |
+| LUT1     |   15 |                 LUT |
+| FDSE     |    5 |        Flop & Latch |
 +----------+------+---------------------+
 
 

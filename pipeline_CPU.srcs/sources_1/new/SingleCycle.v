@@ -28,6 +28,14 @@ module SingleCycle(
     output [31:0] reg1,reg2,reg3,
     output [31:0]Inst_out,
 
+    //?output rdn,// 读锁存信号
+    //?output wrn,// 写锁存信号
+    //?input data_ready,
+    //?input tbre,// 接收成功信号
+    //?input tsre, //发送成功信号
+    output txd,
+    input rxd,
+
     inout wire[31:0] base_data_wire,
     output [19:0] base_addr,
     output [3:0] base_byte,
@@ -50,12 +58,14 @@ module SingleCycle(
     wire MemtoReg;//*写回寄存器内容选择
     wire ALUSrc;//*ALU的输入端2选择
     wire RegDst;//*写入的寄存器号选择
-    wire [2:0]Branch;//*分支指令信号
+    wire [3:0]Branch;//*分支指令信号
     wire Jump;//*跳转指令信号
     wire MemRead;//*判断lw指令
     wire ALU_A;//*ALU A口选择
     wire ByteGet;//*截取高8位的数据
     wire ByteStore;//*存储reg最低字节进那一个存储单元
+    wire Link;//*存储返回地址
+    wire JR;//*返回rs寄存器中的地址
     wire[31:0] Inst;//*指令
     wire START;//* 开始译码
     //wire RUN;
@@ -78,9 +88,19 @@ module SingleCycle(
         .ByteGet(ByteGet),
         .ByteStore(ByteStore),
         .Jump(Jump),
+        .Link(Link),
+        .JR(JR),
         .Inst_ID(Inst),
         .START(START),
         .RUN(RUN),
+
+        //?.rdn(rdn),
+        //?.wrn(wrn),
+        //?.data_ready(data_ready),
+        //?.tbre(tbre),
+        //?.tsre(tsre),
+        .txd(txd),
+        .rxd(rxd),
 
         .base_data_wire(base_data_wire),
         .base_addr(base_addr),
@@ -115,6 +135,8 @@ module SingleCycle(
         .ALU_A(ALU_A),
         .ByteGet(ByteGet),
         .ByteStore(ByteStore),
-        .ExtOp(ExtOp)
+        .ExtOp(ExtOp),
+        .Link(Link),
+        .JR(JR)
     );
 endmodule

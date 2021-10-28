@@ -27,7 +27,9 @@ module Forward_detect(input ALUSrc,
                       input[4:0] Rw_MEM,
                       Rw_WR,
                       input RegWr_WR,
-                      output [2:0]ALUSrcA,
+                      input EN,
+                      input clk_50M,
+                      output reg [2:0]ALUSrcA,
                       ALUSrcB);
     
     wire C1_A;
@@ -40,15 +42,32 @@ module Forward_detect(input ALUSrc,
     assign C2_A = RegWr_WR&(|Rw_WR)&(Rw_MEM != Rs)&(Rw_WR == Rs);
     assign C2_B = RegWr_WR&(|Rw_WR)&(Rw_MEM != Rt)&(Rw_WR == Rt);
     
-    assign ALUSrcA = (C1_A == 1)?2'b01:
-    (C2_A == 1)?2'b10:
-    2'b00;
+    always@(posedge clk_50M)
+        if(EN)
+        begin
+                ALUSrcA <= (C1_A == 1)?2'b01:
+                (C2_A == 1)?2'b10:
+                2'b00;
+                ALUSrcB <= (ALUSrc==1)?2'b11:
+                (C1_B==1)?2'b01:
+                (C2_B==1)?2'b10:2'b00;
+        end
+        else
+        begin
+                ALUSrcA <= ALUSrcA;
+                ALUSrcB <= ALUSrcB;
+        end
+    //?assign ALUSrcA = (!EN)?ALUSrcA:
+    //?(C1_A == 1)?2'b01:
+    //?(C2_A == 1)?2'b10:
+    //?2'b00;
     //assign ALUSrcB = (C1_B == 1)?2'b01:
     //(C2_B == 1)?2'b10:
     //(ALUSrc == 1)?2'b11:
     //2'b00;
-    assign ALUSrcB = (ALUSrc==1)?2'b11:
-    (C1_B==1)?2'b01:
-    (C2_B==1)?2'b10:
-    2'b00; 
+    //?assign ALUSrcB = (!EN)?ALUSrcB: 
+    //?(ALUSrc==1)?2'b11:
+    //?(C1_B==1)?2'b01:
+    //?(C2_B==1)?2'b10:
+    //?2'b00; 
     endmodule

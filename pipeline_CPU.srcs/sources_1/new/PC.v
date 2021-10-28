@@ -21,7 +21,6 @@
 
 
 module PC(input clk,
-          input clk_50M,
           input rst,
           input branch,
           input Jump,
@@ -31,15 +30,20 @@ module PC(input clk,
           input [25:0] target,
           output [31:0] pc_add_4,
           output [31:0] Inst,
-          //output [31:0] Inst,
-          inout wire[31:0] base_data_wire,
-          output [19:0] base_addr,
-          output [3:0] base_byte,
-          output wire base_ce,
-          output wire base_oe,
-          output wire base_we
+          //?input uart,
+          output [19:0] physical_pc,
+          input [31:0] base_DataOut
+          //?inout wire[31:0] base_data_wire,
+          //?output [20:0] base_addr,
+          //?output [3:0] base_byte,
+          //?output wire base_ce,
+          //?output wire base_oe,
+          //?output wire base_we
           );
-    reg [31:0] pc;
+    (*mark_debug = "true"*)reg [31:0] pc;
+
+    assign Inst=en?base_DataOut:Inst;
+
     //initial
     //begin
     //    //pc     = 32'h0000_0000;
@@ -60,30 +64,31 @@ module PC(input clk,
     //assign new_pc_2 = new_pc+2;
     //assign new_pc_3 = new_pc+3;
     
-    wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
+    //wire[7:0] test_Inst_0,test_Inst_1,test_Inst_2,test_Inst_3;
 
-    wire ce,oe,we;
-    assign {ce,oe,we}=3'b001;
-    wire[19:0] physical_pc;
+    //?wire ce,oe,we;
+    //?assign ce=uart;
+    //?assign {oe,we}=2'b01;
+    //?wire[19:0] physical_pc;
     assign physical_pc=new_pc[21:2];
-    base_sram_control base_control(
-        .clk(clk),
-        .rst(rst),
-        .ce(ce),
-        .oe(oe),
-        .we(we),
-        .datain(32'h0000_0000),
-        .addr(physical_pc),
-        .byte(4'b0000),
-        .dataout(Inst),
+    //?base_sram_control base_control(
+    //?    .clk(clk),
+    //?    .rst(rst),
+    //?    .ce(ce),
+    //?    .oe(oe),
+    //?    .we(we),
+    //?    .datain(32'h0000_0000),
+    //?    .addr(physical_pc),
+    //?    .byte(4'b0000),
+    //?    .dataout(Inst),
 
-        .base_data_wire(base_data_wire),
-        .base_addr(base_addr),
-        .base_byte(base_byte),
-        .base_ce(base_ce),
-        .base_oe(base_oe),
-        .base_we(base_we)
-    );
+    //?    .base_data_wire(base_data_wire),
+    //?    .base_addr(base_addr),
+    //?    .base_byte(base_byte),
+    //?    .base_ce(base_ce),
+    //?    .base_oe(base_oe),
+    //?    .base_we(base_we)
+    //?);
 
     //Inst_mem_0 Inst_mem(
     //    .clk(clk),
@@ -157,7 +162,7 @@ module PC(input clk,
     //*        .spo(Inst[31:24])
     //*    );
     //*
-    wire[31:0] imme16;
+    //wire[31:0] imme16;
     wire[31:0] next_pc;
     wire[31:0] branch_pc;
     wire[31:0] new_pc_branch;
@@ -165,9 +170,9 @@ module PC(input clk,
     //?wire[25:0] target;
     wire[31:0] jump_pc;
     
-    assign imme16      = {{16{Inst[15]}},Inst[15:0]};//sign extended imme16
-    assign next_pc     = pc+4;
-    assign pc_add_4    = next_pc;
+    //assign imme17      = {{16{Inst[15]}},Inst[15:0]};//sign extended imme16
+    assign next_pc     = en?(pc+4):pc;
+    assign pc_add_4    = pc;
     //assign branch_pc = next_pc+imme16;
     assign branch_pc   = beq_target;
     //?assign target   = Inst[25:0];

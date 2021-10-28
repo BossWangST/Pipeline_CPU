@@ -73,12 +73,20 @@ wire[31:0] Inst;
 SingleCycle cpu(
     .clk(clk_25M),
     .clk_50M(clk_50M),
-    .RUN(locked&dip_sw[31]),
+    .RUN(locked),
     .rst(reset_btn),
     .reg1(reg1),
     .reg2(reg2),
     .reg3(reg3),
     .Inst_out(Inst),
+
+    //?.rdn(uart_rdn),
+    //?.wrn(uart_wrn),
+    //?.data_ready(uart_dataready),
+    //?.tbre(uart_tbre),
+    //?.tsre(uart_tsre),
+    .txd(txd),
+    .rxd(rxd),
 
     .base_data_wire(base_ram_data),
     .base_addr(base_ram_addr),

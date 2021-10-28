@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config  -id {DRC REQP-1582}  -string {{ERROR: [DRC REQP-1582] iobuf_io_loaded: IOBUF base_data_wire_IOBUF[1]_inst pin IO drives one or more invalid loads.}}  -suppress 
 
 start_step init_design
 set ACTIVE_STEP init_design

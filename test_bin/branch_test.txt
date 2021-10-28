@@ -1,0 +1,38 @@
+
+branch_test.elf:     file format elf32-tradlittlemips
+
+
+Disassembly of section .reginfo:
+
+00400074 <.reginfo>:
+  400074:	00030110 	0x30110
+	...
+  400088:	004180c0 	0x4180c0
+
+Disassembly of section .text:
+
+00400090 <__start>:
+  400090:	34041111 	li	a0,0x1111
+  400094:	34081234 	li	t0,0x1234
+  400098:	34101234 	li	s0,0x1234
+  40009c:	11100004 	beq	t0,s0,4000b0 <bne_test>
+  4000a0:	34111239 	li	s1,0x1239
+
+004000a4 <beq_test>:
+  4000a4:	24841111 	addiu	a0,a0,4369
+  4000a8:	12110004 	beq	s0,s1,4000bc <bgez_test>
+  4000ac:	25081111 	addiu	t0,t0,4369
+
+004000b0 <bne_test>:
+  4000b0:	26100001 	addiu	s0,s0,1
+  4000b4:	0601fffb 	bgez	s0,4000a4 <beq_test>
+  4000b8:	24841111 	addiu	a0,a0,4369
+
+004000bc <bgez_test>:
+  4000bc:	34084321 	li	t0,0x4321
+  4000c0:	10000001 	b	4000c8 <end>
+  4000c4:	34080000 	li	t0,0x0
+
+004000c8 <end>:
+  4000c8:	1000ffff 	b	4000c8 <end>
+  4000cc:	34000000 	li	zero,0x0

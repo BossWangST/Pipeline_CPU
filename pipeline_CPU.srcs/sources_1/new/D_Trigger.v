@@ -32,16 +32,16 @@ module D_Trigger#(parameter WIDTH = 32)
     begin
         if (rst)
         begin
-            q <= 0;
+            q <= {WIDTH{1'b0}};
         end
         else if (clear)
         begin
-            q <= 0;
+            q <= {WIDTH{1'b0}};
         end
-            else if (en)
-            begin
-            q <= d;
-            end
+        else if (en)
+        begin
+        q <= d;
+        end
         else
         begin
             q <= q;

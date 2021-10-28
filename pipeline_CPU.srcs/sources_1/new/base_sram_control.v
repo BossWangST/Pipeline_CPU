@@ -36,6 +36,14 @@ module base_sram_control(input clk,
                     output wire base_ce,
                     output reg base_oe,
                     output reg base_we
+
+                    //?input uart,
+                    //?output reg rdn,// 读锁存信号
+                    //?output reg wrn,// 写锁存信号
+                    //?input data_ready,
+                    //?input tbre,// 接收成功信号
+                    //?input tsre
+                    
                     );
     
     assign base_byte = byte;
@@ -45,18 +53,28 @@ module base_sram_control(input clk,
     //! LOW VALID
     
     reg data_z;
+
+    //?reg[7:0] data;
     //* provide High Z state for reading; --> data_z = 1 == > read;
     //! HIGH Z --> READ
     reg[31:0] base_datain;
+    //?assign base_data_wire = data_z?32'bz:uart?{24'h0,data}:base_datain;
     assign base_data_wire = data_z?32'bz:base_datain;
     
-    localparam IDLE        = 3'b000;
-    localparam READ_START  = 3'b001;
-    localparam READ_END    = 3'b010;
-    localparam WRITE_START = 3'b011;
-    localparam WRITE_END   = 3'b100;
+    localparam IDLE        = 4'b0000;
+    localparam READ_START  = 4'b0001;
+    localparam READ_END    = 4'b0010;
+    localparam WRITE_START = 4'b0011;
+    localparam WRITE_END   = 4'b0100;
+    //?localparam UART_IDLE = 4'b1000;
+    //?localparam UART_READ_START= 4'b1001;
+    //?localparam UART_READ_END= 4'b1010;
+    //?localparam UART_WRITE_START= 4'b1011;
+    //?localparam UART_WRITE_END= 4'b1100;
+    //?localparam UART_WRITE_WAIT= 4'b1101;
+    //?localparam UART_WRITE_OK= 4'b1110;
     
-    reg[2:0] state = IDLE;
+    reg[3:0] state = IDLE;
     
     always@(posedge clk or posedge rst)
     begin
@@ -68,9 +86,85 @@ module base_sram_control(input clk,
             base_addr        <= 20'h00000;
             dataout          <= 32'h00000000;
             data_z           <= 1'b1;
+            //?{rdn,wrn}<=2'b11;
+
         end
         else
         begin
+            //?if(uart)
+            //?begin
+            //?case(state)
+            //?    UART_IDLE:
+            //?    begin
+            //?        if(~oe)
+            //?        begin
+            //?            data_z<=1'b1;
+            //?            state<=UART_READ_START;
+            //?        end
+            //?        else if(~we)
+            //?        begin
+            //?            data_z<=1'b0;
+            //?            data<=datain;
+            //?            state<=UART_WRITE_START;
+            //?        end
+            //?        else
+            //?        begin
+            //?            data_z<=1'b1;
+            //?        end
+            //?    end
+
+            //?    UART_READ_START:
+            //?    begin
+            //?        if(oe)
+            //?        begin
+            //?            state<=UART_IDLE;
+            //?        end
+            //?        else if(data_ready)
+            //?        begin
+            //?            rdn<=1'b0;//读锁存输入数据
+            //?            state<=UART_READ_END;
+            //?        end
+            //?    end
+
+            //?    UART_READ_END:
+            //?    begin
+            //?        dataout<=base_data_wire[7:0];
+            //?        rdn<=1'b1;//锁住读到的数据
+            //?        state<=UART_IDLE;
+            //?    end
+
+            //?    UART_WRITE_START:
+            //?    begin
+            //?        wrn<=1'b0;//写锁存输入数据
+            //?        state<=UART_WRITE_END;
+            //?    end
+
+            //?    UART_WRITE_END:
+            //?    begin
+            //?        wrn<=1'b1;
+            //?        state<=UART_WRITE_WAIT;
+            //?    end
+
+            //?    UART_WRITE_WAIT:
+            //?    begin
+            //?        if(tbre)//接收ok
+            //?        begin
+            //?            state<=UART_WRITE_OK;
+            //?        end
+            //?    end
+            //?    
+            //?    UART_WRITE_OK:
+            //?    begin
+            //?        if(tsre)
+            //?        begin
+            //?            state<=UART_IDLE;
+            //?        end
+            //?    end
+            //?endcase
+
+            //?end
+            //?else
+            //?begin
             case(state)
                 IDLE:
                 begin
@@ -119,6 +213,7 @@ module base_sram_control(input clk,
                     base_we<=1'b1;//* stop writing
                 end
             endcase
+            //?end
         end
     end
             

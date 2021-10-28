@@ -23,12 +23,14 @@
 module Registers#(parameter WIDTH = 32)
                  (input clk,
                   input rst,
+                  input read_base,read_base_MEM,read_base_WR,
                   input [4:0] Ra,
                   input [4:0] Rb,
                   input [4:0] Rw,
                   input WE,
                   input [WIDTH-1:0] busW,
-                  (*mark_debug = "true"*)output [WIDTH-1:0] reg1, reg2, reg3, 
+                  (*mark_debug = "true"*)output [WIDTH-1:0] reg1,
+                  output[WIDTH-1:0] reg2, reg3, 
                   output [WIDTH-1:0] busA, 
                   output [WIDTH-1:0] busB);
     reg [WIDTH-1:0] Registers [31:0];
@@ -53,8 +55,16 @@ module Registers#(parameter WIDTH = 32)
     assign reg2 = Registers[9];
     assign reg3 = Registers[10];
 
-    assign busA = Registers[Ra];
-    assign busB = Registers[Rb];
+    (*mark_debug = "true"*)wire[31:0] reg_a0,reg_s0,reg_s1,reg_k0,reg_k1;
+    assign reg_a0 = Registers[4];
+    assign reg_s0 = Registers[16];
+    assign reg_s1 = Registers[17];
+    assign reg_k0 = Registers[26];
+    assign reg_k1 = Registers[27];
+
+
+    assign busA = ((Ra==Rw)&WE)?busW:Registers[Ra];
+    assign busB = ((Rb==Rw)&WE)?busW:Registers[Rb];
     //write
     always @ (posedge clk, posedge rst)
     begin

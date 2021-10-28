@@ -23,11 +23,48 @@
 module Mem(input Mem_Wr,
            input ByteStore,
            input [31:0] Addr,
+           input [31:0] alu_result,
+           input MemWr_EX,
            input [31:0] DataIn,
            input clk,
            input clk_50M,
-           output [31:0] DataOut,
+
+           input [31:0]base_DataOut,
+           (*mark_debug = "true"*)output [31:0] DataOut,
            input rst,
+           input MemtoReg,
+
+           input read_base_WR,
+
+           output [19:0] physical_addr,
+
+           //?inout wire[31:0] base_data_wire,
+           //?output wire[19:0] base_addr,
+           //?output wire[3:0] base_byte,
+           //?output wire base_ce,              //* select enable, select base ram or ext ram
+           //?output wire base_oe,               //* read enable
+           //?output wire base_we,
+
+           output reg uart,
+           output uart_busy_out,
+           output uart_receiver_busy_out,
+           output uart_check_out,
+           input uart_check_WR,
+           input last_uart_check_WR,
+           input [31:0] DataOut_WR,
+           //?output uart_oe,uart_we,
+           //?output [3:0]out_byte,
+           //?output [31:0] real_DataIn_out,
+
+           input rxd,
+           output txd,
+           //?output rdn,// 读锁存信号
+           //?output wrn,// 写锁存信号
+           //?input data_ready,
+           //?input tbre,// 接收成功信号
+           //?input tsre, //发送成功信号
+           output uart_state_check,
+           input uart_state_check_WR,
 
            inout wire[31:0] ext_data_wire,
            output wire[19:0] ext_addr,
@@ -37,30 +74,129 @@ module Mem(input Mem_Wr,
            output wire ext_we
            );
     
-    wire[31:0] Addr_0,Addr_1,Addr_2,Addr_3;
-    assign Addr_0 = Addr;
-    assign Addr_1 = Addr+1;
-    assign Addr_2 = Addr+2;
-    assign Addr_3 = Addr+3;
+    //wire[31:0] Addr_0,Addr_1,Addr_2,Addr_3;
+    //assign Addr_0 = Addr;
+    //assign Addr_1 = Addr+1;
+    //assign Addr_2 = Addr+2;
+    //assign Addr_3 = Addr+3;
+
+    wire uart_check=(alu_result==32'hBFD003F8)?1'b1:1'b0;
+    assign uart_check_out = uart_check;
+    reg uart_receiver_busy;
+    assign uart_receiver_busy_out=uart_receiver_busy;
     
+    localparam IDLE=3'b000;
+    localparam UART_START = 3'b001;
+    localparam UART_END = 3'b010;
+    localparam UART_READ_START = 3'b011;
+    localparam UART_READ_END = 3'b100;
+    reg [2:0] state = IDLE;
+    always@(posedge clk,posedge rst)
+        if(rst)
+        begin
+            state <= IDLE;
+            uart <= 1'b0;
+            uart_clear<=1'b1;
+            uart_receiver_busy<=1'b0;
+        end
+        else
+        case(state)
+            IDLE:
+            begin
+                uart<=1'b0;
+                uart_clear<=1'b1;
+                uart_receiver_busy<=1'b0;
+                if(uart_check&MemWr_EX)
+                begin
+                    state <= UART_START;
+                    uart <= 1'b1;
+                end
+                else if(uart_check&(!MemWr_EX))
+                begin
+                    state <= UART_READ_START;
+                    uart_clear<=1'b0;
+                    uart <= 1'b1;
+                end
+            end
+            UART_START:
+            begin
+                if(uart_busy)
+                begin
+                    uart <= 1'b0;
+                    state<=UART_END;
+                end
+            end
+            UART_END:
+                if(!uart_busy)
+                    state<=IDLE;
+            UART_READ_START:
+                if((!rxd)&(!uart_ready))
+                begin
+                    uart<= 1'b0;
+                    uart_receiver_busy<=1'b1;
+                    state <= UART_READ_END;
+                end
+            UART_READ_END:
+                if(uart_ready)
+                begin
+                    uart_receiver_busy<=1'b0;
+                    state<=IDLE;
+                end
+        endcase
+
+            
+    //?assign uart=(Addr==32'hBFD003F8)?1'b1:1'b0;
     wire ce;
     wire oe,we;
     assign ce=1'b0;
     assign {oe,we}=(Mem_Wr==1'b1)?2'b10:2'b01;
-    wire[3:0] byte=ByteStore?4'b1110:4'b0000;
+
+
+    //?wire uart_oe,uart_we;
+    //assign {uart_oe,uart_we}=uart?{oe,we}:2'b11;
+    //?assign uart_oe=(uart|uart_WR)?oe:1'b1;
+    //?assign uart_we=(uart|uart_WR)?we:1'b1;
+    wire[3:0] byte;
+    assign byte =(ByteStore==1'b0)?4'b0000:
+                 ((Addr[1:0]==2'b00)?4'b1110:
+                  (Addr[1:0]==2'b01)?4'b1101:
+                  (Addr[1:0]==2'b10)?4'b1011:
+                  4'b0111);
 
     //wire[31:0] temp;
-    wire[19:0] physical_addr=Addr[21:2];
+    wire[31:0] real_DataIn;
+    assign real_DataIn = (ByteStore==1'b0)?DataIn:
+                         {4{DataIn[7:0]}};
+    //?assign real_DataIn_out = real_DataIn;
+
+    //wire[19:0] physical_addr=Addr[21:2];
+    assign physical_addr=Addr[21:2];
+
+    wire base_or_ext;
+    assign base_or_ext=Addr[22];//1->ext, 0->base
+    //wire uart_state_check;
+    assign uart_state_check=(Addr==32'hBFD003FC)?1'b1 : 1'b0;
+    
+    //?(*mark_debug = "true"*)wire disp_uart_state_check;
+    //?assign disp_uart_state_check=uart_state_check;
+    //?(*mark_debug = "true"*)wire[1:0] state;
+    //?assign state={tbre,tsre};
+    //?assign read_base=(!base_or_ext)&MemtoReg;
+
+
+    wire[31:0] ext_DataOut;
+    //?wire[31:0] base_DataOut;
+    //wire[7:0] uart_DataOut;
     ext_sram_control ext_control(
         .clk(clk_50M),
         .rst(rst),
         .ce(ce),
         .oe(oe),
         .we(we),
-        .datain(DataIn),
+        .datain(real_DataIn),
         .addr(physical_addr),
-        .byte(4'b0000),
-        .dataout(DataOut),
+        .byte(byte),
+        .dataout(ext_DataOut),
 
         .ext_data_wire(ext_data_wire),
         .ext_addr(ext_addr),
@@ -69,6 +205,101 @@ module Mem(input Mem_Wr,
         .ext_oe(ext_oe),
         .ext_we(ext_we)
     );
+
+    //?base_sram_control base_control(
+    //?    .clk(clk),
+    //?    .rst(rst),
+    //?    .ce(ce),
+    //?    .oe(oe),
+    //?    .we(we),
+    //?    .datain(32'h0000_0000),
+    //?    .addr(physical_addr),
+    //?    .byte(byte),
+    //?    .dataout(base_DataOut),
+
+    //?    .base_data_wire(base_data_wire),
+    //?    .base_addr(base_addr),
+    //?    .base_byte(base_byte),
+    //?    .base_ce(base_ce),
+    //?    .base_oe(base_oe),
+    //?    .base_we(base_we)
+    //?);
+    //?wire uart_rdn,uart_wrn;
+    //?//assign {rdn,wrn}=uart?{uart_rdn,uart_wrn}:2'bz;
+    //?assign rdn=(uart|uart_WR)?uart_rdn:1'bz;
+    //?assign wrn=(uart|uart_WR)?uart_wrn:1'bz;
+    //?wire [31:0]uart_data_wire;
+    //?assign base_data_wire=(uart|uart_WR)?uart_data_wire:32'bz;
+    //?uart_io uart_io(
+    //?    .clk(clk),
+    //?    .rst(rst),
+    //?    .oe(uart_oe),
+    //?    .we(uart_we),
+    //?    .datain(real_DataIn[7:0]),
+    //?    .dataout(uart_DataOut),
+    //?    .base_data_wire(base_data_wire),
+    //?    .rdn(uart_rdn),
+    //?    .wrn(uart_wrn),
+    //?    .data_ready(data_ready),
+    //?    .tbre(tbre),
+    //?    .tsre(tsre)
+    //?);
+
+    //?uart?{24'h000_000,base_DataOut[7:0]}:
+    wire [7:0] uart_rx;
+    reg [7:0] uart_buffer, uart_tx;
+    (*mark_debug = "true"*)wire uart_ready;
+    wire uart_busy;
+    reg uart_clear;
+    reg uart_start,uart_available;
+    assign uart_busy_out = uart_busy;
+
+
+    //rxd_uart #(.ClkFrequency(50000000),.Baud(9600))
+    //    uart_r(
+    //        .clk(clk_50M),
+    //        .RxD(rxd),
+    //        .RxD_data_ready(uart_ready),
+    //        .RxD_clear(uart_clear),
+    //        .RxD_data(uart_rx)
+    //    );
+
+    txd_uart #(.ClkFrequency(50000000),.Baud(9600))
+        uart_t(
+            .clk(clk_50M),
+            .TxD(txd),
+            .TxD_busy(uart_busy),
+            .TxD_start(uart_start),
+            .TxD_data(uart_tx)
+        );
+    
+    always@(posedge clk_50M)
+    begin
+        if(!uart_busy && uart && Mem_Wr)
+        begin
+            uart_tx<=real_DataIn[7:0];
+            uart_start<=1;
+        end
+        else
+        begin
+            uart_start<=0;
+        end
+
+    end
+
+    rxd_uart #(.ClkFrequency(50000000),.Baud(9600))
+        uart_r(
+            .clk(clk_50M),
+            .RxD(rxd),
+            .RxD_data_ready(uart_ready),
+            .RxD_clear(uart_clear),
+            .RxD_data(uart_rx)
+        );
+
+    assign DataOut=last_uart_check_WR?DataOut_WR:
+                   uart_check_WR?{24'h000_000,uart_rx}:
+                   uart_state_check_WR?32'h0000_0003:
+                   read_base_WR?base_DataOut:ext_DataOut;
     //Inst_mem_0 memory(
     //    .clk(clk),
     //    .a(physical_addr),

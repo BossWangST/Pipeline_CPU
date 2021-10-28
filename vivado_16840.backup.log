@@ -1,0 +1,191 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Jul 14 22:23:04 2021
+# Process ID: 16840
+# Current directory: D:/University/CPU/pipeline_CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17260 D:\University\CPU\pipeline_CPU\pipeline_CPU.xpr
+# Log file: D:/University/CPU/pipeline_CPU/vivado.log
+# Journal file: D:/University/CPU/pipeline_CPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/University/CPU/pipeline_CPU/pipeline_CPU.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [IP_Flow 19-395] Problem validating against XML schema: see 'xilinx:componentInstanceExtensions' : Bad end of element
+CRITICAL WARNING: [IP_Flow 19-5097] Unable to determine VLNV from IP file; verify it has the correct syntax: D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/test_block_mem/test_block_mem.xci
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 813.824 ; gain = 166.504
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a200tfbg676-2
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+INFO: [Project 1-454] Reading design checkpoint 'd:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'clk_25'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1166.586 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 312 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-35] Removing redundant IBUF, clk_25/inst/clkin1_ibufg, from the path connected to top-level port: clk_50M 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_25/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_25/inst'
+Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_25/inst'
+Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_25/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1883.191 ; gain = 603.102
+Finished Parsing XDC File [d:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_25/inst'
+Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
+WARNING: [Vivado 12-507] No nets matched 'clk_11M0592_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:4]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF_BUFG'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:293]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:293]
+WARNING: [Vivado 12-507] No nets matched 'clk_11M0592_IBUF_BUFG'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:295]
+WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF_BUFG'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:297]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'dbg_hub' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:297]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[2]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[3]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[4]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[5]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[6]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[7]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[8]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[9]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[10]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[11]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[12]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[13]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[14]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[15]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[16]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[17]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[18]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[19]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[20]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[21]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[22]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[23]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[24]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[25]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[26]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[27]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[28]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[29]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[30]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/beq_target_real[31]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:303]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/branch_real'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:304]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:304]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[2]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[3]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[4]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[5]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[6]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[7]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[8]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[9]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[10]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[11]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[12]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[13]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[14]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[15]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[16]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[17]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[18]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[19]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[20]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[21]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[22]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[23]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[24]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[25]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[26]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[27]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[28]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[29]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[30]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_t5[31]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:307]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[0]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[1]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[2]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[3]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[4]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[5]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[6]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[7]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[8]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[9]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[10]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[11]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[12]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[13]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[14]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[15]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[16]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[17]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[18]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[19]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[20]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[21]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[22]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[23]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[24]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[25]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[26]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[27]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[28]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+WARNING: [Vivado 12-507] No nets matched 'cpu/DataRoad/regs/reg_a0[29]'. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+INFO: [Common 17-14] Message 'Vivado 12-507' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:309]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:310]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:312]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:313]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:314]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:315]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:316]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:317]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:318]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:319]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:321]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:325]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:326]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:327]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:329]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:330]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:331]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:332]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:333]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:334]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'dbg_hub' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:335]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:338]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:339]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:343]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:345]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'dbg_hub' was not found. [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc:346]
+Finished Parsing XDC File [D:/University/CPU/pipeline_CPU/pipeline_CPU.srcs/constrs_1/new/thinpad_top.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1883.191 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 34 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 32 instances
+  LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 2 instances
+
+open_run: Time (s): cpu = 00:00:37 ; elapsed = 00:00:29 . Memory (MB): peak = 1935.449 ; gain = 1011.117
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 14 22:48:20 2021...
